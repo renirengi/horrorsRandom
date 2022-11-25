@@ -1,0 +1,22 @@
+.catalog-page {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+
+  button {
+    margin: 2em auto;
+    width: 260px;
+    }
+
+  .govenment {
+    display: flex;
+    flex-direction: column;
+  }
+
+   .catalog-films {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

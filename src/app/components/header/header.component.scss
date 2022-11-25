@@ -1,0 +1,40 @@
+.header {
+  height: 10vh;
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
+
+
+
+.title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+
+  h1 {
+  text-transform: uppercase;
+  font-size: 2em;
+  margin: 0 0.5em;
+  }
+}
+
+.icon-container,
+.user-container {
+  display: flex;
+  width: 11%;
+
+  button {
+    width: 64px;
+    height: 64px;
+    padding: 0;
+
+  }
+
+
+}
+
+
+
+}

@@ -1,0 +1,42 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class = "modal-title">
+    <img class = "icon-black" src="favicon.ico" alt="icon">
+    <h2 mat-dialog-title>Вход в профиль</h2>
+    </div>
+
+  <div class = "modal-container">
+
+    <mat-label>{{ result$ | async }}</mat-label>
+
+    <mat-form-field>
+      <mat-label>Имя</mat-label>
+      <input matInput placeholder="Маурицио" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Введите пароль</mat-label>
+      <input
+        matInput
+        [type]="showConfirmation ? 'password' : 'text'"
+        formControlName="password"
+      />
+    </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button
+      type="submit"
+      mat-stroked-button
+      color="primary"
+      [disabled]="!loginForm.valid"
+    >
+      Вход
+    </button>
+    <button
+    mat-stroked-button
+    type="button"
+    color="primary"
+    (click)="onNoClick()">Отмена</button>
+  </div>
+</div>
+</form>
+

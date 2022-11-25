@@ -1,0 +1,88 @@
+<div class = "header">
+  <div class="title-container">
+     <img class = "icon" src="favicon.ico" alt="icon">
+     <h1>Random Horror</h1>
+  </div>
+  <div class = "icon-container">
+     <button
+        mat-stroked-button
+        color="white"
+        (click)="goToMainPage()">
+        <mat-icon
+           aria-label="Example catalog icon"
+           >
+           <span class="material-symbols-outlined">
+           home
+           </span>
+        </mat-icon>
+     </button>
+     <button
+        mat-stroked-button
+        color="white"
+        (click)="goToCatalogPage()">
+        <mat-icon
+           aria-label="Example catalog icon"
+           >
+           <span class="material-symbols-outlined">
+           duo
+           </span>
+        </mat-icon>
+     </button>
+  </div>
+  <div class="input-container">
+    <div>
+      <input
+        matInput
+        class="input input-search"
+        placeholder="Найди мне..."
+        [value]="filmsSearchString$ | async"
+        (change)="onSearch($event)"
+      />
+    </div>
+    <button mat-icon-button matSuffix (click)="onClean()" [attr.aria-label]="'Clean search string'">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class = "user-container">
+     <ng-container *ngIf="currentUser$ | async as user; else login">
+        <button
+           mat-stroked-button
+           color="white"  [routerLink]="['/user']">
+           <mat-icon
+              aria-label="Example face icon"
+              >
+              <span class="material-symbols-outlined">
+              face
+              </span>
+           </mat-icon>
+           {{ user.name }}
+        </button>
+        <button
+           mat-stroked-button
+           color="white"
+           (click)="onLogout()">
+           <mat-icon
+              aria-label="Example logout icon"
+              >
+              <span class="material-symbols-outlined">
+              logout
+              </span>
+           </mat-icon>
+        </button>
+     </ng-container>
+     <ng-template #login>
+        <button
+           mat-stroked-button
+           color="white" (click)="showLoginModal()">
+           Login
+           <mat-icon
+              aria-label="Example register icon"
+              >
+              <span class="material-symbols-outlined">
+              account_circle
+              </span>
+           </mat-icon>
+        </button>
+     </ng-template>
+  </div>
+</div>

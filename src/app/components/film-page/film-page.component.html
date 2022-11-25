@@ -1,0 +1,84 @@
+<ng-container *ngIf="film$ | async as film">
+  <div class = "film-page">
+     <div class = "film-page-header" *ngIf="user$ | async as user">
+        <div class = "film-page-name-container">
+           <h2>{{film.rusTitle | uppercase}}</h2>
+           <p>{{film.title}} <span>({{film.year}})</span></p>
+        </div>
+        <ng-container *ngIf="user; else WithoutUser">
+           <div class = "header-right">
+              <app-movie-rating class = "star-rating"
+              [rating]="film.rating"
+              [user]="user"
+              (update)="onMovieRatingUpdate(film, user, $event)"
+              >  </app-movie-rating>
+              <app-user-rating
+              [filmId]="film.id"
+              [userId]="user.id"
+              ></app-user-rating>
+           </div>
+        </ng-container>
+        <ng-template #WithoutUser>
+           <app-movie-rating class = "star-rating"
+           [rating]="film.rating"
+           (update)="showMessage()"
+           (mouseleave)="deleteMessage()"
+           ></app-movie-rating>
+           <p>{{ message }}</p>
+        </ng-template>
+     </div>
+     <div class = "film-page-body">
+        <img
+        [src]="film.urlPoster"
+        [alt]="film.title">
+        <div class = "film-information-container">
+           <div class = "array-container" *ngFor = "let genre of film.genres">
+              <p>{{genre}}</p>
+           </div>
+           <p>{{film.plot}}</p>
+           <p><span>Режиссёр: </span> {{film.director}}</p>
+           <div class = "film-notes-container" *ngIf = "film.notes">
+              Заметки:
+              <p>{{film.notes}}</p>
+           </div>
+           <div class = "array-container" *ngFor = "let country of film.countries">
+              <p>{{country}}</p>
+           </div>
+        </div>
+        <div class = "film-link-container">
+           <a class="youtube" mat-stroked-button [href]="film.trailer" target="_blank"></a>
+           <a class="kino" mat-stroked-button [href]="film.url" target="_blank"></a>
+           <div *ngIf="user$ | async as user">
+             <!-- <ng-container *ngIf = "!film.viewing && !film.veto">
+                 <button
+                    mat-raised-button
+                    color = "accent"
+                    (click) = "addToBlackList(film)"
+                    >
+                    <mat-icon>
+                       <span class="material-symbols-outlined">
+                       sentiment_very_dissatisfied
+                       </span>
+                    </mat-icon>
+                    В бан!
+                 </button>
+              </ng-container>
+              <ng-container *ngIf="!film.viewing && film.veto">
+                 <button
+                    mat-raised-button
+                    color = "accent"
+                    (click) = "addToBlackList(film)"
+                    >
+                    <mat-icon>
+                       <span class="material-symbols-outlined">
+                       thumbs_up_down
+                       </span>
+                    </mat-icon>
+                    Я готов!
+                 </button>
+              </ng-container>-->
+           </div>
+        </div>
+     </div>
+  </div>
+</ng-container>

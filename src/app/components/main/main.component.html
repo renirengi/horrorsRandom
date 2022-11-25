@@ -1,0 +1,62 @@
+<div class="main">
+  <div class="main-filter-container">
+    <button
+        mat-fab
+        color="black"
+        (click)="showSettings()"
+        >
+        <mat-icon
+           aria-label="Example catalog icon"
+           >
+           <span class="material-symbols-outlined">
+           settings
+           </span>
+        </mat-icon>
+     </button>
+  </div>
+  <div class = "random-container">
+  <div class = "random-film-container" *ngIf="randomFilm">
+  <ng-container  *ngIf="randomFilm">
+  <img
+      class="random-image"
+      [src]="randomFilm.urlPoster"
+      [alt]="randomFilm.title"
+      routerLink="/catalog/{{ randomFilm.id }}"
+    />
+    <h2>{{randomFilm.rusTitle}} ({{randomFilm.year}})</h2>
+</ng-container>
+</div>
+
+<ng-container *ngIf="user$ | async as user; else WithoutUser">
+<button
+mat-raised-button
+color = "accent"
+class = "random-button"
+(click)="generateRandomFilmWithoutViwing(user)"
+>
+<mat-icon>
+<span class="material-symbols-outlined">
+  movie_filter
+  </span>
+</mat-icon>
+Мне повезёт!
+</button>
+</ng-container>
+
+<ng-template #WithoutUser>
+  <button
+mat-raised-button
+color = "accent"
+class = "random-button"
+(click)="generateRandomFilm()"
+>
+<mat-icon>
+<span class="material-symbols-outlined">
+  movie_filter
+  </span>
+</mat-icon>
+Мне повезёт!
+</button>
+</ng-template>
+</div>
+</div>

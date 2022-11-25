@@ -1,0 +1,27 @@
+<form [formGroup]="settingForm">
+  <div class = "modal-title">
+  <img class = "icon-black" src="favicon.ico" alt="icon">
+  <h2 mat-dialog-title>Настройки выбора</h2>
+  </div>
+  <div class = "modal-container">
+  <mat-form-field>
+  <mat-label>Поиск по тэгам</mat-label>
+        <mat-select formControlName="tag">
+          <mat-option *ngFor = "let tag of tags$ | async" [value]="tag">
+           {{tag}}
+          </mat-option>
+        </mat-select>
+  </mat-form-field>
+  <div mat-dialog-actions>
+    <button
+      type = "button"
+      mat-stroked-button
+      color = "primary"
+      [mat-dialog-close]="settingForm.value"
+    >
+      Применить
+    </button>
+  </div>
+  </div>
+  </form>
+

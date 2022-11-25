@@ -1,0 +1,37 @@
+.film-card,
+.film-card-w  {
+  margin: 2em;
+  width: 260px;
+  border-radius: 20px;
+  background-color: #1D1E33;
+}
+  .film-container {
+    text-align: center;
+    height: 360px;
+
+    img {
+    height: 250px;
+    width: 170px;
+    margin: 0 auto;
+    padding: 2em;
+  }
+
+  .film-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0 auto;
+    width: 240px;
+
+  }
+  }
+
+.film-card-w {
+    background-color: #7B001C;
+}
+
+.film-card-v {
+  background-color: #FFCC00;
+  color: black;
+}
+
+

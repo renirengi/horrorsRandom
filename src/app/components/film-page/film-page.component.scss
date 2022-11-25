@@ -1,0 +1,90 @@
+.film-page {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 90%;
+  margin: 2em auto;
+  background-color: #321011;
+
+  .film-page-header,
+  .film-page-body {
+    display: flex;
+    margin:  0 1.5em;
+
+    .film-page-name-container {
+
+      h2 {
+        margin: 0.5em 0;
+        font-size: 2em;
+      }
+
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+
+    }
+  }
+
+  .film-page-header {
+    justify-content: space-between;
+  }
+
+  .film-page-body {
+
+    img {
+      margin: 1em 0;
+      width: 25%;
+    }
+
+    .film-information-container {
+      margin: 1em 2em;
+      width: 75%;
+
+      p {
+        text-align:justify;
+      }
+
+      .array-container {
+        display: inline-block;
+        text-align: center;
+        p {
+          padding: 0.5em 1em;
+          margin: 0 1em 1em 1em;
+          border: 2px solid white;
+          border-radius: 20px;
+          text-align: center;
+        }
+      }
+
+      .film-notes-container {
+        p {
+          text-align:justify;
+        }
+      }
+
+    }
+    .film-link-container {
+      margin: 2em 2em 2em 0;
+      width:15%;
+
+      a{
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin: 1em;
+      }
+
+      button {
+        margin: 1.5em 0;
+        width: 100%;
+      }
+
+    }
+
+
+  }
+}

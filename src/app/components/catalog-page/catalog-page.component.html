@@ -1,0 +1,21 @@
+<div class = "catalog-page">
+      <ng-container *ngIf = "user$ | async as user">
+        <button
+        mat-raised-button
+        color = "accent"
+        (click)="showGovenment()"
+        >
+        <mat-icon>
+        <span class="material-symbols-outlined">
+        theaters
+        </span>
+        </mat-icon>
+        Управление каталогом
+      </button>
+     </ng-container>
+
+  <div class="catalog-films" >
+    <app-films-list *ngIf="films" [films] ="films"></app-films-list>
+  </div>
+</div>
+
