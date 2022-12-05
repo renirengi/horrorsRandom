@@ -11,6 +11,7 @@ import { FeedbackService } from './feedback.service';
 export class FilmService {
 
   private readonly baseUrl = 'http://localhost:3000/films';
+  private userBaseUrl = 'http://localhost:3000/films';
   public readonly filmsSearchString$ = new BehaviorSubject<string>('');
 
   public set dollsSearchString(str: string) {
@@ -26,24 +27,35 @@ export class FilmService {
     return this.http.get<IFilm[]>(this.baseUrl).pipe(shareReplay(1));
   }
 
-  public getFilmWithoutRating(user:IUser) {
-   this.http.get<IFilm[]>(this.baseUrl).pipe(
-      map ((films) =>{
-        let newFilm: IFilm[]=[]
-        films.forEach ((film)=>{
+  public getFilmWithoutRating(user:IUser): Observable<IFilm[]> {
+    let str = '';
+    let arr: number[] = [];
+    if ((user.userFilms?.veto && user.userFilms.viewing)&&(user.userFilms?.veto.length>0 && user.userFilms.viewing.length>0)) {
+      arr = arr.concat(user.userFilms.veto,user.userFilms.viewing);
+      str = arr.toString().replace(/,/g, '&id_ne=');
+    }
+    else if (user.userFilms?.veto && user.userFilms?.veto.length>0) {
+      str = user.userFilms?.veto.toString();
+    }
+    else if (user.userFilms?.viewing && user.userFilms?.viewing.length>0) {
+      str = user.userFilms?.viewing.toString();
 
-        }
-         )
-      })
+    }
+    str = str.replace(/,/g, '&id_ne=');
+    this.userBaseUrl  = `${this.baseUrl}?id_ne=${str}`;
+    return  this.http.get<IFilm[]>(this.userBaseUrl).pipe(shareReplay(1));
+  }
 
-    )
 
+  public findFilmsByParamsWithUserParams(params:string[], user: IUser): Observable<IFilm[]> {
+    this.getFilmWithoutRating(user);
+    const newUrl = `${this.userBaseUrl}?genres_like=${params}`;
+    return this.http.get<IFilm[]>(newUrl);
   }
 
   public findFilmsByParams(params:string[]): Observable<IFilm[]> {
-    const url = `${this.baseUrl}?viewing_like=false&genres_like=${params}`;
-    console.log(url)
-    return this.http.get<IFilm[]>(url);
+    const newUrl = `${this.baseUrl}?genres_like=${params}`;
+    return this.http.get<IFilm[]>(newUrl);
   }
 
   public getFilmByID(id: number) {
@@ -67,7 +79,7 @@ export class FilmService {
       switchMap(() => {
         return this.feedback.getFilmFeedback(film.id);
       }),
-      map((feedback) => ({ ...film, feedback }))
+      map((feedback) => ({...film, feedback}))
     );
   }
 

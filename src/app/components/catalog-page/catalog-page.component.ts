@@ -37,11 +37,10 @@ export class CatalogPageComponent implements OnInit {
     const dialogRef = this.dialog.open(AddFilmModalComponent, this.govenmentModalConfig);
     const result: {title:string, rusTitle:string, director:string, trailer:string, year:string, rating:number, urlPoster:string, countries:string[], genres:string[], plot:string, url: string, notes: string} = await firstValueFrom(dialogRef.afterClosed());
     const {title, rusTitle, director, trailer, year, rating, urlPoster, countries, genres, plot, url, notes} = result;
-    const newFilm = {id:0, title, rusTitle, director, trailer, year, rating, urlPoster, countries, genres, plot, url, notes, viewing: false};
+    const newFilm = {id:0, title, rusTitle, director, trailer, year, rating, urlPoster, countries, genres, plot, url, notes, feedback: []};
     console.log(result);
     await firstValueFrom(this.filmService.addFilm({
-      ...newFilm,
-      feedback: []
+      ...newFilm
     }))
   }
 

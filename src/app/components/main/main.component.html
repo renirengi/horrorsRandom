@@ -27,24 +27,7 @@
 </ng-container>
 </div>
 
-<ng-container *ngIf="user$ | async as user; else WithoutUser">
 <button
-mat-raised-button
-color = "accent"
-class = "random-button"
-(click)="generateRandomFilmWithoutViwing(user)"
->
-<mat-icon>
-<span class="material-symbols-outlined">
-  movie_filter
-  </span>
-</mat-icon>
-Мне повезёт!
-</button>
-</ng-container>
-
-<ng-template #WithoutUser>
-  <button
 mat-raised-button
 color = "accent"
 class = "random-button"
@@ -57,6 +40,6 @@ class = "random-button"
 </mat-icon>
 Мне повезёт!
 </button>
-</ng-template>
+
 </div>
 </div>

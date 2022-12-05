@@ -12,7 +12,7 @@ export interface IFilm {
  url: string,
  notes?: string,
  rating:number,
- feedback: IFeedback[]
+ feedback: IFeedback[];
 }
 
 export interface IFeedback {

@@ -8,13 +8,11 @@
         <ng-container *ngIf="user; else WithoutUser">
            <div class = "header-right">
               <app-movie-rating class = "star-rating"
-              [rating]="film.rating"
+              [rating]="getStarRatingFromFilm(film)"
               [user]="user"
               (update)="onMovieRatingUpdate(film, user, $event)"
               >  </app-movie-rating>
               <app-user-rating
-              [filmId]="film.id"
-              [userId]="user.id"
               ></app-user-rating>
            </div>
         </ng-container>
@@ -49,11 +47,11 @@
            <a class="youtube" mat-stroked-button [href]="film.trailer" target="_blank"></a>
            <a class="kino" mat-stroked-button [href]="film.url" target="_blank"></a>
            <div *ngIf="user$ | async as user">
-             <!-- <ng-container *ngIf = "!film.viewing && !film.veto">
+             <ng-container *ngIf = "inViewingList(film.id, user) && inVetoList(film.id, user)">
                  <button
                     mat-raised-button
                     color = "accent"
-                    (click) = "addToBlackList(film)"
+                    (click) = "addToBlackList(user, film.id)"
                     >
                     <mat-icon>
                        <span class="material-symbols-outlined">
@@ -63,11 +61,11 @@
                     В бан!
                  </button>
               </ng-container>
-              <ng-container *ngIf="!film.viewing && film.veto">
+              <ng-container *ngIf="inViewingList(film.id, user) && !inVetoList(film.id, user)">
                  <button
                     mat-raised-button
                     color = "accent"
-                    (click) = "addToBlackList(film)"
+                    (click) = "deleteIntoBlackList(user, film.id)"
                     >
                     <mat-icon>
                        <span class="material-symbols-outlined">
@@ -76,7 +74,7 @@
                     </mat-icon>
                     Я готов!
                  </button>
-              </ng-container>-->
+              </ng-container>
            </div>
         </div>
      </div>

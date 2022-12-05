@@ -1,5 +1,7 @@
 <div *ngIf="film">
-  <div class="film-container">
+  <ng-container *ngIf="user$ | async as user">
+  <div class="film-container" [ngClass]="{'film-card': !inViewingList(film.id, user), 'film-card-w': inViewingList(film.id, user), 'film-card-v': inVetoList(film.id, user)}">
+
     <img
       class="catalog-image"
       [src]="film.urlPoster"
@@ -10,5 +12,20 @@
       {{ film.rusTitle | uppercase }} <span>({{ film.year }})</span>
     </p>
   </div>
+</ng-container>
+<!---<ng-container>
+  <div class="film-container" [ngClass]="{'film-card': !user}">
+    <img
+      class="catalog-image"
+      [src]="film.urlPoster"
+      [alt]="film.title"
+      routerLink="/catalog/{{ film.id }}"
+    />
+    <p class="film-title">
+      {{ film.rusTitle | uppercase }} <span>({{ film.year }})</span>
+    </p>
+  </div>
+</ng-container>--->
+
 </div>
-<!---[ngClass]="{'film-card': !film.viewing, 'film-card-w': film.viewing, 'film-card-v': film.veto}"-->
+

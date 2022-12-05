@@ -9,4 +9,5 @@ export interface IUser {
 export interface IUserFilms {
   veto?:number[];
   viewing?: number[];
+  feedback?: number[];
 }

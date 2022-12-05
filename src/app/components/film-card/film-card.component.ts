@@ -14,9 +14,13 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 })
 export class FilmCardComponent implements OnInit {
   @Input() film!: IFilm;
+  @Input() user!: IUser;
 
   public user$: Observable<IUser | null>;
+
+
   public message: string = "";
+
 
   constructor(
     private router: Router,
@@ -27,7 +31,7 @@ export class FilmCardComponent implements OnInit {
     this.user$ = this.userService.currentUser$;
    }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
 
   public showMessage() {
@@ -38,13 +42,11 @@ export class FilmCardComponent implements OnInit {
     this.message = "";
   }
 
-  public async onMovieRatingUpdate(film: IFilm, user: IUser, rat: number) {
-    const newRating = Math.round((film.rating+rat) / 2);
-    const feed = { ...film.feedback, userId: user.id, movieRating: rat }
-    const newFilm = { ...film, rating: newRating, feedback: feed };
-    const feedF = { ...film.feedback, userId: user.id, movieRating: rat, filmId: film.id }
-    await firstValueFrom(this.filmService.updateFilm(newFilm));
-    await firstValueFrom(this.feedback.updateFilmFeedback(film, user.id, feedF));
+  public inViewingList(id: number, user: IUser): boolean {
+    return !!user?.userFilms?.viewing?.includes(id);
   }
 
+  public inVetoList(id: number, user: IUser): boolean {
+    return !!user?.userFilms?.veto?.includes(id);
+  }
 }

@@ -16,7 +16,6 @@ import { IUser } from 'src/app/interfaces/user';
 
   export class MovieRatingComponent  implements OnInit{
     @Input() rating?: number;
-    @Input() film?: IFilm;
     @Input() user?: IUser;
     @Output() update = new EventEmitter<number>();
 
@@ -34,7 +33,6 @@ import { IUser } from 'src/app/interfaces/user';
     }
     onClick(rating:number) {
       this.update.emit(rating);
-      return false;
     }
 
     showIcon(index:number) {

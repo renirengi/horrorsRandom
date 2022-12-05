@@ -19,6 +19,7 @@ export class MainComponent implements OnInit {
   public randomFilm!: IFilm;
   public user$: Observable<IUser | null>;
   public tags$: Observable<string[]>;
+  private checkFilters: boolean = false;
   private readonly mainModalConfig = { width: '30vw', data: {} };
 
   constructor(
@@ -30,28 +31,38 @@ export class MainComponent implements OnInit {
     this.user$ = this.userService.currentUser$;
    }
 
-  async ngOnInit() {
-    this.films = await lastValueFrom(this.filmService.getAllFilms());
+  ngOnInit() {
+
   }
 
   public async showSettings() {
+    const user = await firstValueFrom(this.user$);
     const dialogRef = this.dialog.open(SettingModalComponent, this.mainModalConfig);
     const result = await firstValueFrom(dialogRef.afterClosed());
-    /*const param = result.tag.concat().toString().replace(/,/g, '&');
-    this.films = await lastValueFrom(this.filmService.findFilmsByParams(param));*/
+    let param = [''];
+    if (user) {
+      param = result.tag.concat().toString().replace(/,/g, '&');
+      this.films = await lastValueFrom(this.filmService.findFilmsByParamsWithUserParams(param, user));
+    }
+    console.log(result.tag)
+    param = result.tag.concat().toString().replace(/,/g, '?');
+    this.films = await lastValueFrom(this.filmService.findFilmsByParams(param));
+    this.checkFilters = true;
   }
 
 
-  public async generateRandomFilmWithoutViwing(user:IUser) {
-    ///this.films = await lastValueFrom(this.filmService.getFilmWithoutRating(user));
-    this.filmService.getFilmWithoutRating(user);
-    ////console.log(this.films)
-    ///let rand = Math.floor(Math.random() * this.films.length);
-    //this.randomFilm = this.films[rand];
+  public async generateRandomFilm () {
+    const user = await firstValueFrom(this.user$);
+    if (!this.checkFilters) {
+    if (user) {
+      this.films = await lastValueFrom(this.filmService.getFilmWithoutRating(user));
+    }
+    else {
+      this.films = await lastValueFrom(this.filmService.getAllFilms());
+    }
   }
-
-  public generateRandomFilm () {
-
+    let rand = Math.floor(Math.random() * this.films.length);
+    this.randomFilm = this.films[rand];
   }
 
 }

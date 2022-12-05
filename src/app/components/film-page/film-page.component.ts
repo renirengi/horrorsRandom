@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { firstValueFrom, map, Observable, switchMap } from 'rxjs';
+import { first, firstValueFrom, map, Observable, switchMap } from 'rxjs';
 import { IFilm, IFeedback } from 'src/app/interfaces/film';
 import { IUser } from 'src/app/interfaces/user';
 import { FilmService } from 'src/app/services/film.service';
@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './film-page.component.html',
   styleUrls: ['./film-page.component.scss']
 })
-export class FilmPageComponent{
+export class FilmPageComponent implements OnInit{
   public film$: Observable<IFilm>;
   public user$: Observable<IUser | null>;
 
@@ -28,6 +28,17 @@ export class FilmPageComponent{
     this.film$ = filmId$.pipe(switchMap((id) => this.filmService.getFilmByID(id)));
     this.user$ = this.userService.currentUser$;
   }
+  ngOnInit(): void {
+
+  }
+
+  public inViewingList(id: number, user: IUser): boolean {
+    return !user?.userFilms?.viewing?.includes(id);
+  }
+
+  public inVetoList(id: number, user: IUser): boolean {
+    return !user?.userFilms?.veto?.includes(id);
+  }
 
   public showMessage() {
     this.message = "Зарегистрируйтесь или войдите в свой профиль";
@@ -37,18 +48,41 @@ export class FilmPageComponent{
     this.message = "";
   }
 
-  public async onMovieRatingUpdate(film: IFilm, user: IUser, rat: number) {
-    const newRating = Math.round((film.rating+rat) / 2);
-    const feed = { ...film.feedback, userId: user.id, movieRating: rat }
-    const newFilm = { ...film, rating: newRating, feedback: feed, viewing: true};
-    const feedF = { ...film.feedback, userId: user.id, movieRating: rat, filmId: film.id }
-    await firstValueFrom(this.filmService.updateFilm(newFilm));
-    await firstValueFrom(this.feedback.updateFilmFeedback(film, user.id, feedF));
+  public getStarRatingFromFilm(film: IFilm): number {
+    let movieRating = film.feedback?.map((feedback) => feedback.movieRating).filter((val) => !!val) || [];
+    movieRating.push(film.rating);
+    const average = (arr: number[]) => arr.reduce((a, b) => a + b, 0) / arr.length;
+    return Math.round(average(movieRating as number[]));
   }
 
-  /*public async addToBlackList(film: IFilm) {
-    const newFilm = { ...film, veto: !film.veto };
-    await firstValueFrom(this.filmService.updateFilm(newFilm));
-  }*/
+  public async onMovieRatingUpdate(film: IFilm, user: IUser, movieRating: number) {
+
+    this.film$ = this.filmService.updateFilmFeedback(film, user.id, { movieRating }).pipe(first());
+
+
+  }
+
+  public async addToBlackList(user: IUser, id: number) {
+    let veto:number[];
+    if (user.userFilms?.veto) {
+      veto = user.userFilms?.veto;
+    }
+    else {
+      veto = [];
+    }
+    veto?.push(id);
+    await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { veto } }))
+  }
+
+  public async deleteIntoBlackList (user:IUser, id:number) {
+    let veto:number[];
+    if (user.userFilms?.veto) {
+      veto = user.userFilms?.veto;
+      let index = veto.indexOf(id);
+      veto.splice(index, 1);
+      await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { veto } }));
+    }
+
+  }
 
 }
