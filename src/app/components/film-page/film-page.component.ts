@@ -75,14 +75,11 @@ export class FilmPageComponent implements OnInit{
   }
 
   public async deleteIntoBlackList (user:IUser, id:number) {
-    let veto:number[];
-    if (user.userFilms?.veto) {
-      veto = user.userFilms?.veto;
-      let index = veto.indexOf(id);
-      veto.splice(index, 1);
-      await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { veto } }));
-    }
-
+    const { userFilms } = user;
+    const veto = userFilms!.veto?.filter((elem) => elem !== id);
+      await firstValueFrom(this.userService.updateUser({ ...user, userFilms: {...userFilms, veto} }));
   }
+
+
 
 }
