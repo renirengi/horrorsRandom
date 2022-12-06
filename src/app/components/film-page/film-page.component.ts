@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { first, firstValueFrom, map, Observable, switchMap } from 'rxjs';
+import { first, firstValueFrom, lastValueFrom, map, Observable, switchMap } from 'rxjs';
 import { IFilm, IFeedback } from 'src/app/interfaces/film';
 import { IUser } from 'src/app/interfaces/user';
 import { FilmService } from 'src/app/services/film.service';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { UserService } from 'src/app/services/user.service';
+import { MovieRatingComponent } from '../movie-rating/movie-rating.component';
 
 @Component({
   selector: 'app-film-page',
@@ -56,22 +57,18 @@ export class FilmPageComponent implements OnInit{
   }
 
   public async onMovieRatingUpdate(film: IFilm, user: IUser, movieRating: number) {
-
     this.film$ = this.filmService.updateFilmFeedback(film, user.id, { movieRating }).pipe(first());
 
+    const { userFilms } = user;
+    userFilms?.viewing?.push(film.id);
+    await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { ...userFilms } }));
 
   }
 
   public async addToBlackList(user: IUser, id: number) {
-    let veto:number[];
-    if (user.userFilms?.veto) {
-      veto = user.userFilms?.veto;
-    }
-    else {
-      veto = [];
-    }
-    veto?.push(id);
-    await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { veto } }))
+    const { userFilms } = user;
+    userFilms?.veto?.push(id);
+    await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { ...userFilms } }));
   }
 
   public async deleteIntoBlackList (user:IUser, id:number) {
@@ -79,6 +76,15 @@ export class FilmPageComponent implements OnInit{
     const veto = userFilms!.veto?.filter((elem) => elem !== id);
       await firstValueFrom(this.userService.updateUser({ ...user, userFilms: {...userFilms, veto} }));
   }
+
+  /*public async getUserFeedback(filmId:number, userId:number ){
+
+    this.feed = await firstValueFrom(this.feedback.findFeedbackItem(filmId, userId));
+    if(this.feed) {
+      return true
+    }
+    else return false
+  }*/
 
 
 

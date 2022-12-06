@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { IFilm } from '../interfaces/film';
 
 import { IFeedback } from '../interfaces/film';
-import { map, Observable, switchMap } from 'rxjs';
+import { map, Observable, shareReplay, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,10 @@ export class FeedbackService {
   private readonly baseUrl = 'http://localhost:3000/feedback';
 
   constructor(private http: HttpClient) {
+  }
+
+  public getFeedbacks(): Observable<IFeedback[]> {
+    return this.http.get<IFeedback[]>(this.baseUrl).pipe(shareReplay(1));
   }
 
   public getFilmFeedback(filmId: number) {

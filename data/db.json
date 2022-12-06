@@ -41,6 +41,14 @@
         "veto": [
           27,
           51
+        ],
+        "viewing": [
+          12,
+          49,
+          31,
+          28,
+          52,
+          12
         ]
       }
     },
@@ -50,13 +58,7 @@
       "name": "Yaroslav",
       "password": "Kotiy",
       "userFilms": {
-        "viewing": [
-          12,
-          49,
-          31,
-          28,
-          52
-        ]
+        "viewing": []
       }
     }
   ],

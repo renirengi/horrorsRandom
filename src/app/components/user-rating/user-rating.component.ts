@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IFeedback } from 'src/app/interfaces/film';
+import { IFeedback, IFilm } from 'src/app/interfaces/film';
 import { IUser } from 'src/app/interfaces/user';
 import { FeedbackService } from 'src/app/services/feedback.service';
 
@@ -10,19 +10,19 @@ import { FeedbackService } from 'src/app/services/feedback.service';
   styleUrls: ['./user-rating.component.scss']
 })
 export class UserRatingComponent implements OnInit {
-  @Input() filmId!: number;
   @Input() userId!: number;
+  @Input() filmId!: number;
 
-  public feed$!: Observable<IFeedback>
+  public feed$!: Observable<IFeedback | null>
 
   constructor(
     private feedback:FeedbackService
   ) {
-    this.feed$ = this.feedback.findFeedbackItem(this.filmId, this.userId);
+
   }
 
   ngOnInit(): void {
-
+   this.feed$ = this.feedback.findFeedbackItem(this.filmId, this.userId)
   }
 
 }
