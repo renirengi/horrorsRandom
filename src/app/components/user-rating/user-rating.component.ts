@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { IFeedback, IFilm } from 'src/app/interfaces/film';
 import { IUser } from 'src/app/interfaces/user';
 import { FeedbackService } from 'src/app/services/feedback.service';
@@ -13,7 +13,7 @@ export class UserRatingComponent implements OnInit {
   @Input() userId!: number;
   @Input() filmId!: number;
 
-  public feed$!: Observable<IFeedback | null>
+  public feed!: IFeedback
 
   constructor(
     private feedback:FeedbackService
@@ -21,8 +21,8 @@ export class UserRatingComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-   this.feed$ = this.feedback.findFeedbackItem(this.filmId, this.userId)
+  async ngOnInit() {
+    this.feed = await firstValueFrom(this.feedback.findFeedbackItem(this.filmId, this.userId));
   }
 
 }

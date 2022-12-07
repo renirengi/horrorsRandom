@@ -1,5 +1,11 @@
 .user-rating {
-  width: 100px;
   height: 50px;
-  color: white;
+  display: flex;
+  justify-content: center;
+
+  p {
+    font-size: 1.3em;
+    color: white;
+    margin: 0.5em auto;
+  }
 }

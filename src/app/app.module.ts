@@ -34,6 +34,8 @@ import { MovieRatingComponent } from './components/movie-rating/movie-rating.com
 import { AddFilmModalComponent } from './components/add-film-modal/add-film-modal.component';
 import { UserRatingComponent } from './components/user-rating/user-rating.component';
 import { SettingModalComponent } from './components/setting-modal/setting-modal.component';
+import { CatalogFiltersComponent } from './components/catalog-filters/catalog-filters.component';
+import { CatalogFilterComponent } from './components/catalog-filter/catalog-filter.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { SettingModalComponent } from './components/setting-modal/setting-modal.
     MovieRatingComponent,
     AddFilmModalComponent,
     UserRatingComponent,
-    SettingModalComponent
+    SettingModalComponent,
+    CatalogFiltersComponent,
+    CatalogFilterComponent
   ],
   imports: [
     BrowserModule,

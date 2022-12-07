@@ -16,6 +16,7 @@ import { MovieRatingComponent } from '../movie-rating/movie-rating.component';
 export class FilmPageComponent implements OnInit{
   public film$: Observable<IFilm>;
   public user$: Observable<IUser | null>;
+  public feed!: IFeedback
 
   public message: string = "";
   constructor(
@@ -57,10 +58,14 @@ export class FilmPageComponent implements OnInit{
   }
 
   public async onMovieRatingUpdate(film: IFilm, user: IUser, movieRating: number) {
+
     this.film$ = this.filmService.updateFilmFeedback(film, user.id, { movieRating }).pipe(first());
 
     const { userFilms } = user;
-    userFilms?.viewing?.push(film.id);
+    if (!userFilms?.viewing?.includes(film.id)){
+      userFilms?.viewing?.push(film.id);
+    }
+
     await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { ...userFilms } }));
 
   }
@@ -76,16 +81,5 @@ export class FilmPageComponent implements OnInit{
     const veto = userFilms!.veto?.filter((elem) => elem !== id);
       await firstValueFrom(this.userService.updateUser({ ...user, userFilms: {...userFilms, veto} }));
   }
-
-  /*public async getUserFeedback(filmId:number, userId:number ){
-
-    this.feed = await firstValueFrom(this.feedback.findFeedbackItem(filmId, userId));
-    if(this.feed) {
-      return true
-    }
-    else return false
-  }*/
-
-
 
 }

@@ -1,9 +1,4 @@
 <div class = "user-rating">
-  <ng-component *ngIf = "feed$ | async as feed; else W">
-    <p>1</p>
-  </ng-component>
-  <ng-template #W>
-    <p>2</p>
-  </ng-template>
+  <p>Ваша оценка {{feed.movieRating}}/10</p>
 
 </div>

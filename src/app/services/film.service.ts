@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, filter, map, Observable, shareReplay, switchMap } from 'rxjs';
+import { Params } from '@angular/router';
+
+import { TFilterName } from  '../interfaces';
 import { IFeedback, IFilm } from '../interfaces/film';
 import { IUser } from '../interfaces/user';
 import { FeedbackService } from './feedback.service';
@@ -95,4 +98,87 @@ export class FilmService {
         return Array.from(tags).sort() as string[];
       }))
     }
+
+    public getFilmsByParams(params: { [key: string]: string }, page: number = 1 ): Observable<IFilm[]> {
+      params = { ...params, page: page.toString() };
+
+      return this.http.get<IFilm[]>(this.baseUrl, { params });
+    }
+
+    public getAvailableFilterValues(keys: TFilterName[]): Observable<{[index: string]: any[]}> {
+      return this.getAllFilms().pipe(
+        map((films) => {
+          const valueSets = keys.reduce((acc: {[index: string]: Set<any>}, key) => {
+            acc[key] = new Set();
+
+            return acc;
+          }, {});
+
+          films.forEach(film => keys.forEach(key => {
+            if (Array.isArray(film[key])) {
+              (film[key] as Array<any>).forEach(item => valueSets[key].add(item));
+            } else {
+              valueSets[key].add(film[key]);
+            }
+          }));
+
+          const valueArrays = keys.reduce((acc: {[index: string]: any[]}, key) => {
+            acc[key] = Array.from(valueSets[key]).sort();
+
+            return acc;
+          }, {});
+
+          return valueArrays;
+        })
+      );
+    }
+
+    /** Loading films related to applied filters */
+  public getFilteredFilms(queryParams: Params): Observable<IFilm[]> {
+    const page = queryParams['page'] | 1;
+
+    return this.getFilmsByParams(this.getFilterParams(queryParams), page);
+  }
+
+  /** Transforms query params to films request params object */
+  private getFilterParams(queryParams: Params): {[index: string]: string} {
+    const listFilters = ['countries', 'genres', 'director',];
+    const rangeFilters = ['rating', 'year'];
+    const stringFIlters = ['searchString'];
+
+    const listConverter = (key: string, values: string|string[]) => {
+      const keyString = `${key}_like`;
+      const valueString = Array.isArray(values) ? values.reduce((acc, val, i) => (i === 0 ? `(${val})` : `${acc}|(${val})`), '') : values;
+
+      return valueString !== '()' ? { [keyString]: valueString } : {};
+    };
+    const rangeConverter = (key: string, value: string) => {
+      const values = value.split(',');
+      return { [`${key}_gte`]: values[0], [`${key}_lte`]: values[1] };
+    };
+    const searchStringConverter = (value: string) => {
+      return { q: value };
+    };
+
+    const paramsReducer = (params: {[index: string]: string}, [key, value]: any[]) => {
+      let newParams: {[index: string]: string};
+      const filterKeys = [...listFilters, ...rangeFilters, ...stringFIlters];
+
+      if (filterKeys.includes(key) && value !== undefined) {
+        if (key === 'searchString') {
+          newParams = searchStringConverter(value);
+        } else if (rangeFilters.includes(key)) {
+          newParams = rangeConverter(key, value);
+        } else {
+          newParams = listConverter(key, value);
+        }
+
+        params = {...params, ...newParams};
+      }
+
+      return params;
+    }
+
+    return Object.entries(queryParams).reduce(paramsReducer, {});
+  }
 }

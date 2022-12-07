@@ -1,0 +1,19 @@
+<ng-template [ngIf]="config.type==='list'" [ngIfElse]="range">
+  <mat-form-field appearance="fill">
+    <mat-label>{{ config.title }}</mat-label>
+    <mat-select multiple (selectionChange)="onSelectionChange($event)">
+      <mat-option *ngFor="let option of config.options" [value]="option.value">{{ option.text }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</ng-template>
+
+<ng-template #range>
+  <p>{{ config.title }}</p>
+  <mat-form-field appearance="fill" class="price">
+    <input type="number" matInput placeholder="From" min="{options['prices'][0]}" max="{options['prices'][options['prices'].length - 1]}"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="price">
+     <input type="number" matInput placeholder="To" min="{options['prices'][0]}" max="{options['prices'][options['prices'].length - 1]}"/>
+  </mat-form-field>
+</ng-template>
