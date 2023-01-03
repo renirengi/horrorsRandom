@@ -4,14 +4,19 @@ import { CatalogPageComponent } from './components/catalog-page/catalog-page.com
 import { FilmPageComponent } from './components/film-page/film-page.component';
 import { MainComponent } from './components/main/main.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
+import { FiltersResolverService } from './services/filters-resolver.service';
 
 const routes: Routes = [
   { path: '', component: MainComponent},
   { path: 'user', component: UserPageComponent },
-  { path: 'catalog', component: CatalogPageComponent },
-  { path: 'catalog/:id', component: FilmPageComponent },
-  //{ path: 'users', component: AllUsersPageComponent },
-  //{ path: 'users/:id', component:WatchUserPageComponent}
+  {
+    path: 'catalog',
+    component: CatalogPageComponent,
+    resolve: {
+      filters: FiltersResolverService
+    }
+  },
+  { path: 'catalog/:id', component: FilmPageComponent }
 ];
 
 @NgModule({

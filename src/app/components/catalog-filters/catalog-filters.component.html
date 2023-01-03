@@ -1,3 +1,4 @@
+
 <section class="catalog-filter" *ngIf="filters$ | async as filters; else loading">
   <app-catalog-filter *ngFor="let filter of filters" [config]="filter" (change)="onChange($event)"></app-catalog-filter>
 </section>
@@ -5,3 +6,4 @@
 <ng-template #loading>
   <section class="catalog-filter">Loading...</section>
 </ng-template>
+

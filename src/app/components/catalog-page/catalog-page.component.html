@@ -1,5 +1,5 @@
 <div class = "catalog-page">
-  <app-catalog-filters></app-catalog-filters>
+
       <ng-container *ngIf = "user$ | async as user">
         <button
         mat-raised-button
@@ -15,8 +15,10 @@
       </button>
      </ng-container>
 
-  <div class="catalog-films">
-    <app-films-list *ngIf="films" [films] ="films"></app-films-list>
-  </div>
+     <app-catalog-filters></app-catalog-filters>
+
+     <div class="catalog-films" *ngIf="films$ |async as films">
+     <app-films-list *ngIf="films" [films] ="films"></app-films-list>
+    </div>
 </div>
 

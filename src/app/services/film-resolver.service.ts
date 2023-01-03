@@ -23,8 +23,8 @@ export class FilmResolverService implements Resolve<IFilm[]> {
   }
 
   private getFilterParams(queryParams: Params) {
-    const listFilters = ['countries', 'genres', 'director'];
-    const rangeFilters = ['rating', 'year'];
+    const listFilters = ['countries', 'genres', 'director', 'year', 'rating'];
+    ///const rangeFilters = ['rating'];
     const stringFIlters = ['searchString'];
 
     const listConverter = (key: string, values: string|string[]) => {
@@ -43,13 +43,11 @@ export class FilmResolverService implements Resolve<IFilm[]> {
 
     const paramsReducer = (params: {[index: string]: string}, [key, value]: any[]) => {
       let newParams: {[index: string]: string};
-      const filterKeys = [...listFilters, ...rangeFilters, ...stringFIlters];
+      const filterKeys = [...listFilters,  ...stringFIlters];
 
       if (filterKeys.includes(key) && value !== undefined) {
         if (key === 'searchString') {
           newParams = searchStringConverter(value);
-        } else if (rangeFilters.includes(key)) {
-          newParams = rangeConverter(key, value);
         } else {
           newParams = listConverter(key, value);
         }

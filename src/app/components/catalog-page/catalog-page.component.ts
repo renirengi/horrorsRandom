@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { firstValueFrom, lastValueFrom, map, Observable } from 'rxjs';
+import { firstValueFrom, lastValueFrom, map, Observable, switchMap } from 'rxjs';
 
 import { MatDialog } from '@angular/material/dialog';
 import { AddFilmModalComponent } from '../add-film-modal/add-film-modal.component';
@@ -8,6 +8,7 @@ import { IFilm } from 'src/app/interfaces/film';
 import { IUser } from 'src/app/interfaces/user';
 import { FilmService } from 'src/app/services/film.service';
 import { UserService } from 'src/app/services/user.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -17,6 +18,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CatalogPageComponent implements OnInit {
 
+  public films$!: Observable<IFilm[]>;
+
   public films!: IFilm[];
   public user$: Observable<IUser | null>;
   private readonly govenmentModalConfig = { width: '70vw', data: {} };
@@ -24,13 +27,18 @@ export class CatalogPageComponent implements OnInit {
   constructor(
     private filmService: FilmService,
     private userService: UserService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private route: ActivatedRoute
   ) {
     this.user$ = this.userService.currentUser$;
+    this.films$ = this.route.queryParams.pipe(
+      switchMap(queryParams => this.filmService.getFilteredFilms(queryParams))
+    );
    }
 
   async ngOnInit() {
-    this.films = await lastValueFrom(this.filmService.getAllFilms());
+    this.films = await lastValueFrom(this.films$);
+
   }
 
   async showGovenment (){

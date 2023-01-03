@@ -1,13 +1,24 @@
 export interface IUser {
   id: number;
-  avatar: string;
+  avatar?: string;
   name: string;
   password: string;
+  email: string;
   userFilms?: IUserFilms;
+  personalData?: IPersonalData;
 }
 
 export interface IUserFilms {
   veto?:number[];
   viewing?: number[];
   feedback?: number[];
+}
+
+export interface IPersonalData {
+  about?: string;
+  country?: string;
+  birthday?: Date;
+  realName?: string;
+  link?: string;
+  phone?: string;
 }

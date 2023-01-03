@@ -32,12 +32,12 @@ export class UserService {
       return this.http.get<IUser>(url);
     }
 
-    /*public addUser(user: IUser): any {
+    public addUser(user: IUser): any {
       const url = `${this.baseUrl}`;
       const password = user.password;
 
       return this.http.post<IUser>(url, {...user, password});
-    }*/
+    }
 
     public findUsersByName(name: string): Observable<IUser[]> {
       return this.http.get<IUser[]>(`${this.baseUrl}?name=${name}`);

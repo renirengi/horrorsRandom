@@ -7,6 +7,7 @@ import { IUser } from 'src/app/interfaces/user';
 import { FilmService } from 'src/app/services/film.service';
 import { UserService } from 'src/app/services/user.service';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
+import { RegisterModalComponent } from '../register-modal/register-modal.component';
 
 @Component({
   selector: 'app-header',
@@ -63,6 +64,10 @@ export class HeaderComponent implements OnInit {
   public onClean() {
     console.log('clean')
     this.router.navigate(['/catalog']);
+  }
+
+  public showRegisterModal() {
+    this.dialog.open(RegisterModalComponent, this.headerModalConfig);
   }
 
 }

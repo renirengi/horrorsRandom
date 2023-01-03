@@ -12,7 +12,7 @@ export class FiltersResolverService implements Resolve<IFilterConfig[]> {
   private readonly filterConfigs: IFilterConfig[] = [
     { name: 'genres', title: 'Сортировка по тэгам', type: 'list', options: []},
     { name: 'director', title: 'Сортировка по режиссёрам', type: 'list', options: []},
-    { name: 'year', title: 'Сортировка по годам', type: 'range', options: []},
+    { name: 'year', title: 'Сортировка по годам', type: 'list', options: []},
     { name: 'countries', title: 'Сортировка по странам', type: 'list', options: []},
     { name: 'rating', title: 'Cортировка по годам', type: 'range', options: []},
   ];

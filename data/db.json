@@ -29,6 +29,24 @@
       "filmId": 52,
       "userId": 1,
       "id": 5
+    },
+    {
+      "movieRating": 8,
+      "filmId": 8,
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "movieRating": 5,
+      "filmId": 56,
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "movieRating": 10,
+      "filmId": 4,
+      "userId": 1,
+      "id": 8
     }
   ],
   "users": [
@@ -37,6 +55,10 @@
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtYF4wea-X3ZyqUH4i54AOvyd96WG4Pe_kfEDJEYeXXid5Go5wdaRWwWgb1HuLKOd5SPA&usqp=CAU",
       "name": "Olga",
       "password": "Pushina",
+      "email": "TomieKawakami@mail.ru",
+      "personalData": {
+        "phone": "+375291714557"
+      },
       "userFilms": {
         "veto": [
           27,
@@ -48,7 +70,10 @@
           31,
           28,
           52,
-          12
+          12,
+          8,
+          56,
+          4
         ]
       }
     },
@@ -57,6 +82,7 @@
       "avatar": "https://damion.club/uploads/posts/2022-01/1643046742_1-damion-club-p-kotiki-na-avu-1.jpg",
       "name": "Yaroslav",
       "password": "Kotiy",
+      "email": "jarr@tut.by",
       "userFilms": {
         "viewing": []
       }
@@ -1127,6 +1153,32 @@
       ],
       "plot": "В США спроектировали подводную лабораторию под названием «Глубоководная звезда шесть». Военно-морской флот согласился финансировать её создание при условии, что там будут размещены секретные военные установки. Опустившись на дно океана, лаборатория потревожила неизвестное науке глубоководное создание, которое теперь будет истреблять персонал станции.",
       "url": "https://www.kinopoisk.ru/film/18186/",
+      "notes": "",
+      "feedback": []
+    },
+    {
+      "id": 56,
+      "title": "Doom",
+      "rusTitle": "Doom",
+      "director": " Анджей Бартковяк",
+      "trailer": "https://www.youtube.com/embed/LljkKoPs1Gg",
+      "year": "2005",
+      "rating": 6,
+      "urlPoster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/d4b8df6d-ecb6-4511-a13c-98d831f4fd8f/1920x",
+      "countries": [
+        "США",
+        "Великобритания",
+        "Германия",
+        "Чехия"
+      ],
+      "genres": [
+        "Адаптация",
+        "Демоны",
+        "Зомби",
+        "Фантастика"
+      ],
+      "plot": "2045 год. После того как из далёкой научной лаборатории Олдуай был получен сигнал о помощи, на Марс прибывает отряд космического спецназа и обнаруживает разгромленную станцию. Вскоре выясняется, что на людей здесь охотятся полчища ужасных мутантов.",
+      "url": "https://www.kinopoisk.ru/film/84140/",
       "notes": "",
       "feedback": []
     }

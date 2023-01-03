@@ -136,14 +136,14 @@ export class FilmService {
     /** Loading films related to applied filters */
   public getFilteredFilms(queryParams: Params): Observable<IFilm[]> {
     const page = queryParams['page'] | 1;
-
+    console.log (1)
     return this.getFilmsByParams(this.getFilterParams(queryParams), page);
   }
 
   /** Transforms query params to films request params object */
   private getFilterParams(queryParams: Params): {[index: string]: string} {
-    const listFilters = ['countries', 'genres', 'director',];
-    const rangeFilters = ['rating', 'year'];
+    const listFilters = ['countries', 'genres', 'director','year', 'rating'];
+    ///const rangeFilters = ['rating'];
     const stringFIlters = ['searchString'];
 
     const listConverter = (key: string, values: string|string[]) => {
@@ -162,13 +162,11 @@ export class FilmService {
 
     const paramsReducer = (params: {[index: string]: string}, [key, value]: any[]) => {
       let newParams: {[index: string]: string};
-      const filterKeys = [...listFilters, ...rangeFilters, ...stringFIlters];
+      const filterKeys = [...listFilters, ...stringFIlters];
 
       if (filterKeys.includes(key) && value !== undefined) {
         if (key === 'searchString') {
           newParams = searchStringConverter(value);
-        } else if (rangeFilters.includes(key)) {
-          newParams = rangeConverter(key, value);
         } else {
           newParams = listConverter(key, value);
         }

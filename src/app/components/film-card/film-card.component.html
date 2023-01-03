@@ -1,5 +1,5 @@
 <div *ngIf="film">
-  <ng-container *ngIf="user$ | async as user">
+  <ng-container *ngIf="user$ | async as user; else WithoutUser">
   <div class="film-container" [ngClass]="{'film-card': !inViewingList(film.id, user), 'film-card-w': inViewingList(film.id, user), 'film-card-v': inVetoList(film.id, user)}">
 
     <img
@@ -13,8 +13,8 @@
     </p>
   </div>
 </ng-container>
-<!---<ng-container>
-  <div class="film-container" [ngClass]="{'film-card': !user}">
+<ng-template #WithoutUser>
+  <div class="film-container film-card">
     <img
       class="catalog-image"
       [src]="film.urlPoster"
@@ -25,7 +25,7 @@
       {{ film.rusTitle | uppercase }} <span>({{ film.year }})</span>
     </p>
   </div>
-</ng-container>--->
+</ng-template>
 
 </div>
 

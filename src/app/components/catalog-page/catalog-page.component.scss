@@ -19,4 +19,15 @@
     display: flex;
     flex-wrap: wrap;
   }
+
+  app-catalog-filters {
+    width: auto;
+    background-color: white;
+    margin: 2em auto;
+    border-radius: 20px;
+    padding: 1.5em;
+    display: flex;
+    justify-content: center;
+    color: black;
+  }
 }

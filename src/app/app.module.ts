@@ -36,6 +36,8 @@ import { UserRatingComponent } from './components/user-rating/user-rating.compon
 import { SettingModalComponent } from './components/setting-modal/setting-modal.component';
 import { CatalogFiltersComponent } from './components/catalog-filters/catalog-filters.component';
 import { CatalogFilterComponent } from './components/catalog-filter/catalog-filter.component';
+import { RegisterModalComponent } from './components/register-modal/register-modal.component';
+import { UserInformationModalComponent } from './components/user-information-modal/user-information-modal.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { CatalogFilterComponent } from './components/catalog-filter/catalog-filt
     UserRatingComponent,
     SettingModalComponent,
     CatalogFiltersComponent,
-    CatalogFilterComponent
+    CatalogFilterComponent,
+    RegisterModalComponent,
+    UserInformationModalComponent
   ],
   imports: [
     BrowserModule,

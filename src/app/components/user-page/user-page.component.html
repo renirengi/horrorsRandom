@@ -1,1 +1,37 @@
-<p>user-page works!</p>
+<div class = "user-page" >
+  <ng-container *ngIf = "user$ | async as user">
+    <div class = "user-page-header">
+      <img [src]="user.avatar" [alt]="user.name">
+      <div сlass = "user-page-header-middle">
+        <h2>{{user.name}}</h2>
+        <p>{{user.email}}</p>
+      </div>
+      <div class = "user-page-right">
+        <button
+        mat-raised-button
+        color = "accent"
+        (click)="showInformationModal()"
+        ><mat-icon>
+          <span class="material-symbols-outlined">
+            record_voice_over
+            </span>
+          </mat-icon>
+        Рассказать о себе
+        </button>
+
+        <button
+        mat-raised-button
+        color = "accent"
+        ><mat-icon>
+          <span class="material-symbols-outlined">
+            contacts
+            </span>
+          </mat-icon>
+        Изменить пароль или почту
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+
+</div>

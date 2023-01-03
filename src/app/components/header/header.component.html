@@ -29,7 +29,7 @@
         </mat-icon>
      </button>
   </div>
-  <div class="input-container">
+  <!---<div class="input-container">
     <div>
       <input
         matInput
@@ -42,9 +42,9 @@
     <button mat-icon-button matSuffix (click)="onClean()" [attr.aria-label]="'Clean search string'">
       <mat-icon>close</mat-icon>
     </button>
-  </div>
+  </div>--->
   <div class = "user-container">
-     <ng-container *ngIf="currentUser$ | async as user; else login">
+     <ng-container *ngIf="currentUser$ | async as user; else loginOrRegister">
         <button
            mat-stroked-button
            color="white"  [routerLink]="['/user']">
@@ -70,19 +70,28 @@
            </mat-icon>
         </button>
      </ng-container>
-     <ng-template #login>
-        <button
-           mat-stroked-button
-           color="white" (click)="showLoginModal()">
-           Login
-           <mat-icon
-              aria-label="Example register icon"
-              >
-              <span class="material-symbols-outlined">
-              account_circle
-              </span>
-           </mat-icon>
-        </button>
-     </ng-template>
+
+     <ng-template #loginOrRegister>
+      <button
+      mat-stroked-button
+      color="white" (click)="showLoginModal()">Login <mat-icon
+      aria-label="Example register icon"
+      >
+      <span class="material-symbols-outlined">
+      account_circle
+      </span>
+    </mat-icon></button>
+      <button
+      mat-stroked-button
+      color="white" (click)="showRegisterModal()">Register
+      <mat-icon
+            aria-label="Example login icon"
+            >
+            <span class="material-symbols-outlined">
+            how_to_reg
+            </span>
+          </mat-icon>
+    </button>
+    </ng-template>
   </div>
 </div>

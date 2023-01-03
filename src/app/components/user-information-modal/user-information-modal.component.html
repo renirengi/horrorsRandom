@@ -1,0 +1,74 @@
+<form [formGroup]="informationForm">
+  <div class = "modal-title">
+    <img class = "icon-black" src="favicon.ico" alt="icon">
+    <h2 mat-dialog-title>Рассказать о себе</h2>
+  </div>
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <mat-label>Реальное имя</mat-label>
+        <input type="text" matInput formControlName="realName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Телефон</mat-label>
+      <input matInput formControlName="phone" type="tel" placeholder="+375256666666" />
+      <mat-icon matSuffix>Phone</mat-icon>
+      <mat-hint>Включая код страны</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Выберите дату рождения</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthday" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Аватар</mat-label>
+        <input type="text" matInput formControlName="avatar">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Страна</mat-label>
+      <mat-select formControlName="country">
+        <mat-option *ngFor = "let country of countries" [value]="country">
+         {{country}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Социальные сети</mat-label>
+        <input type="text" matInput formControlName="socialLink1">
+    </mat-form-field>
+
+    <mat-form-field>
+    <mat-label>Обо мне</mat-label>
+      <textarea
+        matInput
+        formControlName="userAbout"
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="10"
+      ></textarea>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button
+      type="button"
+      mat-stroked-button
+      color="primary"
+      [mat-dialog-close]="informationForm.value"
+    >
+      Добавить информацию
+    </button>
+    <button
+    mat-stroked-button
+    type="button"
+    color="primary"
+    (click)="onNoClick()">Отмена
+    </button>
+  </mat-dialog-actions>
+</form>
