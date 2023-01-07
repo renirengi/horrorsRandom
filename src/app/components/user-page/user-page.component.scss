@@ -1,9 +1,11 @@
+
+
 .user-page {
   display: flex;
   flex-direction: column;
   position: relative;
   width: 80%;
-  height: 70vh;
+  height: auto;
   margin: 3em auto;
   border-radius: 20px;
   background-color: black;
@@ -27,4 +29,61 @@
    flex-direction: column;
   }
 }
+  .user-page-button {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    height: 2.5em;
+    align-items: flex-end;
+
+    button {
+    border: none;
+    margin-right: 0.5em;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 2em;
+    font-size: 1.2em;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    }
+
+    .yellow {
+      background-color: yellow;
+    }
+
+    .purple {
+      background-color: #673ab7;
+      color:white;
+    }
+
+    button:active {
+      height: 2.5em;;
+
+    }
+  }
+
+  .user-page-body {
+    width: 85%;
+    height: 40vh;
+    background-color: white;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: black;
+    font-size: 1.2em;
+  }
+
+    .user-page-body.veto-page {
+      background-color: #673ab7;
+      color: white;
+    }
+
+  .user-page-body .active {
+
+  }
+
+
 }
+

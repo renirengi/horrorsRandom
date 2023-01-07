@@ -26,6 +26,17 @@
       flex-direction: column;
       justify-content: center;
 
+      .user-rating-container {
+        display: flex;
+        color: white;
+        font-size: 1.2em;
+        margin: 1em auto;
+
+        p {
+          margin-right: 1em;
+        }
+      }
+
 
     }
   }

@@ -13,7 +13,8 @@ export class UserRatingComponent implements OnInit {
   @Input() userId!: number;
   @Input() filmId!: number;
 
-  public feed!: IFeedback
+  public feed!: IFeedback;
+
 
   constructor(
     private feedback:FeedbackService

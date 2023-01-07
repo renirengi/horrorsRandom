@@ -39,6 +39,9 @@ import { CatalogFilterComponent } from './components/catalog-filter/catalog-filt
 import { RegisterModalComponent } from './components/register-modal/register-modal.component';
 import { UserInformationModalComponent } from './components/user-information-modal/user-information-modal.component';
 import { ChangeRegistrationModalComponent } from './components/change-registration-modal/change-registration-modal.component';
+import { ViewingCollectionComponent } from './components/viewing-collection/viewing-collection.component';
+import { VetoCollectionComponent } from './components/veto-collection/veto-collection.component';
+///import { UserRatingChangeComponent } from './components/user-rating-change/user-rating-change.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,10 @@ import { ChangeRegistrationModalComponent } from './components/change-registrati
     CatalogFilterComponent,
     RegisterModalComponent,
     UserInformationModalComponent,
-    ChangeRegistrationModalComponent
+    ChangeRegistrationModalComponent,
+    ViewingCollectionComponent,
+    VetoCollectionComponent,
+    ///UserRatingChangeComponent
   ],
   imports: [
     BrowserModule,

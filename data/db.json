@@ -47,6 +47,12 @@
       "filmId": 4,
       "userId": 1,
       "id": 8
+    },
+    {
+      "movieRating": 8,
+      "filmId": 23,
+      "userId": 1,
+      "id": 9
     }
   ],
   "users": [
@@ -57,7 +63,8 @@
       "password": "Pushina1996",
       "email": "TomieKawakami@mail.ru",
       "personalData": {
-        "phone": "+375291714557"
+        "phone": "+3752978788990",
+        "country": "Австрия"
       },
       "userFilms": {
         "veto": [
@@ -70,7 +77,6 @@
           31,
           28,
           52,
-          12,
           8,
           56,
           4

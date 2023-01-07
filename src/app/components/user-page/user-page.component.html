@@ -39,6 +39,17 @@
         </button>
       </div>
     </div>
+    <div class = "user-page-button">
+      <button>Оценки</button>
+      <button class="purple">Заблокировано</button>
+      <button class="yellow">Отзывы</button>
+    </div>
+    <div class = "user-page-body">
+      <app-viewing-collection [user]="user"></app-viewing-collection>
+    </div>
+    <div class = "user-page-body veto-page" >
+      <app-veto-collection [user]="user" [ngClass]="'active'"></app-veto-collection>
+    </div>
   </ng-container>
 
 

@@ -1,0 +1,10 @@
+<ng-container *ngFor="let film of films$ | async">
+  <div class = "collection-film-container">
+    <div class="title-link" routerLink="/catalog/{{film.id}}">
+     <p>{{ film.rusTitle }} ({{film.year}})</p>
+     <p class = "italic">{{ film.title}}/ {{film.countries[0]}}/ {{ film.director}}</p>
+    <div class = "rating-container">
+      <app-user-rating [userId]="user.id" [filmId]="film.id" ></app-user-rating>
+    </div></div>
+  </div>
+</ng-container>

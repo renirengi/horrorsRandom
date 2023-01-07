@@ -114,3 +114,31 @@ app-footer {
 
 }
 
+.collection-film-container {
+  display: flex;
+
+  .title-link {
+    display:flex;
+    width: 95%;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    margin: 0 auto;
+    min-height: 2.2em;
+    font-size: 1.2em;
+    cursor: pointer;
+
+    p {
+      width: 440.5px;
+      text-align: start;
+      margin: 0;
+
+    }
+
+    .italic {
+      font-style: italic;
+      width: 650px;
+    }
+
+  }}
+
