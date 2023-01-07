@@ -5,7 +5,7 @@ export interface IUser {
   password: string;
   email: string;
   userFilms?: IUserFilms;
-  personalData?: IPersonalData;
+  personalData: IPersonalData;
 }
 
 export interface IUserFilms {

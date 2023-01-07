@@ -68,7 +68,10 @@ export class RegisterModalComponent implements OnInit {
     const password = this.registerForm.value['password'] as string;
     const user = {id, email, name, password};
 
-    await firstValueFrom(this.userService.addUser(user));
+    await firstValueFrom(this.userService.addUser({
+      ...user,
+      personalData: {}
+    }));
     this.dialogRef.close();
   }
 

@@ -5,15 +5,23 @@ import { MatDialog } from '@angular/material/dialog';
 import { IUser } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 import { UserInformationModalComponent } from '../user-information-modal/user-information-modal.component';
+import { ChangeRegistrationModalComponent } from '../change-registration-modal/change-registration-modal.component';
 
 interface UserFormData {
   avatar: string;
   realName: string;
   country: string;
-  birthday: string;
+  phone: string;
   about: string;
-  link: string[];
+  link: string;
 }
+
+interface UserRegistrationData {
+ name: string;
+ email: string;
+ password: string;
+}
+
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
@@ -21,7 +29,7 @@ interface UserFormData {
 })
 export class UserPageComponent implements OnInit {
   public user$: Observable<IUser | null>;
-  private readonly userModalConfig = { width: '60vw', data: {} };
+
 
   constructor(
     private userService: UserService,
@@ -33,10 +41,33 @@ export class UserPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public async showInformationModal() {
-    const dialogRef = this.dialog.open(UserInformationModalComponent, this.userModalConfig);
+  public async showInformationModal( user: IUser ) {
+    const modalConfig = { width: '60vw', data: { user } };
+    const dialogRef = this.dialog.open(UserInformationModalComponent, modalConfig);
     const result = (await firstValueFrom(dialogRef.afterClosed())) as UserFormData;
-    console.log (result);
+
+    await firstValueFrom(this.userService.updateUser(this.getUpdatedUser(user, result)));
   }
+
+  public async showRegistrationInformationModal( user: IUser ) {
+    const modalConfig = { width: '60vw', data: { user } };
+    const dialogRef = this.dialog.open(ChangeRegistrationModalComponent, modalConfig);
+    const result = (await firstValueFrom(dialogRef.afterClosed())) as UserRegistrationData;
+    const { name, email, password } = result;
+
+    await firstValueFrom(this.userService.updateUser({...user, name, email, password}));
+  }
+
+  public getUpdatedUser(user: IUser, userFormValues: UserFormData): IUser {
+    ///console.log (userFormValues)
+    const { avatar, realName, country, phone, about, link } = userFormValues;
+    console.log (userFormValues)
+    const personalData = { ...user.personalData, realName, country, phone, about, link };
+    console.log ({ ...user, personalData, avatar })
+
+    return { ...user, personalData, avatar };
+  }
+
+
 
 }

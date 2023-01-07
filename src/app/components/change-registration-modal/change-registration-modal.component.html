@@ -1,0 +1,52 @@
+<form [formGroup]="newRegInformationForm">
+<div class = "modal-title">
+  <img class = "icon-black" src="favicon.ico" alt="icon">
+  <h2 mat-dialog-title>Изменить регистрационные данные</h2>
+</div>
+<div class = "modal-container">
+<mat-dialog-content>
+
+ <mat-form-field>
+   <mat-label>Адрес электронной почты</mat-label>
+   <input matInput placeholder="pat@example.com" formControlName="email" />
+ </mat-form-field>
+
+ <mat-form-field>
+   <mat-label>Имя</mat-label>
+   <input matInput placeholder="Name" formControlName="name" />
+ </mat-form-field>
+
+ <mat-form-field>
+   <mat-label>Пароль</mat-label>
+   <input matInput
+   [type]="showConfirmation ? 'password' : 'text'"
+   formControlName="password" />
+   <button
+       mat-icon-button
+       matSuffix
+       (click)="showConfirmation = !showConfirmation"
+       [attr.aria-label]="'Hide password'"
+     >
+       <mat-icon>{{ showConfirmation ? "visibility_off" : "visibility" }}</mat-icon>
+     </button>
+ </mat-form-field>
+
+
+ <mat-form-field *ngIf="confirmPassword">
+   <mat-label>Повторите пароль</mat-label>
+   <input matInput
+   formControlName="confirmPassword">
+ </mat-form-field>
+
+ <p *ngIf="confirmPassword.value!==password.value && confirmPassword.touched"
+ >Ваши пароли не идентичны</p>
+
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <button mat-stroked-button type="button" color="primary"
+  [disabled]="!newRegInformationForm.valid || confirmPassword.value!==password.value"
+  [mat-dialog-close]="newRegInformationForm.value"
+  >
+  Изменить регистрационные данные</button>
+  <button mat-stroked-button  type="button" (click)="onNoClick()" color="primary">Отмена</button>
+</div>

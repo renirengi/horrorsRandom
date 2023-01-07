@@ -29,14 +29,14 @@ export class UserInformationModalComponent implements OnInit {
       public dialogRef: MatDialogRef<UserInformationModalComponent>,
       @Inject(MAT_DIALOG_DATA) public data: { user: IUser },
     ) {
-      ///this.applyFormValues(data.user);
+      this.applyFormValues(data.user);
      }
 
     onNoClick(): void {
       this.dialogRef.close();
     }
 
-    /*private applyFormValues(user: IUser): void {
+    private applyFormValues(user: IUser): void {
       this.informationForm.patchValue({
         avatar: user.avatar,
         userAbout: user.personalData?.about,
@@ -46,7 +46,7 @@ export class UserInformationModalComponent implements OnInit {
         socialLink1: user.personalData?.link,
         phone: user.personalData?.phone,
       });
-    }*/
+    }
 
 
   ngOnInit(): void {

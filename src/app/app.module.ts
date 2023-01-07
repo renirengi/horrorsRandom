@@ -38,6 +38,7 @@ import { CatalogFiltersComponent } from './components/catalog-filters/catalog-fi
 import { CatalogFilterComponent } from './components/catalog-filter/catalog-filter.component';
 import { RegisterModalComponent } from './components/register-modal/register-modal.component';
 import { UserInformationModalComponent } from './components/user-information-modal/user-information-modal.component';
+import { ChangeRegistrationModalComponent } from './components/change-registration-modal/change-registration-modal.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { UserInformationModalComponent } from './components/user-information-mod
     CatalogFiltersComponent,
     CatalogFilterComponent,
     RegisterModalComponent,
-    UserInformationModalComponent
+    UserInformationModalComponent,
+    ChangeRegistrationModalComponent
   ],
   imports: [
     BrowserModule,

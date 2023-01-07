@@ -1,16 +1,23 @@
 <div class = "user-page" >
   <ng-container *ngIf = "user$ | async as user">
     <div class = "user-page-header">
-      <img [src]="user.avatar" [alt]="user.name">
+      <img img *ngIf="user.avatar" [src]="user.avatar" [alt]="user.name">
+      <img img *ngIf="!user.avatar" src="https://i.pinimg.com/280x280_RS/04/ff/49/04ff4992f981e4672fa824a6ab6ffea6.jpg" [alt]="user.name">
       <div сlass = "user-page-header-middle">
         <h2>{{user.name}}</h2>
-        <p>{{user.email}}</p>
+        <p><span>Email:</span> {{user.email}}</p>
+        <div>
+          <div *ngIf="user.personalData.realName"><span>Имя:</span> {{user.personalData.realName}}</div>
+          <div *ngIf="user.personalData.country"><span>Страна:</span> {{user.personalData.country}}</div>
+          <div *ngIf="user.personalData.about"><span>Обо мне:</span> {{user.personalData.about}}</div>
+          <div *ngIf="user.personalData.link"><span>Cоциальные сети:</span> {{user.personalData.link}}</div>
+        </div>
       </div>
       <div class = "user-page-right">
         <button
         mat-raised-button
         color = "accent"
-        (click)="showInformationModal()"
+        (click)="showInformationModal(user)"
         ><mat-icon>
           <span class="material-symbols-outlined">
             record_voice_over
@@ -22,6 +29,7 @@
         <button
         mat-raised-button
         color = "accent"
+        (click)="showRegistrationInformationModal(user)"
         ><mat-icon>
           <span class="material-symbols-outlined">
             contacts

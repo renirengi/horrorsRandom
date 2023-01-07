@@ -53,8 +53,8 @@
     {
       "id": 1,
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtYF4wea-X3ZyqUH4i54AOvyd96WG4Pe_kfEDJEYeXXid5Go5wdaRWwWgb1HuLKOd5SPA&usqp=CAU",
-      "name": "Olga",
-      "password": "Pushina",
+      "name": "Tomie",
+      "password": "Pushina1996",
       "email": "TomieKawakami@mail.ru",
       "personalData": {
         "phone": "+375291714557"
@@ -86,6 +86,17 @@
       "userFilms": {
         "viewing": []
       }
+    },
+    {
+      "id": 3,
+      "email": "mau2013@gmail.com",
+      "name": "Маурицио",
+      "password": "Maurizio2013",
+      "personalData": {
+        "realName": "Император Котовечества Маурицио Первый Котий ",
+        "country": "Грузия"
+      },
+      "avatar": "https://gamerwall.pro/uploads/posts/2022-09/1662413950_16-gamerwall-pro-p-kot-v-kostyume-oboi-17.jpg"
     }
   ],
   "films": [
