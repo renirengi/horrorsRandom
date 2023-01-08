@@ -34,14 +34,6 @@ export class FilmPageComponent implements OnInit{
 
   }
 
-  public inViewingList(id: number, user: IUser): boolean {
-    return !user?.userFilms?.viewing?.includes(id);
-  }
-
-  public inVetoList(id: number, user: IUser): boolean {
-    return !user?.userFilms?.veto?.includes(id);
-  }
-
   public showMessage() {
     this.message = "Зарегистрируйтесь или войдите в свой профиль";
   }
@@ -68,18 +60,6 @@ export class FilmPageComponent implements OnInit{
 
     await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { ...userFilms } }));
 
-  }
-
-  public async addToBlackList(user: IUser, id: number) {
-    const { userFilms } = user;
-    userFilms?.veto?.push(id);
-    await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { ...userFilms } }));
-  }
-
-  public async deleteIntoBlackList (user:IUser, id:number) {
-    const { userFilms } = user;
-    const veto = userFilms!.veto?.filter((elem) => elem !== id);
-      await firstValueFrom(this.userService.updateUser({ ...user, userFilms: {...userFilms, veto} }));
   }
 
 }

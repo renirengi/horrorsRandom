@@ -3,6 +3,7 @@
     <div class="title-link" routerLink="/catalog/{{film.id}}">
      <p>{{ film.rusTitle }} ({{film.year}})</p>
      <p class = "italic">{{ film.title}}/ {{film.countries[0]}}/ {{ film.director}}</p>
+     <app-veto-button [user]="user" [film]="film"></app-veto-button>
     </div>
   </div>
 </ng-container>

@@ -19,8 +19,8 @@ export class UserInformationModalComponent implements OnInit {
     realName: new FormControl(''),
     avatar: new FormControl(''),
     country:  new FormControl(''),
-    socialLink1: new FormControl(''),
-    userAbout: new FormControl(''),
+    link: new FormControl(''),
+    about: new FormControl(''),
     birthday: new FormControl(''),
     phone: new FormControl('', [Validators.pattern(/^(\+\d{1,3}[- ]?)?\d{9}$/)]),
 
@@ -39,11 +39,11 @@ export class UserInformationModalComponent implements OnInit {
     private applyFormValues(user: IUser): void {
       this.informationForm.patchValue({
         avatar: user.avatar,
-        userAbout: user.personalData?.about,
+        about: user.personalData?.about,
         country: user.personalData?.country,
         ///birthday: user.personalData?.birthday,//// mistake is here
         realName: user.personalData?.realName,
-        socialLink1: user.personalData?.link,
+        link: user.personalData?.link,
         phone: user.personalData?.phone,
       });
     }

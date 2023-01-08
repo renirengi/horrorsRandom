@@ -41,7 +41,7 @@ import { UserInformationModalComponent } from './components/user-information-mod
 import { ChangeRegistrationModalComponent } from './components/change-registration-modal/change-registration-modal.component';
 import { ViewingCollectionComponent } from './components/viewing-collection/viewing-collection.component';
 import { VetoCollectionComponent } from './components/veto-collection/veto-collection.component';
-///import { UserRatingChangeComponent } from './components/user-rating-change/user-rating-change.component';
+import { VetoButtonComponent } from './components/veto-button/veto-button.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +66,7 @@ import { VetoCollectionComponent } from './components/veto-collection/veto-colle
     ChangeRegistrationModalComponent,
     ViewingCollectionComponent,
     VetoCollectionComponent,
-    ///UserRatingChangeComponent
+    VetoButtonComponent
   ],
   imports: [
     BrowserModule,

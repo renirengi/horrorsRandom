@@ -1,0 +1,17 @@
+<ng-container *ngIf = "inViewingList(film.id, user) && inVetoList(film.id, user)">
+  <button
+     mat-raised-button
+     color = "accent"
+     (click) = "addToBlackList(user, film.id)"
+     >
+     <mat-icon>
+        <span class="material-symbols-outlined">
+        sentiment_very_dissatisfied
+        </span>
+     </mat-icon>
+     В бан!
+  </button>
+</ng-container>
+<ng-container *ngIf="inViewingList(film.id, user) && !inVetoList(film.id, user)">
+  <app-veto-button [user]="user" [film]="film"></app-veto-button>
+</ng-container>

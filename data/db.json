@@ -53,23 +53,38 @@
       "filmId": 23,
       "userId": 1,
       "id": 9
+    },
+    {
+      "movieRating": 8,
+      "filmId": 20,
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "movieRating": 5,
+      "filmId": 57,
+      "userId": 1,
+      "id": 11
     }
   ],
   "users": [
     {
       "id": 1,
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtYF4wea-X3ZyqUH4i54AOvyd96WG4Pe_kfEDJEYeXXid5Go5wdaRWwWgb1HuLKOd5SPA&usqp=CAU",
+      "avatar": "https://styles.redditmedia.com/t5_43vh5z/styles/profileIcon_dhl8j29dqrs61.jpg?width=256&height=256&frame=1&crop=256:256,smart&s=54ea8c7e39b1dfb80521d77db8842ff24069b17c",
       "name": "Tomie",
       "password": "Pushina1996",
       "email": "TomieKawakami@mail.ru",
       "personalData": {
         "phone": "+3752978788990",
-        "country": "Австрия"
+        "country": "Грузия",
+        "about": "Ку-ку!",
+        "link": ""
       },
       "userFilms": {
         "veto": [
           27,
-          51
+          51,
+          5
         ],
         "viewing": [
           12,
@@ -79,7 +94,9 @@
           52,
           8,
           56,
-          4
+          4,
+          20,
+          57
         ]
       }
     },
@@ -1197,6 +1214,27 @@
       "plot": "2045 год. После того как из далёкой научной лаборатории Олдуай был получен сигнал о помощи, на Марс прибывает отряд космического спецназа и обнаруживает разгромленную станцию. Вскоре выясняется, что на людей здесь охотятся полчища ужасных мутантов.",
       "url": "https://www.kinopoisk.ru/film/84140/",
       "notes": "",
+      "feedback": []
+    },
+    {
+      "id": 57,
+      "title": "Deep Blue Sea",
+      "rusTitle": "Глубокое синее море",
+      "director": "Ренни Харлин",
+      "trailer": "https://www.youtube.com/embed/oSz9MDN-iac",
+      "year": "1999",
+      "rating": 7,
+      "urlPoster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/05ed7812-290c-436e-8048-100acf3ef7f0/1920x",
+      "countries": [
+        "США",
+        "Мексика"
+      ],
+      "genres": [
+        "Животные-убийцы"
+      ],
+      "plot": "Разрабатывая препарат от болезни Альцгеймера, учёные подводной лаборатории «Акватика» находят способ генетического увеличения мозга подопытных акул. Агрессивные хищники превращаются в думающих монстров-убийц, способных перехитрить своих создателей. Теперь сотрудникам лаборатории придётся справиться с разъярёнными хищниками, но спастись от острых челюстей быстрых и умных акул практически невозможно.",
+      "url": "https://www.kinopoisk.ru/film/9528/",
+      "notes": "Есть два продолжения.",
       "feedback": []
     }
   ]

@@ -48,34 +48,7 @@
            <a class="youtube" mat-stroked-button [href]="film.trailer" target="_blank"></a>
            <a class="kino" mat-stroked-button [href]="film.url" target="_blank"></a>
            <div *ngIf="user$ | async as user">
-             <ng-container *ngIf = "inViewingList(film.id, user) && inVetoList(film.id, user)">
-                 <button
-                    mat-raised-button
-                    color = "accent"
-                    (click) = "addToBlackList(user, film.id)"
-                    >
-                    <mat-icon>
-                       <span class="material-symbols-outlined">
-                       sentiment_very_dissatisfied
-                       </span>
-                    </mat-icon>
-                    В бан!
-                 </button>
-              </ng-container>
-              <ng-container *ngIf="inViewingList(film.id, user) && !inVetoList(film.id, user)">
-                 <button
-                    mat-raised-button
-                    color = "accent"
-                    (click) = "deleteIntoBlackList(user, film.id)"
-                    >
-                    <mat-icon>
-                       <span class="material-symbols-outlined">
-                       thumbs_up_down
-                       </span>
-                    </mat-icon>
-                    Я готов!
-                 </button>
-              </ng-container>
+            <app-veto-button [user]="user" [film]="film"></app-veto-button>
            </div>
         </div>
      </div>

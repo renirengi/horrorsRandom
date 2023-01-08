@@ -1,56 +1,57 @@
-<div class = "user-page" >
-  <ng-container *ngIf = "user$ | async as user">
-    <div class = "user-page-header">
-      <img img *ngIf="user.avatar" [src]="user.avatar" [alt]="user.name">
-      <img img *ngIf="!user.avatar" src="https://i.pinimg.com/280x280_RS/04/ff/49/04ff4992f981e4672fa824a6ab6ffea6.jpg" [alt]="user.name">
-      <div сlass = "user-page-header-middle">
-        <h2>{{user.name}}</h2>
-        <p><span>Email:</span> {{user.email}}</p>
+<div class="user-page">
+  <ng-container *ngIf="user$ | async as user">
+    <div class="user-page-header">
+      <img img *ngIf="user.avatar" [src]="user.avatar" [alt]="user.name" />
+      <img
+        img
+        *ngIf="!user.avatar"
+        src="https://i.pinimg.com/280x280_RS/04/ff/49/04ff4992f981e4672fa824a6ab6ffea6.jpg"
+        [alt]="user.name"
+      />
+      <div class="user-page-header-middle">
+        <h2>{{ user.name }}</h2>
+        <p><span>Email:</span> {{ user.email }}</p>
         <div>
-          <div *ngIf="user.personalData.realName"><span>Имя:</span> {{user.personalData.realName}}</div>
-          <div *ngIf="user.personalData.country"><span>Страна:</span> {{user.personalData.country}}</div>
-          <div *ngIf="user.personalData.about"><span>Обо мне:</span> {{user.personalData.about}}</div>
-          <div *ngIf="user.personalData.link"><span>Cоциальные сети:</span> {{user.personalData.link}}</div>
+          <div *ngIf="user.personalData.realName">
+            <span>Имя:</span> {{ user.personalData.realName }}
+          </div>
+          <div *ngIf="user.personalData.country">
+            <span>Страна:</span> {{ user.personalData.country }}
+          </div>
+          <div *ngIf="user.personalData.about">
+            <span>Обо мне:</span> {{ user.personalData.about }}
+          </div>
+          <div *ngIf="user.personalData.link">
+            <span>Cоциальные сети:</span> {{ user.personalData.link }}
+          </div>
         </div>
       </div>
-      <div class = "user-page-right">
-        <button
-        mat-raised-button
-        color = "accent"
-        (click)="showInformationModal(user)"
-        ><mat-icon>
-          <span class="material-symbols-outlined">
-            record_voice_over
-            </span>
+      <div class="user-page-right">
+        <button mat-raised-button color="accent" (click)="showInformationModal(user)">
+          <mat-icon>
+            <span class="material-symbols-outlined"> record_voice_over </span>
           </mat-icon>
-        Рассказать о себе
+          Рассказать о себе
         </button>
 
         <button
-        mat-raised-button
-        color = "accent"
-        (click)="showRegistrationInformationModal(user)"
-        ><mat-icon>
-          <span class="material-symbols-outlined">
-            contacts
-            </span>
+          mat-raised-button
+          color="accent"
+          (click)="showRegistrationInformationModal(user)"
+        >
+          <mat-icon>
+            <span class="material-symbols-outlined"> contacts </span>
           </mat-icon>
-        Изменить пароль или почту
+          Изменить пароль или почту
         </button>
       </div>
     </div>
-    <div class = "user-page-button">
-      <button>Оценки</button>
-      <button class="purple">Заблокировано</button>
+    <div class="user-page-button">
+      <button (click)="activePage = 'score'">Оценки</button>
+      <button (click)="activePage = 'veto'" class="purple">Заблокировано</button>
       <button class="yellow">Отзывы</button>
     </div>
-    <div class = "user-page-body">
-      <app-viewing-collection [user]="user"></app-viewing-collection>
-    </div>
-    <div class = "user-page-body veto-page" >
-      <app-veto-collection [user]="user" [ngClass]="'active'"></app-veto-collection>
-    </div>
+    <div class="user-page-body" *ngIf="activePage === 'score'"><app-viewing-collection [user]="user"></app-viewing-collection></div>
+    <div class="user-page-body veto-page" *ngIf="activePage === 'veto'"><app-veto-collection [user]="user" [ngClass]="'active'"></app-veto-collection></div>
   </ng-container>
-
-
 </div>

@@ -18,7 +18,6 @@ export class VetoCollectionComponent implements OnInit {
 
   private _user!: IUser;
   public films$!: Observable<IFilm[]>;
-  ///public feed!: IFeedback;
 
   constructor(
     public filmService: FilmService,

@@ -17,9 +17,9 @@ interface UserFormData {
 }
 
 interface UserRegistrationData {
- name: string;
- email: string;
- password: string;
+  name: string;
+  email: string;
+  password: string;
 }
 
 @Component({
@@ -29,45 +29,42 @@ interface UserRegistrationData {
 })
 export class UserPageComponent implements OnInit {
   public user$: Observable<IUser | null>;
-
+  public activePage: 'score' | 'veto' = 'score';
 
   constructor(
     private userService: UserService,
     public dialog: MatDialog,
   ) {
-    this.user$= this.userService.currentUser$;
-   }
+    this.user$ = this.userService.currentUser$;
+  }
 
   ngOnInit(): void {
   }
 
-  public async showInformationModal( user: IUser ) {
+  public async showInformationModal(user: IUser) {
     const modalConfig = { width: '60vw', data: { user } };
     const dialogRef = this.dialog.open(UserInformationModalComponent, modalConfig);
     const result = (await firstValueFrom(dialogRef.afterClosed())) as UserFormData;
 
-    await firstValueFrom(this.userService.updateUser(this.getUpdatedUser(user, result)));
+    if (result) {
+      await firstValueFrom(this.userService.updateUser(this.getUpdatedUser(user, result)));
+    }
   }
 
-  public async showRegistrationInformationModal( user: IUser ) {
+  public async showRegistrationInformationModal(user: IUser) {
     const modalConfig = { width: '60vw', data: { user } };
     const dialogRef = this.dialog.open(ChangeRegistrationModalComponent, modalConfig);
     const result = (await firstValueFrom(dialogRef.afterClosed())) as UserRegistrationData;
     const { name, email, password } = result;
 
-    await firstValueFrom(this.userService.updateUser({...user, name, email, password}));
+    await firstValueFrom(this.userService.updateUser({ ...user, name, email, password }));
   }
 
   public getUpdatedUser(user: IUser, userFormValues: UserFormData): IUser {
-    ///console.log (userFormValues)
     const { avatar, realName, country, phone, about, link } = userFormValues;
-    console.log (userFormValues)
     const personalData = { ...user.personalData, realName, country, phone, about, link };
-    console.log ({ ...user, personalData, avatar })
 
     return { ...user, personalData, avatar };
   }
-
-
 
 }
