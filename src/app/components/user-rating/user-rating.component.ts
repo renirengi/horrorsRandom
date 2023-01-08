@@ -12,6 +12,7 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 export class UserRatingComponent implements OnInit {
   @Input() userId!: number;
   @Input() filmId!: number;
+  @Input() visibility!: boolean;
 
   public feed!: IFeedback;
 

@@ -4,7 +4,7 @@
      <p>{{ film.rusTitle }} ({{film.year}})</p>
      <p class = "italic">{{ film.title}}/ {{film.countries[0]}}/ {{ film.director}}</p>
     <div class = "rating-container">
-      <app-user-rating [userId]="user.id" [filmId]="film.id" ></app-user-rating>
+      <app-user-rating [userId]="user.id" [filmId]="film.id" [visibility]="visibility"></app-user-rating>
     </div></div>
   </div>
 </ng-container>

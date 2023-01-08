@@ -11,10 +11,8 @@
               [rating]="getStarRatingFromFilm(film)"
               [user]="user"
               (update)="onMovieRatingUpdate(film, user, $event)"
-              >  </app-movie-rating>
-              <div class = "user-rating-container">
-                <p>Ваша оценка </p>
-                <app-user-rating [userId]="user.id" [filmId]="film.id"></app-user-rating></div>
+              ></app-movie-rating>
+              <app-user-rating [userId]="user.id" [filmId]="film.id" [visibility]="visibility"></app-user-rating>
            </div>
         </ng-container>
         <ng-template #WithoutUser>

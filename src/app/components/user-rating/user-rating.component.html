@@ -1,6 +1,4 @@
 <div class = "user-rating" *ngIf="feed">
-
-    <span>{{feed.movieRating}}</span>
-
-
+  <div [ngClass]="{'hidden': !visibility, 'rating-text':visibility} ">Ваша оценка</div>
+  <span>{{feed.movieRating}}</span>
 </div>

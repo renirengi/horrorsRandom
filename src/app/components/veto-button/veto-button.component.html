@@ -13,5 +13,16 @@
   </button>
 </ng-container>
 <ng-container *ngIf="inViewingList(film.id, user) && !inVetoList(film.id, user)">
-  <app-veto-button [user]="user" [film]="film"></app-veto-button>
+  <button
+     mat-raised-button
+     color = "accent"
+     (click) = "deleteIntoBlackList(user, film.id)"
+     >
+     <mat-icon>
+      <span class="material-icons-outlined">
+        thumb_up
+        </span>
+     </mat-icon>
+     Я готов!
+  </button>
 </ng-container>

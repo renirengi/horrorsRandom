@@ -19,6 +19,7 @@ export class ViewingCollectionComponent implements OnInit {
   private _user!: IUser;
   public films$!: Observable<IFilm[]>;
   public feed!: IFeedback;
+  public visibility: boolean = false;
 
   constructor(
     public filmService: FilmService,

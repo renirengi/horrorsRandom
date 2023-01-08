@@ -19,6 +19,8 @@ export class FilmPageComponent implements OnInit{
   public feed!: IFeedback
 
   public message: string = "";
+  public visibility: boolean = true;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private filmService: FilmService,
