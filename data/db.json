@@ -10,7 +10,8 @@
       "movieRating": 8,
       "filmId": 12,
       "userId": 1,
-      "id": 2
+      "id": 2,
+      "review": "Отличный фильм"
     },
     {
       "movieRating": 9,

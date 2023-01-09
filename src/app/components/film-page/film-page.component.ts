@@ -64,4 +64,17 @@ export class FilmPageComponent implements OnInit{
 
   }
 
+  public async onReviewUpdate(film: IFilm, user: IUser, review: string) {
+
+    this.film$ = this.filmService.updateFilmFeedback(film, user.id, { review }).pipe(first());
+
+    const { userFilms } = user;
+    if (!userFilms?.viewing?.includes(film.id)){
+      userFilms?.viewing?.push(film.id);
+    }
+
+    await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { ...userFilms } }));
+
+  }
+
 }

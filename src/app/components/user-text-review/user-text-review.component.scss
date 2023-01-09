@@ -1,0 +1,88 @@
+.comment-container,
+.comment-form-container {
+  margin: 4vh auto;
+  padding: 2% 2%;
+  width: 90%;
+  border: 2px solid black;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+
+
+
+  .image-title-container{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+
+
+    .comment-img {
+      width: 200px;
+      height:200px;
+    }
+
+    .comment-title {
+      text-align: center;
+      font-family: var(--Risque);
+      font-size: 32px;
+      color: var(--lime);
+    }
+  }
+
+  .comment-text {
+    width: 89%;
+    padding-left: 2%;
+
+    p {
+      font-family: var(--Josefin);
+      font-size: 30px;
+      text-align: justify;
+    }
+
+
+  }
+}
+
+.comment-form-container{
+  color: black;
+  border: 2px solid white;
+  background-color: white;
+
+  .comment-form-text {
+    width: 89%;
+    padding-left: 2%;
+    display: flex;
+    flex-direction: column;
+
+    .text-input {
+      height: 75%;
+    }
+
+    .comment-button {
+      font-family: var(--Risque);
+      font-size: 30px;
+      border: 2px solid var(--lime);
+      border-radius: 30px;
+      background-color: var(--lime);
+      width: 260px;
+      height: 5vh;
+      opacity: 0.8;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 2% auto;
+    }
+
+    .comment-button:hover{
+       opacity: 1;
+       background-color: var(--font-gold);
+    }
+
+    .comment-button:active{
+       opacity: 1;
+       background-color: var(--pink-rusberry);
+    }
+
+
+  }
+
+}

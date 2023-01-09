@@ -12,6 +12,7 @@ export interface IUserFilms {
   veto?:number[];
   viewing?: number[];
   feedback?: number[];
+  review?: string;
 }
 
 export interface IPersonalData {

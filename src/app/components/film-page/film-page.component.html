@@ -50,5 +50,12 @@
            </div>
         </div>
      </div>
+     <ng-container *ngIf="user$ | async as user; else WithoutUser">
+     <app-user-text-review [film]="film" (update)="onReviewUpdate(film, user, $event)"></app-user-text-review>
+     </ng-container>
+
+     <ng-template #WithoutUser>
+      <app-user-text-review [film]="film"></app-user-text-review>
+     </ng-template>
   </div>
 </ng-container>

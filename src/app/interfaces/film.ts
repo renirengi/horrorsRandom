@@ -20,4 +20,5 @@ export interface IFeedback {
   userId: number;
   filmId: number;
   movieRating?: number;
+  review: string;
 }
