@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { first, firstValueFrom, lastValueFrom, map, Observable, switchMap } from 'rxjs';
+
+import { MatDialog } from '@angular/material/dialog';
+
 import { IFilm, IFeedback } from 'src/app/interfaces/film';
 import { IUser } from 'src/app/interfaces/user';
 import { FilmService } from 'src/app/services/film.service';
-import { FeedbackService } from 'src/app/services/feedback.service';
 import { UserService } from 'src/app/services/user.service';
 import { MovieRatingComponent } from '../movie-rating/movie-rating.component';
+import { AddReviewModalComponent } from '../add-review-modal/add-review-modal.component';
 
 @Component({
   selector: 'app-film-page',
@@ -20,12 +23,13 @@ export class FilmPageComponent implements OnInit{
 
   public message: string = "";
   public visibility: boolean = true;
+  private readonly reviewModalConfig = { width: '70vw', data: {} };
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private filmService: FilmService,
     private userService: UserService,
-    private feedback: FeedbackService
+    public dialog: MatDialog,
   ) {
     const filmId$ = this.activatedRoute.params.pipe(map((params) => params['id']));
 
@@ -65,8 +69,8 @@ export class FilmPageComponent implements OnInit{
   }
 
   public async onReviewUpdate(film: IFilm, user: IUser, review: string) {
-
-    this.film$ = this.filmService.updateFilmFeedback(film, user.id, { review }).pipe(first());
+    const dateReview = new Date().toDateString();
+    this.film$ = this.filmService.updateFilmFeedback(film, user.id, { review, dateReview }).pipe(first());
 
     const { userFilms } = user;
     if (!userFilms?.viewing?.includes(film.id)){
@@ -75,6 +79,12 @@ export class FilmPageComponent implements OnInit{
 
     await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { ...userFilms } }));
 
+  }
+
+  public async showReviewForm() {
+    const dialogRef = this.dialog.open(AddReviewModalComponent, this.reviewModalConfig);
+    const result: {review:string} = await firstValueFrom(dialogRef.afterClosed());
+    console.log (result);
   }
 
 }
