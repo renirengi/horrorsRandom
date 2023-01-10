@@ -29,6 +29,10 @@ export class FeedbackService {
     );
   }
 
+  public findFeedbackByUser (userId:number): Observable<IFeedback[]> {
+    return this.http.get<IFeedback[]>(`${this.baseUrl}?userId=${userId}`);
+  }
+
   public addFeedbackItem(filmId: number, userId: number, feedback: Partial<IFeedback>) {
     return this.http.post<IFeedback>(`${this.baseUrl}`, {...feedback, filmId, userId});
   }

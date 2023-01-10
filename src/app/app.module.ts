@@ -43,6 +43,8 @@ import { ViewingCollectionComponent } from './components/viewing-collection/view
 import { VetoCollectionComponent } from './components/veto-collection/veto-collection.component';
 import { VetoButtonComponent } from './components/veto-button/veto-button.component';
 import { UserTextReviewComponent } from './components/user-text-review/user-text-review.component';
+import { UsersReviewCountsComponent } from './components/users-review-counts/users-review-counts.component';
+import { AddReviewModalComponent } from './components/add-review-modal/add-review-modal.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,10 @@ import { UserTextReviewComponent } from './components/user-text-review/user-text
     ViewingCollectionComponent,
     VetoCollectionComponent,
     VetoButtonComponent,
-    UserTextReviewComponent
+    UserTextReviewComponent,
+    UsersReviewCountsComponent,
+    AddReviewModalComponent,
+
   ],
   imports: [
     BrowserModule,

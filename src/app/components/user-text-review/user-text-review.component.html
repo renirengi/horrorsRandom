@@ -1,21 +1,26 @@
-<div class="comment-container">
-  <ng-component>
-   <!---<div class = "image-title-container">
-   <img *ngIf="item.avatar" class="comment-img" [src]="item.avatar"  />
-    <img *ngIf="!item.avatar" class="comment-img" src="https://i.pinimg.com/280x280_RS/04/ff/49/04ff4992f981e4672fa824a6ab6ffea6.jpg" />
-    <span class="comment-title">{{ item.name }}</span>
+<div *ngFor="let item of _textfeedbackList | async" class="comment-container" routerLink="/users/{{item.id}}">
+  <div class="comment-header">
+    <div class = "image-title-container">
+      <img *ngIf="item.avatar" [src]="item.avatar"  />
+      <img *ngIf="!item.avatar" src="https://i.pinimg.com/280x280_RS/04/ff/49/04ff4992f981e4672fa824a6ab6ffea6.jpg" />
+      <span class="comment-title">{{ item.name }}</span>
+    </div>
+    <div class = "date-container">
+      <span>{{item.dateReview}}</span>
+      <app-users-review-counts [userId]="item.id"></app-users-review-counts>
+    </div>
   </div>
-  <div class="comment-text" *ngIf="item.review">
+  <div class="comment-text">
     <p>{{ item.review }}</p>
-  </div>--->
-  </ng-component>
+  </div>
 </div>
 
-<div class="comment-form-container">
+
+<!---<div class="comment-form-container">
   <ng-container *ngIf="user$ | async as user">
     <div class="image-title-container">
-      <img *ngIf="user.avatar" class="comment-img" [src]="user.avatar"  />
-      <img *ngIf="!user.avatar" class="comment-img" src="https://i.pinimg.com/280x280_RS/04/ff/49/04ff4992f981e4672fa824a6ab6ffea6.jpg" />
+      <img *ngIf="user.avatar" [src]="user.avatar"  />
+      <img *ngIf="!user.avatar" src="https://i.pinimg.com/280x280_RS/04/ff/49/04ff4992f981e4672fa824a6ab6ffea6.jpg" />
       <span class="comment-title">{{user.name}}</span>
     </div>
 
@@ -23,6 +28,6 @@
   <input type="text" class="text-input" [(ngModel)]="comment" />
   <button class="comment-button glow" mat-stroked-button (click)="onClick()">Add comment</button>
   </div>
-</ng-container>
-</div>
+</ng-container>--->
+
 

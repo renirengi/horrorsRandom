@@ -12,13 +12,14 @@ export interface IFilm {
  url: string,
  notes?: string,
  rating:number,
- feedback: IFeedback[];
+ feedback?: IFeedback[];
 }
 
 export interface IFeedback {
   id: number;
   userId: number;
   filmId: number;
-  movieRating?: number;
-  review: string;
+  movieRating: number;
+  review?: string;
+  dateReview?: string
 }

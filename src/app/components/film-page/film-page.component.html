@@ -51,7 +51,17 @@
         </div>
      </div>
      <ng-container *ngIf="user$ | async as user; else WithoutUser">
-     <app-user-text-review [film]="film" (update)="onReviewUpdate(film, user, $event)"></app-user-text-review>
+      <button mat-raised-button
+      color = "accent"
+      (click)="showReviewForm()"
+      >
+      <mat-icon>
+      <span class="material-symbols-outlined">
+      add
+      </span>
+      </mat-icon>
+       Добавить рецензию</button>
+      <app-user-text-review [film]="film"></app-user-text-review>
      </ng-container>
 
      <ng-template #WithoutUser>
