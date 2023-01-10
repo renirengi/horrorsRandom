@@ -52,8 +52,9 @@
      </div>
      <ng-container *ngIf="user$ | async as user; else WithoutUser">
       <button mat-raised-button
+      class = "review-form-button"
       color = "accent"
-      (click)="showReviewForm()"
+      (click)="showReviewForm(film, user)"
       >
       <mat-icon>
       <span class="material-symbols-outlined">

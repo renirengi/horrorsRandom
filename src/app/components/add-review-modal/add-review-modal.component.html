@@ -1,1 +1,39 @@
-<p>add-review-modal works!</p>
+<form [formGroup]="addReviewForm">
+  <div class = "modal-title">
+  <img class = "icon-black" src="favicon.ico" alt="icon">
+  <h2 mat-dialog-title>Добавить рецензию</h2>
+  </div>
+  <mat-dialog-content>
+  <mat-form-field>
+   <mat-label>Тип рецензии</mat-label>
+    <mat-select required formControlName="typeReview">
+      <mat-option *ngFor = "let type of types" [value]="type">
+       {{type}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Рецензия</mat-label>
+      <textarea type="text" matInput required formControlName="review"></textarea>
+  </mat-form-field>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button
+      type="button"
+      mat-stroked-button
+      color="primary"
+      [disabled]="!addReviewForm.valid"
+      [mat-dialog-close]="addReviewForm.value"
+    >
+      Добавить рецензию
+    </button>
+    <button
+    mat-stroked-button
+    type="button"
+    color="primary"
+    (click)="onNoClick()">Отмена
+    </button>
+  </mat-dialog-actions>
+</form>

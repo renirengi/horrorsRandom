@@ -68,9 +68,14 @@ export class FilmPageComponent implements OnInit{
 
   }
 
-  public async onReviewUpdate(film: IFilm, user: IUser, review: string) {
+
+  public async showReviewForm(film: IFilm, user: IUser) {
     const dateReview = new Date().toDateString();
-    this.film$ = this.filmService.updateFilmFeedback(film, user.id, { review, dateReview }).pipe(first());
+    const dialogRef = this.dialog.open(AddReviewModalComponent, this.reviewModalConfig);
+    const result: {typeReview:string, review:string } = await firstValueFrom(dialogRef.afterClosed());
+    const { review, typeReview } = result;
+
+    this.film$ = this.filmService.updateFilmFeedback(film, user.id, { review, dateReview, typeReview }).pipe(first());
 
     const { userFilms } = user;
     if (!userFilms?.viewing?.includes(film.id)){
@@ -79,12 +84,6 @@ export class FilmPageComponent implements OnInit{
 
     await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { ...userFilms } }));
 
-  }
-
-  public async showReviewForm() {
-    const dialogRef = this.dialog.open(AddReviewModalComponent, this.reviewModalConfig);
-    const result: {review:string} = await firstValueFrom(dialogRef.afterClosed());
-    console.log (result);
   }
 
 }

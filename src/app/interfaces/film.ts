@@ -21,5 +21,6 @@ export interface IFeedback {
   filmId: number;
   movieRating: number;
   review?: string;
-  dateReview?: string
+  dateReview?: string;
+  typeReview?: string;
 }
