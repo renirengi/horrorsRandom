@@ -1,19 +1,17 @@
 <div *ngFor="let item of _textfeedbackList | async" class="comment-container" [ngClass]="{'good': item.typeReview==='good', 'neutral':item.typeReview==='neutral', 'bad': item.typeReview==='bad'}" routerLink="/users/{{item.id}}">
   <div class="comment-header">
     <div class = "image-title-container" >
-      <img *ngIf="item.avatar" [src]="item.avatar"  />
-      <img *ngIf="!item.avatar" src="https://i.pinimg.com/280x280_RS/04/ff/49/04ff4992f981e4672fa824a6ab6ffea6.jpg" />
-      <span class="comment-title">{{ item.name }}</span>
+      <img [src]="item.urlPoster" routerLink="/catalog/{{item.id}}"/>
+      <div class="comment-title">
+        <span class="border">{{ item.rusTitle }} ({{ item.year }})</span>
+        <span class="italic">{{ item.title}}</span>
+      </div>
     </div>
     <div class = "date-container">
       <span>{{item.dateReview}}</span>
-      <app-users-review-counts [userId]="item.id"></app-users-review-counts>
     </div>
   </div>
   <div class="comment-text">
     <p>{{ item.review }}</p>
   </div>
 </div>
-
-
-

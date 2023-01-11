@@ -62,11 +62,11 @@
       </span>
       </mat-icon>
        Добавить рецензию</button>
-      <app-user-text-review [film]="film"></app-user-text-review>
+      <app-user-text-review [film]="film" [visibility]="visibility"></app-user-text-review>
      </ng-container>
 
      <ng-template #WithoutUser>
-      <app-user-text-review [film]="film"></app-user-text-review>
+      <app-user-text-review [film]="film" [visibility]="visibility"></app-user-text-review>
      </ng-template>
   </div>
 </ng-container>

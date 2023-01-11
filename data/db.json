@@ -22,38 +22,31 @@
       "movieRating": 9,
       "filmId": 31,
       "userId": 1,
-      "id": 3,
-      "review": "Отличный фильм"
+      "id": 3
     },
     {
       "movieRating": 8,
       "filmId": 49,
       "userId": 1,
-      "id": 4,
-      "review": "Отличный фильм"
+      "id": 4
     },
     {
       "movieRating": 4,
       "filmId": 52,
       "userId": 1,
-      "id": 5,
-      "review": "Отличный фильм"
+      "id": 5
     },
     {
       "movieRating": 8,
       "filmId": 8,
       "userId": 1,
-      "id": 6,
-      "review": "Кино для математиков",
-      "dateReview": "Wed Jan 11 2023",
-      "typeReview": "good"
+      "id": 6
     },
     {
       "movieRating": 5,
       "filmId": 56,
       "userId": 1,
-      "id": 7,
-      "review": "Отличный фильм"
+      "id": 7
     },
     {
       "movieRating": 10,
@@ -68,15 +61,13 @@
       "movieRating": 8,
       "filmId": 23,
       "userId": 1,
-      "id": 9,
-      "review": "Отличный фильм"
+      "id": 9
     },
     {
       "movieRating": 8,
       "filmId": 20,
       "userId": 1,
-      "id": 10,
-      "review": "Отличный фильм"
+      "id": 10
     },
     {
       "movieRating": 5,
@@ -84,7 +75,8 @@
       "userId": 1,
       "id": 11,
       "review": "А мне понравилось!",
-      "dateReview": "Tue Jan 10 2023"
+      "dateReview": "Tue Jan 10 2023",
+      "typeReview": "good"
     },
     {
       "movieRating": 3,
@@ -94,6 +86,12 @@
       "review": "Мне не понравилось. Они плохо обращаются с котиком. Да ещё и с черным! ",
       "dateReview": "Wed Jan 11 2023",
       "typeReview": "bad"
+    },
+    {
+      "movieRating": 8,
+      "filmId": 58,
+      "userId": 1,
+      "id": 13
     }
   ],
   "users": [
@@ -124,7 +122,8 @@
           56,
           4,
           20,
-          57
+          57,
+          58
         ]
       }
     },

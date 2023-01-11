@@ -1,37 +1,35 @@
 .comment-container,
 .comment-form-container {
   margin: 4vh auto;
-  width: 45%;
-  border: 2px solid black;
+  width: 60%;
   display: flex;
   flex-wrap: wrap;
-  color:black;
+  color: black;
 
   .comment-header {
     display: flex;
     padding: 2% 2% 2% 2%;
-    width: 100%;
-    border-bottom: grey 2px solid;
+    width: 95%;
 
   .image-title-container,
   .date-container{
     display: flex;
     width: 50%;
-    justify-content: space-between;
 
 
     img {
-      width: 5em;
-      height: 5em;
-      border-radius: 100px;
-      box-shadow: 0 0 0 3px black, 0 0 13px black;
-
+      max-height: 8em;
     }
 
     .comment-title {
-      text-align: center;
-      margin: 1em 0;
-      font-size: 1.5em;
+      display: flex;
+      flex-direction: column;
+      margin: 1em 1em;
+      font-size: 1em;
+
+      .border {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -43,17 +41,15 @@
 }
 
   .comment-text {
-    width: 100;
+    width: 100%;
     padding: 2% 2%;
 
     p {
-      font-size: 1.3em;
+      font-size: 1em;
       text-align: justify;
     }
 
 
   }
+
 }
-
-
-

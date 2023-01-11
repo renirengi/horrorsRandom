@@ -135,22 +135,22 @@ app-footer {
 
     }
 
-    .italic {
+  }}
+   .italic {
       font-style: italic;
       width: 650px;
     }
 
-  }}
+    .good {
+      background-color: #ADDFAD;
+    }
 
-  .good {
-    background-color: #4F7942;
+    .neutral {
+      background-color: #FFEC8B;
+    }
+
+    .bad {
+    background-color: #FDBDBA;
   }
 
-  .neutral {
-    background-color: #464544;
-  }
-
-.bad {
-  background-color: #B32821;
-}
 

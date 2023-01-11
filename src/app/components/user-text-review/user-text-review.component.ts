@@ -20,6 +20,7 @@ export class UserTextReviewComponent implements OnInit {
     this._film = val;
     this._textfeedbackList = this.getFeedbackList();
   }
+  @Input () visibility!: boolean;
   @Output() update = new EventEmitter<string>();
 
   private _film!: IFilm;

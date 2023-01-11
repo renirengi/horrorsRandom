@@ -29,7 +29,8 @@ interface UserRegistrationData {
 })
 export class UserPageComponent implements OnInit {
   public user$: Observable<IUser | null>;
-  public activePage: 'score' | 'veto' = 'score';
+  public activePage: 'score' | 'veto' | 'review' = 'score';
+  public visibility:boolean = false;
 
   constructor(
     private userService: UserService,

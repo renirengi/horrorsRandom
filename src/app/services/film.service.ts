@@ -179,4 +179,12 @@ export class FilmService {
 
     return Object.entries(queryParams).reduce(paramsReducer, {});
   }
+
+  public getFilms(filmsIds: number[]): Observable<Pick<IFilm, 'id'|'rusTitle'|'urlPoster'| 'year'|'title'>[]> {
+    const paramsStr = filmsIds.map(id => `id=${id}`).join('&');
+
+    return this.http.get<IFilm[]>(`${this.baseUrl}?${paramsStr}`).pipe(
+      map((films) => films.map(({id, rusTitle, urlPoster, year, title}) => ({id, rusTitle, urlPoster, year, title})))
+    );
+  }
 }
