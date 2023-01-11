@@ -105,7 +105,7 @@ app-footer {
 }
 
 .kino {
-  background-image: url('./kinopoisk.ico');;
+  background-image: url('./kinopoisk.ico');
 }
 
 .catalog-filter .price,
@@ -141,4 +141,16 @@ app-footer {
     }
 
   }}
+
+  .good {
+    background-color: #4F7942;
+  }
+
+  .neutral {
+    background-color: #464544;
+  }
+
+.bad {
+  background-color: #B32821;
+}
 

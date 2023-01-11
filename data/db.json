@@ -85,6 +85,15 @@
       "id": 11,
       "review": "А мне понравилось!",
       "dateReview": "Tue Jan 10 2023"
+    },
+    {
+      "movieRating": 3,
+      "filmId": 22,
+      "userId": 3,
+      "id": 12,
+      "review": "Мне не понравилось. Они плохо обращаются с котиком. Да ещё и с черным! ",
+      "dateReview": "Wed Jan 11 2023",
+      "typeReview": "bad"
     }
   ],
   "users": [
@@ -131,12 +140,21 @@
     },
     {
       "id": 3,
-      "email": "mau2013@gmail.com",
-      "name": "Маурицио",
+      "email": "maurizio2013@gmail.com",
+      "name": "Maurizio",
       "password": "Maurizio2013",
       "personalData": {
-        "realName": "Император Котовечества Маурицио Первый Котий ",
-        "country": "Грузия"
+        "realName": "Император Котовечества Маурицио Первый Котий",
+        "country": "Грузия",
+        "about": "Я император, а вы челядь. Так-то!"
+      },
+      "userFilms": {
+        "veto": [
+          19
+        ],
+        "viewing": [
+          22
+        ]
       },
       "avatar": "https://gamerwall.pro/uploads/posts/2022-09/1662413950_16-gamerwall-pro-p-kot-v-kostyume-oboi-17.jpg"
     }

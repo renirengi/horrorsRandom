@@ -60,8 +60,10 @@ export class FilmPageComponent implements OnInit{
     this.film$ = this.filmService.updateFilmFeedback(film, user.id, { movieRating }).pipe(first());
 
     const { userFilms } = user;
-    if (!userFilms?.viewing?.includes(film.id)){
+    console.log (user)
+    if (!user.userFilms?.viewing?.includes(film.id)){
       userFilms?.viewing?.push(film.id);
+      console.log (userFilms)
     }
 
     await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { ...userFilms } }));

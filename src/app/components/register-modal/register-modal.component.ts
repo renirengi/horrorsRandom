@@ -70,7 +70,11 @@ export class RegisterModalComponent implements OnInit {
 
     await firstValueFrom(this.userService.addUser({
       ...user,
-      personalData: {}
+      personalData: {},
+      userFilms: {
+        veto: [],
+        viewing: []
+      }
     }));
     this.dialogRef.close();
   }

@@ -3,7 +3,7 @@
   margin: 4vh auto;
   width: 45%;
   border: 2px solid black;
-  background-color: black;
+  ///background-color: black;
   display: flex;
   flex-wrap: wrap;
 
@@ -96,5 +96,17 @@
 
 
   }
+
+  .good {
+    background-color: #4F7942;
+  }
+
+  .neutral {
+    background-color: #464544;
+  }
+
+.bad {
+  background-color: #B32821;
+}
 
 }

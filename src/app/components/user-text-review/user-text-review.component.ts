@@ -27,7 +27,7 @@ export class UserTextReviewComponent implements OnInit {
   public user$: Observable<IUser | null>;
   public comment:string = '';
   public text!: IFeedback[];
-  public _textfeedbackList!: Promise<{name: string, review: string, id: number, avatar?: string, dateReview?: string}[]>;
+  public _textfeedbackList!: Promise<{name: string, review: string, id: number, avatar?: string, dateReview?: string, typeReview?: string}[]>;
 
 
   constructor(
@@ -52,7 +52,7 @@ export class UserTextReviewComponent implements OnInit {
         const userIds = feedbackWithText.map((fb => fb.userId));
         const users = await firstValueFrom(this.userService.getUsers(userIds));
         console.log (feedbackWithText.map((fb, index) => ({...users[index], review: fb.review!})));
-        return feedbackWithText.map((fb, index) => ({...users[index], review: fb.review!, dateReview: fb.dateReview}));
+        return feedbackWithText.map((fb, index) => ({...users[index], review: fb.review!, dateReview: fb.dateReview, typeReview:fb.typeReview }));
       }
     }
 

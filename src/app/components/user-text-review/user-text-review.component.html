@@ -1,4 +1,4 @@
-<div *ngFor="let item of _textfeedbackList | async" class="comment-container" routerLink="/users/{{item.id}}">
+<div *ngFor="let item of _textfeedbackList | async" class="comment-container" [ngClass]="{'good': item.typeReview==='good', 'neutral':item.typeReview==='neutral', 'bad': item.typeReview==='bad'}" routerLink="/users/{{item.id}}">
   <div class="comment-header">
     <div class = "image-title-container">
       <img *ngIf="item.avatar" [src]="item.avatar"  />
