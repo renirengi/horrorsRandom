@@ -23,4 +23,5 @@ export interface IFeedback {
   review?: string;
   dateReview?: string;
   typeReview?: string;
+  dateRating?: string;
 }

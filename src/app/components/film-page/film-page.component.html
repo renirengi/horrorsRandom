@@ -30,7 +30,9 @@
         [alt]="film.title">
         <div class = "film-information-container">
            <div class = "array-container" *ngFor = "let genre of film.genres">
-              <p>{{genre}}</p>
+            <button mat-button
+            (click)="onChange ('genres', genre)">
+             {{genre}}</button>
            </div>
            <p>{{film.plot}}</p>
            <p><span>Режиссёр: </span> {{film.director}}</p>
@@ -39,7 +41,9 @@
               <p>{{film.notes}}</p>
            </div>
            <div class = "array-container" *ngFor = "let country of film.countries">
-              <p>{{country}}</p>
+            <button mat-button
+            (click)="onChange ('countries', country)">
+              {{country}}</button>
            </div>
         </div>
         <div class = "film-link-container">

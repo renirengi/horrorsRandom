@@ -1,8 +1,20 @@
-<ng-container *ngFor="let film of films$ | async">
-  <div class = "collection-film-container">
+<div class="title-header">
+  <div class="title-header-container">
+    <p class="item-number">№</p>
+    <p class="item-title">Название</p>
+    <p class="item-director">Режиссёр</p>
+    <p>Разблокировать</p>
+  </div>
+ </div>
+<ng-container *ngFor="let film of films$ | async; index as i">
+  <div class = "collection-film-container" [ngClass]="{'odd': 1%2==0, 'even': i%2!=0}">
     <div class="title-link" routerLink="/catalog/{{film.id}}">
-     <p>{{ film.rusTitle }} ({{film.year}})</p>
-     <p class = "italic">{{ film.title}}/ {{film.countries[0]}}/ {{ film.director}}</p>
+      <span>{{i+1}}.</span>
+      <div class="title-container">
+       <p>{{ film.rusTitle }} ({{film.year}})</p>
+       <p class = "italic">{{ film.title}}</p>
+      </div>
+      <p class = "director"> реж: {{film.director}}</p>
      <app-veto-button [user]="user" [film]="film"></app-veto-button>
     </div>
   </div>

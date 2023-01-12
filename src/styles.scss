@@ -121,25 +121,51 @@ app-footer {
     display:flex;
     width: 95%;
     align-items: center;
-    justify-content: space-between;
     border: none;
     margin: 0 auto;
-    min-height: 2.2em;
-    font-size: 1.2em;
+    min-height: 2em;
     cursor: pointer;
 
+
+    span {
+      margin: 0 1em;
+      width: 1em;
+    }
+
+    .title-container {
+      display:flex;
+      flex-direction: column;
+
     p {
-      width: 440.5px;
+      width: 30vw;
       text-align: start;
       margin: 0;
-
     }
 
-  }}
-   .italic {
+    .italic {
       font-style: italic;
-      width: 650px;
+      font-size: 1em;
+
     }
+    }
+
+    .director {
+      text-align: start;
+      width: 20vw;
+    }
+
+    .film-rating {
+
+      margin-top: 1em;
+      margin-right: 1em;
+      margin-left: 0.7em;
+      width: 30px;
+      height: 30px;
+      font-size: 1.2em;
+
+    }
+  }}
+
 
     .good {
       background-color: #ADDFAD;
@@ -151,6 +177,36 @@ app-footer {
 
     .bad {
     background-color: #FDBDBA;
+  }
+
+  .title-header {
+    background-color:  #673ab7;
+    height: 2.5em;
+
+    .title-header-container {
+       display: flex;
+       width: 95%;
+       margin: 0 auto;
+       color: white;
+
+
+       p {
+        margin: 0.5em;
+       }
+
+       .item-number {
+        width: 1em;
+        margin: 0.5em 1em;
+       }
+
+       .item-title {
+        width: 44%;
+       }
+
+       .item-director {
+        width: 29%;
+       }
+    }
   }
 
 

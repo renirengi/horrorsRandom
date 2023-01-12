@@ -48,8 +48,8 @@
     </div>
     <div class="user-page-button">
       <button (click)="activePage = 'score'">Оценки</button>
-      <button (click)="activePage = 'veto'" class="purple">Заблокировано</button>
-      <button (click)="activePage = 'review'" class="yellow">Отзывы</button>
+      <button (click)="activePage = 'veto'" class="veto">Заблокировано</button>
+      <button (click)="activePage = 'review'" class="review">Отзывы</button>
     </div>
     <div class="user-page-body viewing-page" *ngIf="activePage === 'score'"><app-viewing-collection [user]="user"></app-viewing-collection></div>
     <div class="user-page-body veto-page" *ngIf="activePage === 'veto'"><app-veto-collection [user]="user" [ngClass]="'active'"></app-veto-collection></div>

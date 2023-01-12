@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { first, firstValueFrom, lastValueFrom, map, Observable, switchMap } from 'rxjs';
 
 import { MatDialog } from '@angular/material/dialog';
@@ -30,6 +30,7 @@ export class FilmPageComponent implements OnInit{
     private filmService: FilmService,
     private userService: UserService,
     public dialog: MatDialog,
+    private router: Router,
   ) {
     const filmId$ = this.activatedRoute.params.pipe(map((params) => params['id']));
 
@@ -56,11 +57,10 @@ export class FilmPageComponent implements OnInit{
   }
 
   public async onMovieRatingUpdate(film: IFilm, user: IUser, movieRating: number) {
-
-    this.film$ = this.filmService.updateFilmFeedback(film, user.id, { movieRating }).pipe(first());
+    const dateRating = new Date().toDateString();
+    this.film$ = this.filmService.updateFilmFeedback(film, user.id, { movieRating, dateRating }).pipe(first());
 
     const { userFilms } = user;
-    console.log (user)
     if (!user.userFilms?.viewing?.includes(film.id)){
       userFilms?.viewing?.push(film.id);
       console.log (userFilms)
@@ -86,6 +86,10 @@ export class FilmPageComponent implements OnInit{
 
     await firstValueFrom(this.userService.updateUser({ ...user, userFilms: { ...userFilms } }));
 
+  }
+
+  public onChange (name:string, values:string) {
+    this.router.navigate(['/catalog'], { queryParams: { [name]: values }});
   }
 
 }

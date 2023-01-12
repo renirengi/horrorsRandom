@@ -43,18 +43,17 @@
     border-top-right-radius: 10px;
     height: 2em;
     font-size: 1.2em;
-    background-color: white;
+    background-color: #DCDCDC;
     cursor: pointer;
     transition: 0.3s;
     }
 
-    .yellow {
-      background-color: #FFCC00;
+    .review {
+      background-color: #9ACEEB;
     }
 
-    .purple {
-      background-color: #673ab7;
-      color:white;
+    .veto {
+      background-color: #CCCCFF;
     }
 
     button:active {
@@ -66,7 +65,7 @@
   .user-page-body {
     width: 85%;
     min-height: 40vh;
-    background-color: #FFCC00;
+    background-color: #9ACEEB;
     margin: 0 auto;
     margin-bottom: 2em;
     border-bottom-left-radius: 20px;
@@ -76,12 +75,11 @@
   }
 
     .user-page-body.veto-page {
-      background-color: #673ab7;
-      color: white;
+      background-color: #CCCCFF;
     }
 
     .user-page-body.viewing-page {
-      background-color: white;
+      background-color: #DCDCDC;
     }
 
 
