@@ -1,4 +1,4 @@
-<ng-container *ngFor="let film of films$ | async; index as i">
+
   <div class="title-header">
   <div class="title-header-container">
     <p class="item-number">№</p>
@@ -9,7 +9,7 @@
   </div>
  </div>
 
-
+<ng-container *ngFor="let film of films$ | async; index as i">
   <div class = "collection-film-container" [ngClass]="{'odd': 1%2==0, 'even': i%2!=0}">
     <div class="title-link" >
      <span>{{i+1}}.</span>
