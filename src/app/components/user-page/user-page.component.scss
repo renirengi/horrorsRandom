@@ -16,12 +16,32 @@
     width: 85%;
     margin: 2em auto;
 
+  h2 {
+    font-family: var(--Forum);
+    font-size: 3em;
+    color: var(--font-gold);
+    font-weight: bold;
+  }
+
+  h2::after {
+    content: '';
+    display: block;
+    padding-bottom: 11px;
+    margin-bottom: 10px;
+    width: 81%;
+    border-bottom: 4px solid var(--dark-red);;
+    transition: all 0.3s ease;
+  }
+
+  h2:hover:after {
+    width: 100%;
+  }
+
   img {
     height: 200px;
     width: 200px;
     border-radius: 100px;
     box-shadow: 0 0 0 3px white, 0 0 13px white;
-
   }
 
   .user-page-right {
@@ -42,7 +62,9 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 2em;
-    font-size: 1.2em;
+    font-size: 1.5em;
+    font-family: var(--Forum);
+    font-weight: bold;
     background-color: #DCDCDC;
     cursor: pointer;
     transition: 0.3s;

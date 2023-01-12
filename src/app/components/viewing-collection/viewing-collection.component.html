@@ -16,7 +16,7 @@
       <p>{{ film.rusTitle }} ({{film.year}})</p>
       <p class = "italic">{{ film.title}}</p>
      </div>
-     <p class = "director"> реж: {{film.director}}</p>
+     <p class = "director">{{film.director}}</p>
      <p class = "film-rating">{{film.rating}}</p>
       <div class = "rating-container">
       <app-user-rating [userId]="user.id" [filmId]="film.id" [visibility]="visibility"></app-user-rating>

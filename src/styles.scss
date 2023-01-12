@@ -1,5 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --lime: rgba(207, 194, 80, 1);
+  --purple: #673ab7;
+  --dark-red: #710707;
+  --font-gold: #9d8665;
+  --cream-pink: #eec5c5;
+  --Cinzel: 'Cinzel', serif;///заголовок
+  --Bona: 'Bona Nova', serif;///база
+  --Caveat: 'Caveat', cursive;
+  --Forum: 'Forum', cursive;
+
+}
+
 html, body {
   height: 100%;
   color: white;
@@ -10,7 +23,6 @@ html, body {
 
 body {
   margin: 0;
-   font-family: Roboto, "Helvetica Neue", sans-serif;
 
 
 app-header,
@@ -75,7 +87,7 @@ app-footer {
     padding-bottom: 11px;
     margin-bottom: 10px;
     width: 81%;
-    border-bottom: 3px solid #673ab7;;
+    border-bottom: 3px solid var(--purple);;
     transition: all 0.3s ease;
   }
 
@@ -151,14 +163,13 @@ app-footer {
 
     .director {
       text-align: start;
-      width: 20vw;
+      width: 18vw;
     }
 
     .film-rating {
-
       margin-top: 1em;
       margin-right: 1em;
-      margin-left: 0.7em;
+      //margin-left: 0.7em;
       width: 30px;
       height: 30px;
       font-size: 1.2em;
@@ -180,14 +191,17 @@ app-footer {
   }
 
   .title-header {
-    background-color:  #673ab7;
+    background-color:  var(--font-gold);
     height: 2.5em;
 
     .title-header-container {
        display: flex;
        width: 95%;
        margin: 0 auto;
-       color: white;
+       color: black;
+       font-family: var(--Forum);
+       font-size: 1.5em;
+       font-weight: bold;
 
 
        p {
@@ -196,7 +210,7 @@ app-footer {
 
        .item-number {
         width: 1em;
-        margin: 0.5em 1em;
+        margin: 0.5em 0.3em;
        }
 
        .item-title {
@@ -204,7 +218,7 @@ app-footer {
        }
 
        .item-director {
-        width: 29%;
+        width: 20%;
        }
     }
   }
