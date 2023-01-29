@@ -12,9 +12,17 @@ import { UserService } from 'src/app/services/user.service';
 export class FilmsListComponent implements OnInit {
  @Input() films!: IFilm[];
 
+ public currentFilms!: IFilm[];
+ public previousFilms!: IFilm[];
+ public nextFilms!: IFilm[];
+
   constructor() {}
 
   ngOnInit(): void {
+
+    /*this.currentFilms = this.films.splice(0,6);
+    console.log (this.currentFilms, this.previousFilms);*/
+
   }
 
 }

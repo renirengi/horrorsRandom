@@ -65,17 +65,17 @@
     font-size: 1.5em;
     font-family: var(--Forum);
     font-weight: bold;
-    background-color: #DCDCDC;
+    background-color: var(--gainsboro);
     cursor: pointer;
     transition: 0.3s;
     }
 
     .review {
-      background-color: #9ACEEB;
+      background-color: var(--cream-pink);
     }
 
     .veto {
-      background-color: #CCCCFF;
+      background-color: var(--tan);
     }
 
     button:active {
@@ -87,7 +87,7 @@
   .user-page-body {
     width: 85%;
     min-height: 40vh;
-    background-color: #9ACEEB;
+    background-color: var(--cream-pink);
     margin: 0 auto;
     margin-bottom: 2em;
     border-bottom-left-radius: 20px;
@@ -97,11 +97,11 @@
   }
 
     .user-page-body.veto-page {
-      background-color: #CCCCFF;
+      background-color: var(--tan);
     }
 
     .user-page-body.viewing-page {
-      background-color: #DCDCDC;
+      background-color: var(--gainsboro);
     }
 
 

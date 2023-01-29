@@ -4,7 +4,11 @@
   --lime: rgba(207, 194, 80, 1);
   --purple: #673ab7;
   --dark-red: #710707;
+  --old-silver: #828282;
+  --gainsboro:#DCDCDC;
   --font-gold: #9d8665;
+  --tan: #D2B48C;
+  --pale-brown: #987654;
   --cream-pink: #eec5c5;
   --Cinzel: 'Cinzel', serif;///заголовок
   --Bona: 'Bona Nova', serif;///база
@@ -19,10 +23,12 @@ html, body {
   background-image: url('./assets/background.jpeg');
   background-size: cover;
   background-repeat: repeat;
+
 }
 
 body {
   margin: 0;
+
 
 
 app-header,
@@ -127,55 +133,40 @@ app-footer {
 }
 
 .collection-film-container {
-  display: flex;
-
-  .title-link {
-    display:flex;
-    width: 95%;
-    align-items: center;
-    border: none;
-    margin: 0 auto;
-    min-height: 2em;
-    cursor: pointer;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 
 
-    span {
-      margin: 0 1em;
-      width: 1em;
-    }
+  th {
+    background-color:  var(--font-gold);
+    font-family: var(--Forum);
+    font-size: 1.5em;
+    height: 1.5em;
+    padding: 0.5em 0;
+  }
 
-    .title-container {
-      display:flex;
-      flex-direction: column;
+  tr {
+  font-size: 1.2em;
+  font-family: var(--Bona);
+
+   td {
+   padding: 0.3em 0;
+   }
+   .td-start {
+    text-align: start;
+    padding-left: 0.5em;
 
     p {
-      width: 30vw;
-      text-align: start;
-      margin: 0;
+      margin:0;
     }
+   }
 
-    .italic {
-      font-style: italic;
-      font-size: 1em;
-
-    }
-    }
-
-    .director {
-      text-align: start;
-      width: 18vw;
-    }
-
-    .film-rating {
-      margin-top: 1em;
-      margin-right: 1em;
-      //margin-left: 0.7em;
-      width: 30px;
-      height: 30px;
-      font-size: 1.2em;
-
-    }
-  }}
+  }
+  }
+  .italic {
+    font-style: italic;
+  }
 
 
     .good {
@@ -190,37 +181,14 @@ app-footer {
     background-color: #FDBDBA;
   }
 
-  .title-header {
-    background-color:  var(--font-gold);
-    height: 2.5em;
-
-    .title-header-container {
-       display: flex;
-       width: 95%;
-       margin: 0 auto;
-       color: black;
-       font-family: var(--Forum);
-       font-size: 1.5em;
-       font-weight: bold;
-
-
-       p {
-        margin: 0.5em;
-       }
-
-       .item-number {
-        width: 1em;
-        margin: 0.5em 0.3em;
-       }
-
-       .item-title {
-        width: 44%;
-       }
-
-       .item-director {
-        width: 20%;
-       }
-    }
+  app-veto-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 0;
   }
+
+
+
 
 

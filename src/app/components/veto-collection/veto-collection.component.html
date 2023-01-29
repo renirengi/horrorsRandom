@@ -1,21 +1,16 @@
-<div class="title-header">
-  <div class="title-header-container">
-    <p class="item-number">№</p>
-    <p class="item-title">Название</p>
-    <p class="item-director">Режиссёр</p>
-    <p>Разблокировать</p>
-  </div>
- </div>
-<ng-container *ngFor="let film of films$ | async; index as i">
-  <div class = "collection-film-container" [ngClass]="{'odd': 1%2==0, 'even': i%2!=0}">
-    <div class="title-link" routerLink="/catalog/{{film.id}}">
-      <span>{{i+1}}.</span>
-      <div class="title-container">
-       <p>{{ film.rusTitle }} ({{film.year}})</p>
-       <p class = "italic">{{ film.title}}</p>
-      </div>
-      <p class = "director"> реж: {{film.director}}</p>
-     <app-veto-button [user]="user" [film]="film"></app-veto-button>
-    </div>
-  </div>
-</ng-container>
+<table class="collection-film-container">
+  <th>№</th>
+  <th>Название</th>
+  <th>Режиссёр</th>
+  <th>Разблокировать</th>
+
+  <ng-container *ngFor="let film of films$ | async; index as i">
+    <tr [ngClass]="{'odd': 1%2==0, 'even': i%2!=0}">
+      <td>{{ i+1 }}</td>
+      <td class="td-start"> <p>{{film.rusTitle}}</p><p class="italic">{{ film.title }}</p></td>
+      <td>{{ film.director }}</td>
+      <app-veto-button [user]="user" [film]="film"></app-veto-button>
+    </tr>
+  </ng-container>
+
+</table>
