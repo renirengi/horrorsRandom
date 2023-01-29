@@ -104,6 +104,34 @@
       "userId": 1,
       "id": 13,
       "dateRating": "Thu Oct 6 2022"
+    },
+    {
+      "movieRating": 4,
+      "dateRating": "Mon Jan 30 2023",
+      "filmId": 55,
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "movieRating": 7,
+      "dateRating": "Mon Jan 30 2023",
+      "filmId": 59,
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "movieRating": 6,
+      "dateRating": "Mon Jan 30 2023",
+      "filmId": 60,
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "movieRating": 4,
+      "dateRating": "Mon Jan 30 2023",
+      "filmId": 61,
+      "userId": 1,
+      "id": 17
     }
   ],
   "users": [
@@ -135,7 +163,11 @@
           4,
           20,
           57,
-          58
+          58,
+          55,
+          59,
+          60,
+          61
         ]
       }
     },
@@ -1299,6 +1331,146 @@
       ],
       "plot": "Во время лекции на конгрессе парапсихологов женщина, читавшая лекцию и угадывавшая имена присутствующих в зале и что у них в кармане, забилась в припадке, утверждая, что в зале смерть, что она видит ужасное убийство на вилле, что она слышит детскую песенку. И в ту же ночь ее зверски зарезал огромным тесаком человек в плаще, которого видел джазовый пианист. Невольно пианист втягивается в эту историю и начинает собственное расследование.",
       "url": "https://www.kinopoisk.ru/film/139048/",
+      "notes": ""
+    },
+    {
+      "id": 59,
+      "title": "Friday the 13th",
+      "rusTitle": "Пятница 13-е",
+      "director": " Шон С. Каннингэм",
+      "trailer": "https://www.youtube.com/embed/mwmhc9PXL8c",
+      "year": "1980",
+      "rating": 6,
+      "urlPoster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/6a81dbf8-6188-4864-b869-505ac06d37c7/1920x",
+      "countries": [
+        "США"
+      ],
+      "genres": [
+        "Слэшер"
+      ],
+      "plot": "Их предупреждали... Их прокляли... В пятницу 13-го их уже ничего не спасёт. Уютный лагерь «Хрустальное озеро» вновь открывается! Вожатые ожидают летнюю смену, приготовив для юных гостей увлекательные мероприятия и забавные игры. Правда, появилась новая игра, о которой вожатые ещё не знают, и она будет пользоваться большой популярностью в этом сезоне. Игра называется «Убей вожатого!».",
+      "url": "https://www.kinopoisk.ru/film/23922/",
+      "notes": "Первая часть франшизы"
+    },
+    {
+      "id": 60,
+      "title": "Leviathan",
+      "rusTitle": "Левиафан",
+      "director": " Джордж П. Косматос",
+      "trailer": "https://www.youtube.com/embed/u4ugObcErgc",
+      "year": "1989",
+      "rating": 6,
+      "urlPoster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/6dec2a3e-4600-4e56-a49a-e426a05bf271/1920x",
+      "countries": [
+        "США",
+        "Италия"
+      ],
+      "genres": [
+        "Морские чудища",
+        "Эпидемия"
+      ],
+      "plot": "Во время вахтенных работ по добыче руды на пятикилометровой глубине в Атлантике один из техников находит затонувшее русское судно. Вскоре выясняется, что на судне велись секретные эксперименты.\n\nВ сейфе, принесенном из корабля на подводную базу шахтеров, находятся записи о таинственной болезни, поразившей весь экипаж корабля. Вскоре один из шахтеров умирает и мутирует в жуткое чудовище, которое начинает уничтожать все живое на своем пути...",
+      "url": "https://www.kinopoisk.ru/film/24110/",
+      "notes": ""
+    },
+    {
+      "id": 61,
+      "title": "Black Christmas",
+      "rusTitle": "Чёрное рождество",
+      "director": " Боб Кларк",
+      "trailer": "https://www.youtube.com/embed/k6JuJHmVsh4",
+      "year": "1974",
+      "rating": 6,
+      "urlPoster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/1b08925a-b031-4f80-8da4-563b59205ff0/1920x",
+      "countries": [
+        "Канада"
+      ],
+      "genres": [
+        "Детектив",
+        "Слэшер",
+        "Триллер"
+      ],
+      "plot": "Университетский городок Бедфорда. Студентки готовятся отправиться на зимние рождественские каникулы. Барб просит своих подруг Джесс и Фил остаться с ней на несколько дней, чтобы покататься на лыжах. В доме звонит телефон. Барб берет трубку, но на том конце провода никто не отвечает. Потом мужской голос смеется и говорит разные непристойности. Барб обзывает говорящего, на что тот отвечает, что убьет ее. Барб бросает трубку. Именно после этого звонка девушки из университетского городка начинают потихоньку погибать одна за одной, до утра дотянут немногие.",
+      "url": "https://www.kinopoisk.ru/film/29836/",
+      "notes": "Есть два ремейка"
+    },
+    {
+      "id": 62,
+      "title": "Deep Rising",
+      "rusTitle": "Подъём с глубины",
+      "director": " Стивен Соммерс",
+      "trailer": "https://www.youtube.com/embed/gVFEVXIyu00",
+      "year": "1998",
+      "rating": 7,
+      "urlPoster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/4e354103-7335-46f2-a4e5-504751399760/1920x",
+      "countries": [
+        "США",
+        "Канада"
+      ],
+      "genres": [
+        "Морские чудища"
+      ],
+      "plot": "Банда наемников отправляется на перехват океанского пассажирского лайнера с целью захвата драгоценностей и денег. Вооруженные до зубов, они рассчитывают на успех этой тщательно спланированной операции.\n\nНо боевая уверенность захватчиков сменяется ужасом перед небывалыми чудовищами, устроившими пир на корабле! У этих монстров здесь не было противников! И кровь тысяч людей не смогла утолить их жажду!",
+      "url": "https://www.kinopoisk.ru/film/3551/",
+      "notes": ""
+    },
+    {
+      "id": 63,
+      "title": "Below",
+      "rusTitle": "Глубина",
+      "director": " Дэвид Туи",
+      "trailer": "https://www.youtube.com/embed/jPi19Vzr9vk",
+      "year": "2002",
+      "rating": 7,
+      "urlPoster": "https://kinopoisk-ru.clstorage.net/16y4Q1Q62/7eb70a0qVT/s6CIcJ3xbX_hcoQ2ktq9i6JQRlQ-H7NVEriKPXYcYDR5lwKSXYmPTp5KhEyv4_IddBMPbt1pyEle_YtHz5nsH_GjnSfC4yF04SySdsWA7Yy7HUtTeAP7AV-n0SxHLFEaUrsm7X2jp2eMEsJb9LqrSjxTUyTXJI4JYsGGd9Os6WWTia1IgeEHf8xR0COm7ruFrzFQegBRhHsA8q8AbSNqCXiTPMZ2taVovT3TJM6YqVwbUHkY8nibLFr1wFTsl-x0trOtfajXGXvka8IcvvKjuKIyf30lWLh_P-OkGnk2dA5zpSPuWoqbU4wO1gb8ipZQIllgOs9kqRls-eNr5q_aX5WopmuY2AdY6G3NKovir4eqGGtnIV6ddhfisQRSI1M-XKUOx02ovF-MN9I9yZqtaChlTxbPeZUvUNfwcuOt-WuMjrRWovMaYOBmwTufwZudkg5hdidCgXo31oklUD15I0ChDs1RjK1cmAvhLMqyn2w7U3U6xWeEEl751Xf8uulrjYibZK7OL3ftVOsskP2tm5MIR3Q7WrxjM8yFLG4YQSF7kAHOfrCUSLISxiHGnY5zGVJrJOxmiRdv8etV5JzsU5Sbv3KV8yZW0UTGJpz5m4m-MEtcJWK2SSfCsAVzInYdSr0a3EaInV-MIPQY06mPRhltVzzuXpk9R8bAafyc8nGSi4VejOggZfJV7yyJ4Z6asxtyfx1ZkXMozJANVxd7E0SGBNxunI1wqzLwOcq-hEQIXmoF-1y-BWzK_kTit8thiauEQIHBJnHIRuk3uuSJp4kvYnQrcb18BcaHH3sqUg1Ziz3PRK-BSq8q3jLZm4pcCX9CDclYvTR26MJt2JDJXLWVr3iN1TVk71nsB5H6jrybJ19gJGi4Zg_7hhliMXc8VrI92U63nkKBKP4U97aXZjxGQibuW4wud8jxYf--_kqPu7NBqekLVOxX2wel_7qtsCdhYBhqgkoC4o06USlRGEamPc5_vo9vlRXgMvyUpFQgRVsE92G5JVLzz1fDuuJRsZGaVI7lCVzoa9wjifmdgJMXQ2I9Yr1BLcaVMms2egFmlBHefIGCTb8mzxbllpRzAFtDGc9mqTh38_BL_L_EVKGMlleM7TpAx3f_HZDfrpSVMFpJL1KGYTPShh9SJkE0YrA_72GqqHi0IOUyzpmmbS90cw7OR5gkcejER-yQ00SHl79UtsAvWv1AxBqA84qLqhpZfRJ-jloX_ZgFbSN2HXeCCM5anqBOgxfAGdK9inMpWUAm_maGNHrfwEPdrfx8ro-aWajrD3HWZNgFkfiTobgZWUgNQqZWP9iOJWs1Vj1llA3rU46kfbE23DjWh7ZCP2xYJPZnqgVe1Mh36ZfNR5ytj1CK5yR77kjbNbbTlImfGlxiBXSARSLlsRZVJ0oWdo8-9VmRqECrLtAd-rW2bilfdyXPXrc3afXRRP-lwnSAkK5DrdIJauNt-zuX07KKrTJFfh5Uunck4Y4YdwlGFFaJHMV-lqFFjyf6APqgg0Y7eFYw6Um3GG_7yF_alMJ-v6OxeIvvAkv8cOscgMKDvo8aXEYcUr9nA82QInIjQApyjTD1dq-eS6gM0T7dgKNtGUpROMZLthp79NN36aXHZq6xuUSk8Dtx0HTDCrTkoKCiEUZaGmSSZD_kgh59NWUXapMM3l-RvG6OMPkZyKG3RyVKYCPRS4sSWsbLSv6O5EqdsptSidQhVeNx7gam85i-gjxZcgh9hnMs1qUgcwtaA3G2P9pnoKtCuSPzAfepknUWc0gOy2GtBXrR_HPikcNBrruaX5f2O1XWR9w3mey9jZ85TFcpUYZjD9uIOGIKYhppgQvLQry9bogn_BHrvp9ULUVKFdB6iBRy981C5qnwQ6GXnlWkyydY0Eb8OKb_raqcOUVYIXu_XRHery1VG1waY5Il-1WKnEC1I8079aqiUyR2dwPNaLUFd-jSVc-c_2ipmI9coe8be_VIyDe244G4lTZBUzJGmngPxa8SUwRXHGCJL8pjvpdsnhDxAfuJgWcIRFQB71uYLm327k74kOF7v6OdcJ70D3nRTuUKh_CWprwUfXUiSp9fMtOOGnsdcRxYpRr7eJSUXp0zxznah6lmIXNwAf1ekCtLx85MzIrIRraNqEej1gp_ynD6OrDjo6OXB0NSPkW-YTbepD1LIGkVSqAPxna1o02TDuc36qWiUTtyXDrvXK8oc_bATcCWwV-iq7JDjfQtXs504TmawYmEuBt5cyx_slsW84kzSBRKNFuPI-x8rqtzjh_gO8iaik0raE490WyNLVr66HbMm9t9k7iNVKzHDkrXY8gJi9CjhbMIRVgfc753FeGbEV8-aQ9_jgTMWY6pRowU5xbJhrBoCW5fBt5GsARzytdCxITmUJGrq1qA6ghA_WvNKYX2mrqpJ2pzJVaTaCHAsjlSN3IiaaYT-lGtr1C_A9829bytUzl5TzL5eqgVUNXjX_qV43ippqR6q_oUWPBI_Tm70Z6PvTJvUD52o2EowIU5QDxINkGGAtZQgIFZoS7AAMybiHYve0oP11qWDnzqy1Dam9p8o5CSX6XbF3D0aPIFmcy-j509XF8dWLBgEPCIA3Awdyt5hRn6W6qlfbUH8RPZlqFSOndeD8R_nxhJ6Ox184zkW66TtUG3zBFn6m79DrT2gLaMGWp3DlmnSArduDtyBHUIWrwPyF-nr0CNNvcS9oWoXB1kUxbpXYo0R9z1bNm_22SziJdmqskUVMdX2T-d8Jyfkjh5YgVBpVw_-qkRQDpzI0KnINJYgYtcrwTQEfa2jkc-S2MA8miMJFLd_3_Yrsl6sqqlUIvpFX3RZ9omn82cvJcMcFwyXYVXA_GJPHQFXTRRoB_MTZ6UXJQi_A38i4hkFExbDtVEmxNc8MFB65n9d62YmVK40TVT1UfrAbr-tYCrMGFrLFK7fQ_QuBxQHmkLUogo52GKvWWPDP4i8JmxXzx1bznqcJ4qVOc",
+      "countries": [
+        "США",
+        "Великобритания"
+      ],
+      "genres": [
+        "Потусторонние существа",
+        "Призрак"
+      ],
+      "plot": "Разгар Второй мировой войны. Американская подводная лодка «Тигровая акула», посланная на выручку оставшимся в живых членам экипажа британского плавучего госпиталя, вынуждена скрываться на глубине от шныряющих ближе к поверхности немецких субмарин.\n\nУходя ближе ко дну, подводники обнаруживают, что там, внизу, есть еще что-то - явно не нацистские судна, нечто необъяснимое и, возможно, сверхъестественное.",
+      "url": "https://www.kinopoisk.ru/film/13148/",
+      "notes": ""
+    },
+    {
+      "id": 64,
+      "title": "The Abyss",
+      "rusTitle": "Бездна",
+      "director": "Джеймс Кэмерон",
+      "trailer": "https://www.youtube.com/embed/4zbpL3LeW7k",
+      "year": "1989",
+      "rating": 8,
+      "urlPoster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/176d0eaf-fa2a-4c16-b3b9-18b46eb66b9d/1920x",
+      "countries": [
+        "США"
+      ],
+      "genres": [
+        "Морские чудища"
+      ],
+      "plot": "Атомная подводная лодка «Монтана» ВМФ США терпит крушение на большой глубине. Министерство просит помощи у специалистов подводной исследовательской станции, работающей неподалеку от места аварии. При поддержке четырех военных разведчиков исследователи должны выяснить возможную причину трагедии и нейтрализовать ядерные боеголовки. Но в океанской бездне им предстоит столкнуться с неведомым.",
+      "url": "https://www.kinopoisk.ru/film/2342/",
+      "notes": ""
+    },
+    {
+      "id": 65,
+      "title": "Sphere",
+      "rusTitle": "Сфера",
+      "director": " Барри Левинсон",
+      "trailer": "https://www.youtube.com/embed/GJvKLetIV20",
+      "year": "1998",
+      "rating": 7,
+      "urlPoster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/a062f4b4-c532-4572-bbad-73c9908669a3/1920x",
+      "countries": [
+        "США"
+      ],
+      "genres": [
+        "Инопланентные гости"
+      ],
+      "plot": "На дне океана найден космический корабль. Рядом с находкой сооружается подводная станция, и на нее прибывает команда ученых-специалистов: доктор Норман Гудмэн, доктор Элизабет Гальперин, доктор Гарри Эдамс, доктор Тэд Филдинг и другие коллеги. Возглавляет отряд капитан Хэролд Барнс. Вскоре ученые обнаруживают внутри корабля гигантский блестящий шар. Им удается проникнуть внутрь сферы, хотя никаких дверей или каких-либо иных проемов не наблюдалось. После этого начались кошмары...",
+      "url": "https://www.kinopoisk.ru/film/4003/",
       "notes": ""
     }
   ]
