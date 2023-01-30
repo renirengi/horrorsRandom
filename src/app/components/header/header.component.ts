@@ -62,7 +62,6 @@ export class HeaderComponent implements OnInit {
   }
 
   public onClean() {
-    console.log('clean')
     this.router.navigate(['/catalog']);
   }
 

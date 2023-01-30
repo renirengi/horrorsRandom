@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { IFilm } from 'src/app/interfaces/film';
 import { FilmService } from 'src/app/services/film.service';
- import { SettingModalComponent } from '../setting-modal/setting-modal.component';
+import { SettingModalComponent } from '../setting-modal/setting-modal.component';
 import { IUser } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -44,7 +44,6 @@ export class MainComponent implements OnInit {
       param = result.tag.concat().toString().replace(/,/g, '&');
       this.films = await lastValueFrom(this.filmService.findFilmsByParamsWithUserParams(param, user));
     }
-    console.log(result.tag)
     param = result.tag.concat().toString().replace(/,/g, '?');
     this.films = await lastValueFrom(this.filmService.findFilmsByParams(param));
     this.checkFilters = true;
@@ -61,6 +60,7 @@ export class MainComponent implements OnInit {
       this.films = await lastValueFrom(this.filmService.getAllFilms());
     }
   }
+    console.log(this.films);
     let rand = Math.floor(Math.random() * this.films.length);
     this.randomFilm = this.films[rand];
   }

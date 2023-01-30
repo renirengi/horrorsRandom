@@ -13,6 +13,7 @@ export interface IFilm {
  notes?: string,
  rating:number,
  feedback?: IFeedback[];
+ userId: number
 }
 
 export interface IFeedback {

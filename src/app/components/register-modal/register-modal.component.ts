@@ -71,6 +71,7 @@ export class RegisterModalComponent implements OnInit {
     await firstValueFrom(this.userService.addUser({
       ...user,
       personalData: {},
+      rules: "user",
       userFilms: {
         veto: [],
         viewing: []

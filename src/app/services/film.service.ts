@@ -68,7 +68,6 @@ export class FilmService {
 
   public addFilm(film: IFilm): any {
     const url = `${this.baseUrl}`;
-    console.log (film)
 
     return this.http.post<IFilm>(url, {...film});
   }

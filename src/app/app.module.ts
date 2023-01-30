@@ -46,6 +46,7 @@ import { UserTextReviewComponent } from './components/user-text-review/user-text
 import { UsersReviewCountsComponent } from './components/users-review-counts/users-review-counts.component';
 import { AddReviewModalComponent } from './components/add-review-modal/add-review-modal.component';
 import { FilmTextReviewComponent } from './components/film-text-review/film-text-review.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { FilmTextReviewComponent } from './components/film-text-review/film-text
     UsersReviewCountsComponent,
     AddReviewModalComponent,
     FilmTextReviewComponent,
+    AdminPageComponent,
 
   ],
   imports: [

@@ -6,6 +6,7 @@ export interface IUser {
   email: string;
   userFilms?: IUserFilms;
   personalData: IPersonalData;
+  rules: string;
 }
 
 export interface IUserFilms {

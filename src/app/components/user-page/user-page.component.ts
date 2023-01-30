@@ -6,6 +6,7 @@ import { IUser } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 import { UserInformationModalComponent } from '../user-information-modal/user-information-modal.component';
 import { ChangeRegistrationModalComponent } from '../change-registration-modal/change-registration-modal.component';
+import { Router } from '@angular/router';
 
 interface UserFormData {
   avatar: string;
@@ -33,6 +34,7 @@ export class UserPageComponent implements OnInit {
   public visibility:boolean = false;
 
   constructor(
+    private router: Router,
     private userService: UserService,
     public dialog: MatDialog,
   ) {
@@ -66,6 +68,10 @@ export class UserPageComponent implements OnInit {
     const personalData = { ...user.personalData, realName, country, phone, about, link };
 
     return { ...user, personalData, avatar };
+  }
+
+  public goToAdminPage() {
+    this.router.navigate(['/admin'])
   }
 
 }
