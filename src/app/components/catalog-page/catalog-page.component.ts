@@ -9,6 +9,7 @@ import { IUser } from 'src/app/interfaces/user';
 import { FilmService } from 'src/app/services/film.service';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { BufferService } from 'src/app/services/buffer.service';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class CatalogPageComponent implements OnInit {
     private filmService: FilmService,
     private userService: UserService,
     public dialog: MatDialog,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private buffer: BufferService
   ) {
     this.user$ = this.userService.currentUser$;
     this.films$ = this.route.queryParams.pipe(
@@ -47,7 +49,7 @@ export class CatalogPageComponent implements OnInit {
     const {title, rusTitle, director, trailer, year, rating, urlPoster, countries, genres, plot, url, notes} = result;
     const newFilm = {id:0, userId:user.id, title, rusTitle, director, trailer, year, rating, urlPoster, countries, genres, plot, url, notes};
 
-    await firstValueFrom(this.filmService.addFilm(newFilm))// Перенести на страницу админки
+    await firstValueFrom(this.buffer.addBufferFilm(newFilm));
   }
 
 }
