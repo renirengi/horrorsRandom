@@ -1,15 +1,13 @@
 <div *ngIf="film">
-  <div class="film-container" ngClass="film-card">
+  <button class="film-buffer-container" ngClass="film-card" (click)="goToBufferFilmPage()">
 
     <img
       class="catalog-image"
       [src]="film.urlPoster"
       [alt]="film.title"
-      routerLink="/catalog/{{ film.id }}"
     />
     <p class="film-title">
       {{ film.rusTitle | uppercase }} <span>({{ film.year }})</span>
     </p>
-      <p>{{film.userId}}</p>
-  </div>
+  </button>
 </div>

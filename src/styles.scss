@@ -201,7 +201,8 @@ app-footer {
   border-radius: 20px;
   background-color: #1D1E33;
 }
-  .film-container {
+  .film-container,
+  .film-buffer-container {
     text-align: center;
     height: 360px;
 
@@ -217,6 +218,7 @@ app-footer {
     font-weight: bold;
     margin: 0 auto;
     width: 240px;
+    color: white;
 
   }
   }
