@@ -21,7 +21,6 @@ export class AdminPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    //this.newFilms = this.filmService.newFilm;
 
   }
 

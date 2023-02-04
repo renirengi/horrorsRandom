@@ -1,5 +1,5 @@
 <div class="admin-page">
   <div class="new-film-container"*ngIf="newFilms$ |async as films">
-    <app-films-list *ngIf="films" [films] ="films"></app-films-list>
+    <app-buffer-film-list *ngIf="films" [films] ="films"></app-buffer-film-list>
   </div>
 </div>

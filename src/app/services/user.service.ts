@@ -43,11 +43,15 @@ export class UserService {
       return this.http.get<IUser[]>(`${this.baseUrl}?name=${name}`);
     }
 
+    public findUserById(id: number): Observable<IUser> {
+      return this.http.get<IUser>(`${this.baseUrl}?id=${id}`);
+    }
+
     public updateUser(user: IUser) {
       const url = `${this.baseUrl}/${user.id}`;
 
       return this.http.patch<IUser>(url, user).pipe(
-        tap((user)=> this._currentUser$.next(user))
+        tap((user:IUser)=> this._currentUser$.next(user))
       );
     }
 

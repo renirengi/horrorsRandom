@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { BufferFilmPageComponent } from './components/buffer-film-page/buffer-film-page.component';
 import { CatalogPageComponent } from './components/catalog-page/catalog-page.component';
 import { FilmPageComponent } from './components/film-page/film-page.component';
 import { MainComponent } from './components/main/main.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
     }
   },
   { path: 'catalog/:id', component: FilmPageComponent },
+  { path: 'admin/:id', component: BufferFilmPageComponent },
   { path: 'admin', component: AdminPageComponent, canActivate: [AdminGuardGuard] },
 
 ];

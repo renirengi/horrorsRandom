@@ -47,6 +47,9 @@ import { UsersReviewCountsComponent } from './components/users-review-counts/use
 import { AddReviewModalComponent } from './components/add-review-modal/add-review-modal.component';
 import { FilmTextReviewComponent } from './components/film-text-review/film-text-review.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { BufferFilmPageComponent } from './components/buffer-film-page/buffer-film-page.component';
+import { BufferFilmListComponent } from './components/buffer-film-list/buffer-film-list.component';
+import { BufferFilmCardComponent } from './components/buffer-film-card/buffer-film-card.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +80,9 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
     AddReviewModalComponent,
     FilmTextReviewComponent,
     AdminPageComponent,
+    BufferFilmPageComponent,
+    BufferFilmListComponent,
+    BufferFilmCardComponent,
 
   ],
   imports: [
