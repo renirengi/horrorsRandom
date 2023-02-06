@@ -36,10 +36,12 @@ export class BufferFilmPageComponent implements OnInit {
     const newFilm = {id:0, userId:film.userId, title:film.title, rusTitle:film.rusTitle, director:film.director, trailer:film.trailer, year:film.year, rating:film.rating, urlPoster:film.urlPoster, countries:film.countries, genres:film.genres, plot:film.plot, url:film.url, notes:film.notes, filmDate:film.filmDate};
     await firstValueFrom(this.filmService.addFilm(newFilm));
     this.deleteFilm(film);
+    this.router.navigate(["/admin"]);
   }
 
   public async deleteFilm(film:IFilm) {
-    await  firstValueFrom(this.buffer.deleteBufferFilmByID(film.id))
+    await  firstValueFrom(this.buffer.deleteBufferFilmByID(film.id));
+    this.router.navigate(["/admin"]);
   }
 
   public async fixFilm(film:IFilm) {
@@ -49,11 +51,16 @@ export class BufferFilmPageComponent implements OnInit {
     const result = (await firstValueFrom(dialogRef.afterClosed())) as IFilm;
 
     if (result) {
-      const { title, rusTitle, trailer, year, director, urlPoster, countries, genres, plot, url, notes, rating} = result;
-      await firstValueFrom(this.buffer.updateBufferFilm({ ...film, title, rusTitle, trailer, year, director, urlPoster, countries, genres, plot, url, notes, rating }));
+      await firstValueFrom(this.buffer.updateBufferFilm(this.getUpdatedBuffer(film,result)));
     }
 
-    this.router.navigate([`/admin/${film.id}`]);
+    this.router.navigate([`/admin`]);
+  }
+
+  public getUpdatedBuffer(film: IFilm, result:IFilm): IFilm {
+    const { title, rusTitle, trailer, year, director, urlPoster, countries, genres, plot, url, notes, rating} = result;
+
+    return { ...film, title, rusTitle, trailer, year, director, urlPoster, countries, genres, plot, url, notes, rating };
   }
 
 

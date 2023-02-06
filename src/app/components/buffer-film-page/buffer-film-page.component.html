@@ -1,5 +1,5 @@
 <ng-container *ngIf="film$ | async as film">
-  <div class = "film-page">
+  <div class = "film-buffer-page">
      <div class = "film-page-header">
         <div class = "film-page-name-container">
            <h2>{{film.rusTitle | uppercase}}</h2>
@@ -28,33 +28,33 @@
            </div>
            <div class="admin-moderation-container">
             <button mat-raised-button
-            color="accent"
+            color="warn"
             (click)="pushIntoBase(film)"
             >
               <mat-icon>
-                <span class="material-symbols-outlined"> record_voice_over </span>
+                <span class="material-symbols-outlined"> post_add </span>
               </mat-icon>
               Одобрить
             </button>
 
             <button
               mat-raised-button
-              color="accent"
+              color="warn"
               (click)="fixFilm(film)"
             >
               <mat-icon>
-                <span class="material-symbols-outlined"> contacts </span>
+                <span class="material-symbols-outlined"> handyman </span>
               </mat-icon>
               Исправить
             </button>
 
             <button
             mat-raised-button
-            color="accent"
+            color="warn"
             (click)="deleteFilm(film)"
           >
             <mat-icon>
-              <span class="material-symbols-outlined"> contacts </span>
+              <span class="material-symbols-outlined"> delete </span>
             </mat-icon>
             Удалить
           </button>

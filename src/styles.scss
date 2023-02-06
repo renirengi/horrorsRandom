@@ -233,7 +233,8 @@ app-footer {
   color: black;
 }
 
-.film-page {
+.film-page,
+.film-buffer-page {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -330,6 +331,10 @@ app-footer {
     width: 20%;
     margin: 0 auto;
   }
+}
+
+.film-buffer-page {
+  background-color: #191970;
 }
 
 .film-buffer-container {
