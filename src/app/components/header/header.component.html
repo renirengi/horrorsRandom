@@ -47,7 +47,7 @@
      <ng-container *ngIf="currentUser$ | async as user; else loginOrRegister">
         <button
            mat-stroked-button
-           color="white"  [routerLink]="['/user']">
+           color="white"  routerLink="/user/{{ user.id }}">
            <mat-icon
               aria-label="Example face icon"
               >

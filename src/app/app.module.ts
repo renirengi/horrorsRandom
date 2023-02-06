@@ -50,6 +50,7 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { BufferFilmPageComponent } from './components/buffer-film-page/buffer-film-page.component';
 import { BufferFilmListComponent } from './components/buffer-film-list/buffer-film-list.component';
 import { BufferFilmCardComponent } from './components/buffer-film-card/buffer-film-card.component';
+import { FixBufferModalComponent } from './components/fix-buffer-modal/fix-buffer-modal.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { BufferFilmCardComponent } from './components/buffer-film-card/buffer-fi
     BufferFilmPageComponent,
     BufferFilmListComponent,
     BufferFilmCardComponent,
+    FixBufferModalComponent,
 
   ],
   imports: [

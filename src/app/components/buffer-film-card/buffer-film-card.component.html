@@ -1,13 +1,26 @@
 <div *ngIf="film">
-  <button class="film-buffer-container" ngClass="film-card" (click)="goToBufferFilmPage()">
-
+  <div class="film-buffer-container" ngClass="film-card">
+    <p>{{film.filmDate}}</p>
     <img
       class="catalog-image"
       [src]="film.urlPoster"
       [alt]="film.title"
+      routerLink="/admin/{{ film.id }}"
     />
     <p class="film-title">
       {{ film.rusTitle | uppercase }} <span>({{ film.year }})</span>
     </p>
-  </button>
+    <button
+mat-raised-button
+color = "accent"
+routerLink="/user/{{ film.userId }}"
+>
+<mat-icon>
+<span class="material-symbols-outlined">
+  face
+  </span>
+</mat-icon>
+Страница юзера
+</button>
+  </div>
 </div>

@@ -11,7 +11,7 @@ import { FiltersResolverService } from './services/filters-resolver.service';
 
 const routes: Routes = [
   { path: '', component: MainComponent},
-  { path: 'user', component: UserPageComponent },
+  { path: 'user/:id', component: UserPageComponent },
   {
     path: 'catalog',
     component: CatalogPageComponent,

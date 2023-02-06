@@ -1,0 +1,99 @@
+<form [formGroup]="bufferFilmForm">
+  <div class = "modal-title">
+    <img class = "icon-black" src="favicon.ico" alt="icon">
+    <h2 mat-dialog-title>Рассказать о себе</h2>
+  </div>
+  <mat-dialog-content>
+    <mat-form-field>
+     <mat-label>Оригинальное название</mat-label>
+       <input type="text" matInput formControlName="title">
+   </mat-form-field>
+
+   <mat-form-field>
+     <mat-label>Русское название</mat-label>
+       <input type="text" matInput formControlName="rusTitle">
+   </mat-form-field>
+
+   <mat-form-field>
+     <mat-label>Режиссёр</mat-label>
+       <input type="text" matInput formControlName="director">
+   </mat-form-field>
+
+   <mat-form-field>
+     <mat-label>Трейлер</mat-label>
+       <input type="text" matInput formControlName="trailer">
+   </mat-form-field>
+
+   <mat-form-field>
+    <mat-label>Год выхода</mat-label>
+     <mat-select formControlName="year">
+       <mat-option *ngFor = "let year of years" [value]="year">
+        {{year}}
+       </mat-option>
+     </mat-select>
+   </mat-form-field>
+
+   <mat-form-field>
+     <mat-label>Постер</mat-label>
+       <input type="text" matInput required formControlName="urlPoster">
+   </mat-form-field>
+
+   <mat-form-field>
+     <mat-label>Страны</mat-label>
+     <mat-select multiple formControlName="countries" required>
+       <mat-option *ngFor = "let country of countries" [value]="country">
+        {{country}}
+       </mat-option>
+     </mat-select>
+   </mat-form-field>
+
+   <mat-form-field>
+     <mat-label>Жанры и теги</mat-label>
+     <mat-select multiple formControlName="genres" required>
+       <mat-option *ngFor = "let genre of genres" [value]="genre">
+        {{genre}}
+       </mat-option>
+     </mat-select>
+   </mat-form-field>
+
+   <mat-form-field>
+     <mat-label>Сюжет</mat-label>
+       <textarea type="text" matInput required formControlName="plot"></textarea>
+   </mat-form-field>
+
+   <mat-form-field>
+     <mat-label>Ссылка</mat-label>
+       <input type="text" matInput formControlName="url">
+   </mat-form-field>
+
+   <mat-form-field>
+     <mat-label>Пометки</mat-label>
+       <textarea matInput formControlName="notes"></textarea>
+   </mat-form-field>
+
+   <mat-form-field>
+     <mat-label>Рейтинг</mat-label>
+     <mat-select formControlName="rating" required>
+       <mat-option *ngFor = "let rat of rating" [value]="rat">
+        {{rat}}
+       </mat-option>
+     </mat-select>
+   </mat-form-field>
+   </mat-dialog-content>
+  <mat-dialog-actions>
+    <button
+      type="button"
+      mat-stroked-button
+      color="primary"
+      [mat-dialog-close]="bufferFilmForm.value"
+    >
+      Добавить информацию
+    </button>
+    <button
+    mat-stroked-button
+    type="button"
+    color="primary"
+    (click)="onNoClick()">Отмена
+    </button>
+  </mat-dialog-actions>
+</form>

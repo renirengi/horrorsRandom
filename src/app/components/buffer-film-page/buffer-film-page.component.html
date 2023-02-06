@@ -1,1 +1,71 @@
-<p>buffer-film-page works!</p>
+<ng-container *ngIf="film$ | async as film">
+  <div class = "film-page">
+     <div class = "film-page-header">
+        <div class = "film-page-name-container">
+           <h2>{{film.rusTitle | uppercase}}</h2>
+           <p>{{film.title}} <span>({{film.year}})</span></p>
+        </div>
+           <app-movie-rating class = "star-rating"
+           [rating]="film.rating"
+           ></app-movie-rating>
+     </div>
+     <div class = "film-page-body">
+        <img
+        [src]="film.urlPoster"
+        [alt]="film.title">
+        <div class = "film-information-container">
+           <div class = "array-container" *ngFor = "let genre of film.genres">
+            <p>{{genre}}</p>
+           </div>
+           <p>{{film.plot}}</p>
+           <p><span>Режиссёр: </span> {{film.director}}</p>
+           <div class = "film-notes-container" *ngIf = "film.notes">
+              Заметки:
+              <p>{{film.notes}}</p>
+           </div>
+           <div class = "array-container" *ngFor = "let country of film.countries">
+            <p>{{country}}</p>
+           </div>
+           <div class="admin-moderation-container">
+            <button mat-raised-button
+            color="accent"
+            (click)="pushIntoBase(film)"
+            >
+              <mat-icon>
+                <span class="material-symbols-outlined"> record_voice_over </span>
+              </mat-icon>
+              Одобрить
+            </button>
+
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="fixFilm(film)"
+            >
+              <mat-icon>
+                <span class="material-symbols-outlined"> contacts </span>
+              </mat-icon>
+              Исправить
+            </button>
+
+            <button
+            mat-raised-button
+            color="accent"
+            (click)="deleteFilm(film)"
+          >
+            <mat-icon>
+              <span class="material-symbols-outlined"> contacts </span>
+            </mat-icon>
+            Удалить
+          </button>
+          </div>
+        </div>
+
+        <div class = "film-link-container">
+           <a class="youtube" mat-stroked-button [href]="film.trailer" target="_blank"></a>
+           <a class="kino" mat-stroked-button [href]="film.url" target="_blank"></a>
+
+        </div>
+     </div>
+  </div>
+</ng-container>

@@ -44,10 +44,11 @@ export class CatalogPageComponent implements OnInit {
   }
 
   async showGovenment (user:IUser){
+    const dateAdd = new Date().toDateString();
     const dialogRef = this.dialog.open(AddFilmModalComponent, this.govenmentModalConfig);
     const result: {title:string, rusTitle:string, director:string, trailer:string, year:string, rating:number, urlPoster:string, countries:string[], genres:string[], plot:string, url: string, notes: string} = await firstValueFrom(dialogRef.afterClosed());
     const {title, rusTitle, director, trailer, year, rating, urlPoster, countries, genres, plot, url, notes} = result;
-    const newFilm = {id:0, userId:user.id, title, rusTitle, director, trailer, year, rating, urlPoster, countries, genres, plot, url, notes};
+    const newFilm = {id:0, userId:user.id, title, rusTitle, director, trailer, year, rating, urlPoster, countries, genres, plot, url, notes, filmDate: dateAdd};
 
     await firstValueFrom(this.buffer.addBufferFilm(newFilm));
   }
