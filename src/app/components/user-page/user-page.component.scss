@@ -47,6 +47,11 @@
   .user-page-right {
    display: flex;
    flex-direction: column;
+
+
+    button {
+      margin:0.5em;
+    }
   }
 }
   .user-page-button {

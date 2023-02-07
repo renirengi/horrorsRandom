@@ -44,7 +44,8 @@ export class UserService {
     }
 
     public findUserById(id: number): Observable<IUser> {
-      return this.http.get<IUser>(`${this.baseUrl}?id=${id}`);
+      const url = `${this.baseUrl}/${String(id)}`;
+    return this.http.get<IUser>(url);
     }
 
     public updateUser(user: IUser) {

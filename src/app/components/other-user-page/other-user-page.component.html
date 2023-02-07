@@ -1,10 +1,10 @@
 <ng-container *ngIf="watchUser$ | async as watchUser">
-  <p>{{watchUser.name}}</p>
-  <!---<div *ngIf="currentUser$ | async as currentUser">
-    <ng-container *ngIf = "watchUser.id !== currentUser.id; else CurrentUser">
-      <p>{{watchUser.email}}</p>
+  <div *ngIf="currentUser$ | async as currentUser">
+    <ng-container *ngIf = "watchUser.id !== currentUser.id; else CurrentUser" >
+      <app-user-page [watchUser]="watchUser"></app-user-page>
     </ng-container>
     <ng-template #CurrentUser>
+      <app-user-page></app-user-page>
     </ng-template>
-</div>-->
+</div>
 </ng-container>
