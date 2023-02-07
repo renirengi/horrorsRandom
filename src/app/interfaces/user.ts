@@ -19,7 +19,6 @@ export interface IUserFilms {
 export interface IPersonalData {
   about?: string;
   country?: string;
-  birthday?: Date;
   realName?: string;
   link?: string;
   phone?: string;

@@ -1,4 +1,7 @@
 <div class="user-page">
+  <ng-container *ngIf="watchUser">
+    <H1>{{watchUser.name}} слуга императора Котовечества</H1>
+  </ng-container>
   <ng-container *ngIf="user$ | async as user">
     <div class="user-page-header">
       <img img *ngIf="user.avatar" [src]="user.avatar" [alt]="user.name" />

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { firstValueFrom, Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -29,6 +29,7 @@ interface UserRegistrationData {
   styleUrls: ['./user-page.component.scss']
 })
 export class UserPageComponent implements OnInit {
+  @Input() watchUser!:IUser;
   public user$: Observable<IUser | null>;
   public activePage: 'score' | 'veto' | 'review' = 'score';
   public visibility:boolean = false;
