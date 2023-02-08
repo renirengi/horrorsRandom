@@ -44,7 +44,7 @@ export class UserTextReviewComponent implements OnInit {
 
 
   public async getFeedbackList() {
-    const feedback = await firstValueFrom(this.feedback.getFilmFeedback(this._film.id));
+    const feedback = await firstValueFrom(this.feedback.getFilmFeedbackReviewTrue(this._film.id));
 
    if (feedback) {
       const feedbackWithText = feedback.filter(fb => !!fb.review);

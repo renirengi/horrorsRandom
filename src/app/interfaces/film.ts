@@ -26,4 +26,5 @@ export interface IFeedback {
   dateReview?: string;
   typeReview?: string;
   dateRating?: string;
+  reviewState?: boolean;
 }

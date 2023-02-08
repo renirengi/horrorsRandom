@@ -21,6 +21,9 @@ export class FeedbackService {
   public getFilmFeedback(filmId: number) {
     return this.http.get<IFeedback[]>(`${this.baseUrl}?filmId=${filmId}`);
   }
+  public getFilmFeedbackReviewTrue(filmId: number) {
+    return this.http.get<IFeedback[]>(`${this.baseUrl}?filmId=${filmId}&reviewState=true`);
+  }
 
   public findFeedbackItem(filmId: number, userId: number): Observable<IFeedback>  {
     return this.http.get<IFeedback[]>(`${this.baseUrl}?filmId=${filmId}&userId=${userId}`)

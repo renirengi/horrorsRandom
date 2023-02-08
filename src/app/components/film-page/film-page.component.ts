@@ -77,7 +77,7 @@ export class FilmPageComponent implements OnInit{
     const result: {typeReview:string, review:string } = await firstValueFrom(dialogRef.afterClosed());
     const { review, typeReview } = result;
 
-    this.film$ = this.filmService.updateFilmFeedback(film, user.id, { review, dateReview, typeReview }).pipe(first());
+    this.film$ = this.filmService.updateFilmFeedback(film, user.id, { review, dateReview, typeReview, reviewState:false }).pipe(first());
 
     const { userFilms } = user;
     if (!userFilms?.viewing?.includes(film.id)){
