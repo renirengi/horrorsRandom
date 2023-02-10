@@ -43,7 +43,7 @@
       "dateReview": "Wed Jan 11 2023",
       "typeReview": "good",
       "dateRating": "Thu Oct 6 2022",
-      "reviewState":true
+      "reviewState": true
     },
     {
       "movieRating": 9,
@@ -89,7 +89,7 @@
       "dateReview": "Wed Jan 11 2023",
       "typeReview": "good",
       "dateRating": "Thu Oct 6 2022",
-      "reviewState":false
+      "reviewState": false
     },
     {
       "movieRating": 8,
@@ -126,7 +126,6 @@
       "typeReview": "bad",
       "dateRating": "Thu Oct 6 2022",
       "reviewState": true
-
     },
     {
       "movieRating": 8,
@@ -162,6 +161,17 @@
       "filmId": 61,
       "userId": 1,
       "id": 17
+    },
+    {
+      "movieRating": 10,
+      "dateRating": "Thu Feb 09 2023",
+      "filmId": 33,
+      "userId": 3,
+      "id": 18,
+      "review": "Очень понравилось! Император любит смотреть на птичек",
+      "dateReview": "Thu Feb 09 2023",
+      "typeReview": "good",
+      "reviewState": "wait"
     }
   ],
   "users": [
@@ -228,7 +238,8 @@
           19
         ],
         "viewing": [
-          22
+          22,
+          33
         ]
       },
       "rules": "user",

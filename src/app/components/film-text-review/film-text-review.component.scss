@@ -12,7 +12,7 @@
     width: 95%;
 
   .image-title-container,
-  .date-container{
+  .notes-container{
     display: flex;
     width: 50%;
 
@@ -33,11 +33,39 @@
     }
   }
 
+  .notes-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+
   .date-container {
     display: inline-block;
+    margin-top: 3em;
     text-align: end;
     width: 50%;
   }
+
+    .light-detector {
+      position: absolute;
+      width: 2em;
+      height: 2em;
+      border-radius: 20px;
+      border: 3px black solid;
+    }
+
+    .light-detector.red {
+        background-color: red;
+      }
+
+      .light-detector.green {
+        background-color: green;
+      }
+
+      .light-detector.yellow {
+        background-color: yellow;
+      }
+  }
+
 }
 
   .comment-text {

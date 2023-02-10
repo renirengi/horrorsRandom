@@ -25,7 +25,7 @@ export class FilmTextReviewComponent implements OnInit {
   public feeds!:IFeedback[];
   public film$!: Observable<IFilm>;
   public comment:string = '';
-  public _textfeedbackList!: Promise<{rusTitle: string, title: string, year: string, review: string, id: number, urlPoster: string, dateReview?: string, typeReview?: string}[]>;
+  public _textfeedbackList!: Promise<{rusTitle: string, title: string, year: string, review: string, id: number, urlPoster: string, dateReview?: string, typeReview?: string, reviewState?:boolean|string}[]>;
 
 
   constructor(
@@ -49,7 +49,7 @@ export class FilmTextReviewComponent implements OnInit {
       if (feedbackWithText.length > 0) {
         const filmsIds = feedbackWithText.map((fb => fb.filmId));
         const films = await firstValueFrom(this.filmService.getFilms(filmsIds));
-        return feedbackWithText.map((fb, index) => ({...films[index], review: fb.review!, dateReview: fb.dateReview, typeReview:fb.typeReview }));
+        return feedbackWithText.map((fb, index) => ({...films[index], review: fb.review!, dateReview: fb.dateReview, typeReview:fb.typeReview, reviewState:fb.reviewState }));
       }
     }
 

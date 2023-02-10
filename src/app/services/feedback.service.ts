@@ -21,8 +21,11 @@ export class FeedbackService {
   public getFilmFeedback(filmId: number) {
     return this.http.get<IFeedback[]>(`${this.baseUrl}?filmId=${filmId}`);
   }
-  public getFilmFeedbackReviewTrue(filmId: number) {
-    return this.http.get<IFeedback[]>(`${this.baseUrl}?filmId=${filmId}&reviewState=true`);
+  public getFilmFeedbackWithParam(filmId: undefined|number, param:string|boolean) {
+    if(!filmId) {
+      return this.http.get<IFeedback[]>(`${this.baseUrl}?reviewState=${param}`);
+    }
+    return this.http.get<IFeedback[]>(`${this.baseUrl}?filmId=${filmId}&reviewState=${param}`);
   }
 
   public findFeedbackItem(filmId: number, userId: number): Observable<IFeedback>  {

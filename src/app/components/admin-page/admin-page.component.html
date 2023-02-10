@@ -1,5 +1,28 @@
-<div class="admin-page">
-  <div class="new-film-container"*ngIf="newFilms$ |async as films">
-    <app-buffer-film-list *ngIf="films" [films] ="films"></app-buffer-film-list>
+<div class="admin-page" >
+  <div class="user-page-button">
+    <button (click)="activePage = 'film'">Новые фильмы</button>
+    <button (click)="activePage = 'review'" class="review">Новые отзывы</button>
   </div>
+    <div class="user-page-body film-page" *ngIf="activePage === 'film'">
+      <div class="new-film-container"*ngIf="newFilms$ |async as films">
+        <app-buffer-film-list *ngIf="films" [films] ="films"></app-buffer-film-list>
+      </div>
+    </div>
+    <div class="user-page-body review-page" *ngIf="activePage === 'review'">
+      <div *ngFor="let item of _textfeedbackList | async" class="comment-container" [ngClass]="{'good': item.typeReview==='good', 'neutral':item.typeReview==='neutral', 'bad': item.typeReview==='bad'}" routerLink="/users/{{item.id}}">
+        <h1>Служите императору</h1>
+        <div class="comment-header">
+          <app-user-link [userId]="item.userId"></app-user-link>
+          <div class = "date-container">
+            <span>{{item.dateReview}}</span>
+          </div>
+        </div>
+        <div class="comment-text">
+          <p>{{ item.review }}</p>
+        </div>
+      </div>
+    </div>
+
+
+
 </div>

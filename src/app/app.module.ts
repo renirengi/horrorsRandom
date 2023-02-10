@@ -52,6 +52,8 @@ import { BufferFilmListComponent } from './components/buffer-film-list/buffer-fi
 import { BufferFilmCardComponent } from './components/buffer-film-card/buffer-film-card.component';
 import { FixBufferModalComponent } from './components/fix-buffer-modal/fix-buffer-modal.component';
 import { OtherUserPageComponent } from './components/other-user-page/other-user-page.component';
+import { UserLinkComponent } from './components/user-link/user-link.component';
+
 
 @NgModule({
   declarations: [
@@ -87,6 +89,7 @@ import { OtherUserPageComponent } from './components/other-user-page/other-user-
     BufferFilmCardComponent,
     FixBufferModalComponent,
     OtherUserPageComponent,
+    UserLinkComponent,
 
   ],
   imports: [
