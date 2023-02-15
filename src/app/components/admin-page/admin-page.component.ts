@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { first, firstValueFrom, lastValueFrom, Observable } from 'rxjs';
 import { IFilm } from 'src/app/interfaces/film';
 import { IUser } from 'src/app/interfaces/user';
@@ -25,7 +26,8 @@ export class AdminPageComponent implements OnInit {
     private buffer: BufferService,
     private feedback: FeedbackService,
     private filmService: FilmService,
-    public userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {
 
    }
@@ -49,17 +51,16 @@ export class AdminPageComponent implements OnInit {
         return feedbackWithText.map((fb, index) => ({...films[index], userId:fb.userId, review: fb.review!, dateReview: fb.dateReview, typeReview:fb.typeReview, reviewState:fb.reviewState }));
       }
     }
-    console.log(1)
 
     return Promise.resolve([]);
 
   }
 
-  public async updateFeed(filmId:number, userId:number, flag: boolean) {
+  public async updateFeed(filmId:number, userId:number, flag: string) {
     const film = await firstValueFrom(this.filmService.getFilmByID(filmId));
-    console.log (film)
 
     await lastValueFrom(this.filmService.updateFilmFeedback(film, userId, {  reviewState:`${flag}` }).pipe(first()));
+    this.router.navigate(["/user"]);
   }
 
 }

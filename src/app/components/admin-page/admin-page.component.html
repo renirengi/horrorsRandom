@@ -17,7 +17,7 @@
             <button
             mat-raised-button
             color="accent"
-            (click)="updateFeed(item.id, item.userId, true)"
+            (click)="updateFeed(item.id, item.userId, 'true')"
             >
               <mat-icon>
                 <span class="material-symbols-outlined"> post_add </span>
@@ -28,7 +28,7 @@
             <button
             mat-raised-button
             color="accent"
-            (click)="updateFeed(item.id, item.userId, false)"
+            (click)="updateFeed(item.id, item.userId, 'false')"
           >
             <mat-icon>
               <span class="material-symbols-outlined"> delete </span>

@@ -1,4 +1,11 @@
 <div class = "user-rating" *ngIf="feed">
-  <div [ngClass]="{'hidden': !visibility, 'rating-text':visibility} ">Ваша оценка</div>
-  <span>{{feed.movieRating}}</span>
+  <ng-container *ngIf="feed.movieRating; else WithOutRaing">
+    <div [ngClass]="{'hidden': !visibility, 'rating-text':visibility} ">Ваша оценка</div>
+      <span>{{feed.movieRating}}</span>
+  </ng-container>
+  <ng-template #WithOutRaing>
+      <span class="text"> Просмотрено </span>
+  </ng-template>
+
+
 </div>

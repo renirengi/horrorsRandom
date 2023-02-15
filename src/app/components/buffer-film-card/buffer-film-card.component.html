@@ -10,7 +10,12 @@
     <p class="film-title">
       {{ film.rusTitle | uppercase }} <span>({{ film.year }})</span>
     </p>
-    <button
+    <ng-container *ngIf="user$ | async as user">
+      <p class="buffer-user-name" routerLink="/user/{{ film.userId }}">Прислал: {{user.name}}</p>
+
+    </ng-container>
+
+    <!---<button
 mat-raised-button
 color = "accent"
 routerLink="/user/{{ film.userId }}"
@@ -21,6 +26,6 @@ routerLink="/user/{{ film.userId }}"
   </span>
 </mat-icon>
 Страница юзера
-</button>
+</button>--->
   </div>
 </div>

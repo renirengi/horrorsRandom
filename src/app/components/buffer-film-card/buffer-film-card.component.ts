@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { IFilm } from 'src/app/interfaces/film';
 import { IUser } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
@@ -10,14 +11,17 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class BufferFilmCardComponent implements OnInit {
   @Input() film!: IFilm;
-  user!:IUser;
+  user$!:Observable<IUser>;
+
 
   constructor (
+    private userService: UserService,
   ) {
 
    }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.user$ = this.userService.findUserById(Number(this.film.userId));
 
   }
 

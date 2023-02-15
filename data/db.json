@@ -32,7 +32,7 @@
       "review": "\nЯ не люблю фильмы ужасов. Я люблю ЗАГАДКИ. Красивые, изящные, загадки… Когда тебе закрывают глаза, закручивают на одном месте и предлагают выйти из комнаты. Какова вероятность, что ты уткнёшься носом в дверь, а не в окно?\n\nЭто не хоррор, и страха от «Плетёного человека» ждать не стоит. Это игра. Красивая не банальная игра в богов. И просматривая финальные титры, тебе кажется, что ты видишь много других «плетёных людей» и мотыльков, слетевшихся на его горящее пламя.\n\nЯ бы назвала этот фильм «гимном человеческой глупости», и я преклоняю колени перед тем зрителем, которого не обманула его весёлая красота.",
       "dateReview": "Wed Jan 11 2023",
       "typeReview": "good",
-      "reviewState": true
+      "reviewState": "true"
     },
     {
       "movieRating": 8,
@@ -43,7 +43,7 @@
       "dateReview": "Wed Jan 11 2023",
       "typeReview": "good",
       "dateRating": "Thu Oct 6 2022",
-      "reviewState": true
+      "reviewState": "true"
     },
     {
       "movieRating": 9,
@@ -89,7 +89,7 @@
       "dateReview": "Wed Jan 11 2023",
       "typeReview": "good",
       "dateRating": "Thu Oct 6 2022",
-      "reviewState": false
+      "reviewState": "false"
     },
     {
       "movieRating": 8,
@@ -114,7 +114,7 @@
       "dateReview": "Tue Jan 10 2023",
       "typeReview": "good",
       "dateRating": "Thu Oct 6 2022",
-      "reviewState": false
+      "reviewState": "false"
     },
     {
       "movieRating": 3,
@@ -125,7 +125,7 @@
       "dateReview": "Wed Jan 11 2023",
       "typeReview": "bad",
       "dateRating": "Thu Oct 6 2022",
-      "reviewState": true
+      "reviewState": "true"
     },
     {
       "movieRating": 8,
@@ -186,7 +186,29 @@
       "reviewState": "false",
       "filmId": 24,
       "userId": 3,
-      "id": 20
+      "id": 20,
+      "movieRating": 3,
+      "dateRating": "Wed Feb 15 2023"
+    },
+    {
+      "review": "Какая большая рыба! Урмурумур",
+      "dateReview": "Wed Feb 15 2023",
+      "typeReview": "good",
+      "reviewState": "wait",
+      "filmId": 57,
+      "userId": 3,
+      "id": 21
+    },
+    {
+      "review": "Обожаю японцев. Сколько почтения Котикам",
+      "dateReview": "Wed Feb 15 2023",
+      "typeReview": "good",
+      "reviewState": "wait",
+      "filmId": 11,
+      "userId": 3,
+      "id": 22,
+      "movieRating": 4,
+      "dateRating": "Wed Feb 15 2023"
     }
   ],
   "users": [
@@ -255,7 +277,9 @@
         "viewing": [
           22,
           33,
-          24
+          24,
+          57,
+          11
         ]
       },
       "rules": "user",

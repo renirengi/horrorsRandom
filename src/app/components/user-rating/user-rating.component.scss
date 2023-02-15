@@ -13,14 +13,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--purple);
   font-family: var(--Forum);
   font-weight: bold;
+  background-color: var(--purple);
   border-radius: 20px;
-  width: 30px;
-  height: 30px;
   color: white;
   font-size: 1em;
+  width: 30px;
+  height: 30px;
+ }
+
+ .text {
+  width: 7.7em;
  }
 
 .hidden {

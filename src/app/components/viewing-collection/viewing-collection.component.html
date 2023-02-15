@@ -12,7 +12,9 @@
         <td class="td-start" routerLink="/catalog/{{film.id}}"> <p>{{film.rusTitle}}</p><p class="italic">{{ film.title }}</p></td>
         <td>{{ film.director }}</td>
         <td>{{ film.rating }}</td>
-        <td><app-user-rating [userId]="user.id" [filmId]="film.id" [visibility]="visibility"></app-user-rating></td>
+        <td>
+          <app-user-rating [userId]="user.id" [filmId]="film.id" [visibility]="visibility"></app-user-rating>
+        </td>
       </tr>
     </ng-container>
 

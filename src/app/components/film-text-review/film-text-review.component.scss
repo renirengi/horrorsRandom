@@ -53,17 +53,7 @@
       border: 3px black solid;
     }
 
-    .light-detector.red {
-        background-color: red;
-      }
 
-      .light-detector.green {
-        background-color: green;
-      }
-
-      .light-detector.yellow {
-        background-color: yellow;
-      }
   }
 
 }
@@ -81,3 +71,14 @@
   }
 
 }
+.light-detector.red {
+        background-color: red;
+      }
+
+      .light-detector.green {
+        background-color: green;
+      }
+
+      .light-detector.yellow {
+        background-color: yellow;
+      }
