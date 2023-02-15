@@ -353,6 +353,62 @@ app-footer {
   }
 }
 
+.user-page-button {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  height: 2.5em;
+  align-items: flex-end;
+
+  button {
+  border: none;
+  margin-right: 0.5em;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 2em;
+  font-size: 1.5em;
+  font-family: var(--Forum);
+  font-weight: bold;
+  background-color: var(--gainsboro);
+  cursor: pointer;
+  transition: 0.3s;
+  }
+
+  .review {
+    background-color: var(--cream-pink);
+  }
+
+  .veto {
+    background-color: var(--tan);
+  }
+
+  button:active {
+    height: 2.5em;;
+
+  }
+}
+
+.user-page-body {
+  width: 85%;
+  min-height: 40vh;
+  background-color: var(--cream-pink);
+  margin: 0 auto;
+  margin-bottom: 2em;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: black;
+  font-size: 1.2em;
+}
+
+  .user-page-body.veto-page {
+    background-color: var(--tan);
+  }
+
+  .user-page-body.viewing-page,
+  .user-page-body.film-page {
+    background-color: var(--gainsboro);
+  }
+
 
 
 

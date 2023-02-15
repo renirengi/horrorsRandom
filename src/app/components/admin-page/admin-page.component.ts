@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { firstValueFrom, lastValueFrom, Observable } from 'rxjs';
+import { first, firstValueFrom, lastValueFrom, Observable } from 'rxjs';
 import { IFilm } from 'src/app/interfaces/film';
 import { IUser } from 'src/app/interfaces/user';
 import { BufferService } from 'src/app/services/buffer.service';
@@ -53,6 +53,13 @@ export class AdminPageComponent implements OnInit {
 
     return Promise.resolve([]);
 
+  }
+
+  public async updateFeed(filmId:number, userId:number, flag: boolean) {
+    const film = await firstValueFrom(this.filmService.getFilmByID(filmId));
+    console.log (film)
+
+    await lastValueFrom(this.filmService.updateFilmFeedback(film, userId, {  reviewState:`${flag}` }).pipe(first()));
   }
 
 }

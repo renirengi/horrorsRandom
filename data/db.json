@@ -171,7 +171,22 @@
       "review": "Очень понравилось! Император любит смотреть на птичек",
       "dateReview": "Thu Feb 09 2023",
       "typeReview": "good",
-      "reviewState": "wait"
+      "reviewState": "false"
+    },
+    {
+      "reviewState": "false",
+      "filmId": 33,
+      "userId": 33,
+      "id": 19
+    },
+    {
+      "review": "Опять гониво на чёрных котиков. Фу такими быть!!!",
+      "dateReview": "Sat Feb 11 2023",
+      "typeReview": "bad",
+      "reviewState": "false",
+      "filmId": 24,
+      "userId": 3,
+      "id": 20
     }
   ],
   "users": [
@@ -239,7 +254,8 @@
         ],
         "viewing": [
           22,
-          33
+          33,
+          24
         ]
       },
       "rules": "user",

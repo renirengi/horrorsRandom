@@ -1,5 +1,10 @@
-<div class = "image-title-container" *ngIf="user$ | async as item">
-            <img *ngIf="item.avatar" [src]="item.avatar" routerLink="/user/{{item.id}}" />
-            <img *ngIf="!item.avatar" src="https://i.pinimg.com/280x280_RS/04/ff/49/04ff4992f981e4672fa824a6ab6ffea6.jpg" routerLink="/user/2" />
-            <span class="comment-title">{{ item.name }}</span>
-          </div>
+<div class = "image-title-container" *ngIf="user$ | async as user">
+  <ng-container *ngIf="film$ |async as film">
+            <img [src]="film.urlPoster"  [alt]="film.title" routerLink="/catalog/{{film.id}}"/>
+            <div class="comment-title">
+              <span class="name" routerLink="/user/{{user.id}}">{{ user.name }}</span>
+              <span class="border">{{ film.rusTitle }} ({{ film.year }})</span>
+              <span class="italic">{{ film.title}}</span>
+            </div>
+          </ng-container>
+</div>

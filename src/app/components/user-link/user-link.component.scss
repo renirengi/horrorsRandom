@@ -1,0 +1,29 @@
+.image-title-container{
+  display: flex;
+  justify-content: space-between;
+
+
+  img {
+    max-height: 8em;
+
+  }
+
+  .comment-title {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 1em;
+    font-size: 1em;
+
+    .name {
+      font-family: var(--Forum);
+      font-size: 1.5em;
+      color: var(--font-gold);
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+
+    .border {
+      text-decoration: underline;
+    }
+  }
+}

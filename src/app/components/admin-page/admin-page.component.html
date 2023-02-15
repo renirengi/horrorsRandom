@@ -9,12 +9,32 @@
       </div>
     </div>
     <div class="user-page-body review-page" *ngIf="activePage === 'review'">
-      <div *ngFor="let item of _textfeedbackList | async" class="comment-container" [ngClass]="{'good': item.typeReview==='good', 'neutral':item.typeReview==='neutral', 'bad': item.typeReview==='bad'}" routerLink="/users/{{item.id}}">
-        <h1>Служите императору</h1>
-        <div class="comment-header">
-          <app-user-link [userId]="item.userId"></app-user-link>
+      <div *ngFor="let item of _textfeedbackList | async" class="buffer-comment-container" [ngClass]="{'good': item.typeReview==='good', 'neutral':item.typeReview==='neutral', 'bad': item.typeReview==='bad'}" routerLink="/users/{{item.id}}">
+        <div class="buffer-comment-header">
+          <app-user-link [userId]="item.userId" [filmId]="item.id"></app-user-link>
           <div class = "date-container">
             <span>{{item.dateReview}}</span>
+            <button
+            mat-raised-button
+            color="accent"
+            (click)="updateFeed(item.id, item.userId, true)"
+            >
+              <mat-icon>
+                <span class="material-symbols-outlined"> post_add </span>
+              </mat-icon>
+              Одобрить
+            </button>
+
+            <button
+            mat-raised-button
+            color="accent"
+            (click)="updateFeed(item.id, item.userId, false)"
+          >
+            <mat-icon>
+              <span class="material-symbols-outlined"> delete </span>
+            </mat-icon>
+            Отказать
+          </button>
           </div>
         </div>
         <div class="comment-text">
