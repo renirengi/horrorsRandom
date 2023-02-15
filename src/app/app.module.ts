@@ -53,6 +53,7 @@ import { BufferFilmCardComponent } from './components/buffer-film-card/buffer-fi
 import { FixBufferModalComponent } from './components/fix-buffer-modal/fix-buffer-modal.component';
 import { OtherUserPageComponent } from './components/other-user-page/other-user-page.component';
 import { UserLinkComponent } from './components/user-link/user-link.component';
+import { OwnMessagesComponent } from './components/own-messages/own-messages.component';
 
 
 @NgModule({
@@ -90,6 +91,7 @@ import { UserLinkComponent } from './components/user-link/user-link.component';
     FixBufferModalComponent,
     OtherUserPageComponent,
     UserLinkComponent,
+    OwnMessagesComponent,
 
   ],
   imports: [

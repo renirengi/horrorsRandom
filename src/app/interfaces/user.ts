@@ -22,4 +22,5 @@ export interface IPersonalData {
   realName?: string;
   link?: string;
   phone?: string;
+  userFriends?:number[]
 }

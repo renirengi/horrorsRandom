@@ -6,6 +6,7 @@ import { CatalogPageComponent } from './components/catalog-page/catalog-page.com
 import { FilmPageComponent } from './components/film-page/film-page.component';
 import { MainComponent } from './components/main/main.component';
 import { OtherUserPageComponent } from './components/other-user-page/other-user-page.component';
+import { OwnMessagesComponent } from './components/own-messages/own-messages.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { AdminGuardGuard } from './guards/admin-guard.guard';
 import { FiltersResolverService } from './services/filters-resolver.service';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: '', component: MainComponent},
   { path: 'user', component: UserPageComponent },
   { path: 'user/:id', component: OtherUserPageComponent },
+  { path: 'message', component: OwnMessagesComponent },
   {
     path: 'catalog',
     component: CatalogPageComponent,

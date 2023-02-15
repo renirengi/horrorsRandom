@@ -61,6 +61,10 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  public goToMessagePage() {
+    this.router.navigate(['/message']);
+  }
+
   public onClean() {
     this.router.navigate(['/catalog']);
   }

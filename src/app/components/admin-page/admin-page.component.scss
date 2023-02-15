@@ -8,6 +8,50 @@
   border-radius: 20px;
   background-color: black;
 
+  .user-page-header {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: 2em auto;
+
+  h2 {
+    font-family: var(--Forum);
+    font-size: 3em;
+    color: var(--font-gold);
+    font-weight: bold;
+  }
+
+  h2::after {
+    content: '';
+    display: block;
+    padding-bottom: 11px;
+    margin-bottom: 10px;
+    width: 81%;
+    border-bottom: 4px solid var(--dark-red);;
+    transition: all 0.3s ease;
+  }
+
+  h2:hover:after {
+    width: 100%;
+  }
+
+  img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+  }
+
+  .user-page-right {
+   display: flex;
+   flex-direction: column;
+
+
+    button {
+      margin:0.5em;
+    }
+  }
+}
+
   .buffer-comment-container {
     margin: 4vh auto;
     width: 50%;

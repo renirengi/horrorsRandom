@@ -101,6 +101,8 @@ export class UserService {
         this.currentUser$.next(currentUser);
       }
     }
+
+
     public getAllUsers(): Observable<IUser>{
       return this.http.get<IUser>(this.baseUrl);
     }

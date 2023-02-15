@@ -1,9 +1,8 @@
 <div class="user-page">
   <ng-container *ngIf="watchUser as user; else CurrentUser">
     <div class="user-page-header">
-      <img img *ngIf="user.avatar" [src]="user.avatar" [alt]="user.name" />
+      <img *ngIf="user.avatar" [src]="user.avatar" [alt]="user.name" />
       <img
-        img
         *ngIf="!user.avatar"
         src="https://i.pinimg.com/280x280_RS/04/ff/49/04ff4992f981e4672fa824a6ab6ffea6.jpg"
         [alt]="user.name"
@@ -99,6 +98,17 @@
             <span class="material-symbols-outlined"> contacts </span>
           </mat-icon>
           Изменить пароль или почту
+        </button>
+
+        <button
+          mat-raised-button
+          color="accent"
+          routerLink="/message/"
+        >
+          <mat-icon>
+            <span class="material-symbols-outlined"> mail </span>
+          </mat-icon>
+          Проверить почту
         </button>
 
         <ng-container *ngIf="user.rules=='admin'">
