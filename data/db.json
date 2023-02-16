@@ -194,7 +194,7 @@
       "review": "Какая большая рыба! Урмурумур",
       "dateReview": "Wed Feb 15 2023",
       "typeReview": "good",
-      "reviewState": "wait",
+      "reviewState": "false",
       "filmId": 57,
       "userId": 3,
       "id": 21

@@ -60,7 +60,8 @@ export class AdminPageComponent implements OnInit {
     const film = await firstValueFrom(this.filmService.getFilmByID(filmId));
 
     await lastValueFrom(this.filmService.updateFilmFeedback(film, userId, {  reviewState:`${flag}` }).pipe(first()));
-    this.router.navigate(["/user"]);
+    ///this.router.navigate(["/user"]);
+    this._textfeedbackList= this.getFeedbackList();
   }
 
 }
