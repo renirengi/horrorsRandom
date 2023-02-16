@@ -26,5 +26,7 @@ export interface IFeedback {
   dateReview?: string;
   typeReview?: string;
   dateRating?: string;
-  reviewState?: string;
+  reviewState?: TState;
 }
+
+export type TState ="false"| "true"| "wait";

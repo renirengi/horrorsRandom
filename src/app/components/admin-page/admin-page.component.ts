@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { first, firstValueFrom, lastValueFrom, Observable } from 'rxjs';
-import { IFilm } from 'src/app/interfaces/film';
+import { IFilm, TState } from 'src/app/interfaces/film';
 import { IUser } from 'src/app/interfaces/user';
 import { BufferService } from 'src/app/services/buffer.service';
 import { FeedbackService } from 'src/app/services/feedback.service';
@@ -56,11 +56,10 @@ export class AdminPageComponent implements OnInit {
 
   }
 
-  public async updateFeed(filmId:number, userId:number, flag: string) {
+  public async updateFeed(filmId:number, userId:number, flag: TState) {
     const film = await firstValueFrom(this.filmService.getFilmByID(filmId));
 
     await lastValueFrom(this.filmService.updateFilmFeedback(film, userId, {  reviewState:`${flag}` }).pipe(first()));
-    ///this.router.navigate(["/user"]);
     this._textfeedbackList= this.getFeedbackList();
   }
 
