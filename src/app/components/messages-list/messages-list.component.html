@@ -1,0 +1,3 @@
+<div *ngIf="messages$ | async as messages">
+  <app-message-card *ngFor="let message of messages" [currentUser]="user" [message]="message"></app-message-card>
+</div>

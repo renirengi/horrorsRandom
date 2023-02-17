@@ -54,6 +54,10 @@ import { FixBufferModalComponent } from './components/fix-buffer-modal/fix-buffe
 import { OtherUserPageComponent } from './components/other-user-page/other-user-page.component';
 import { UserLinkComponent } from './components/user-link/user-link.component';
 import { OwnMessagesComponent } from './components/own-messages/own-messages.component';
+import { MessagesListComponent } from './components/messages-list/messages-list.component';
+import { MessageCardComponent } from './components/message-card/message-card.component';
+import { MessagePageComponent } from './components/message-page/message-page.component';
+import { UserMessageImageComponent } from './components/user-message-image/user-message-image.component';
 
 
 @NgModule({
@@ -92,6 +96,10 @@ import { OwnMessagesComponent } from './components/own-messages/own-messages.com
     OtherUserPageComponent,
     UserLinkComponent,
     OwnMessagesComponent,
+    MessagesListComponent,
+    MessageCardComponent,
+    MessagePageComponent,
+    UserMessageImageComponent,
 
   ],
   imports: [

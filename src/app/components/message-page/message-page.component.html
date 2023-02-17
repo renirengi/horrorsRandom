@@ -1,0 +1,31 @@
+<div *ngIf="message$ | async as message" class="message-page">
+  <div *ngFor="let item of message.messages" class="item-container">
+    <app-user-message-image [userId]="item.authorId"></app-user-message-image>
+    <p>{{item.text}}</p>
+  </div>
+  <form [formGroup]="messageForm">
+    <div class="textarea-container">
+    <mat-dialog-content>
+      <textarea matInput
+      formControlName="about"
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="1"
+      cdkAutosizeMaxRows="10"></textarea>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button
+           mat-stroked-button
+           color="white">
+           <mat-icon
+              aria-label="Example logout icon"
+              >
+              <span class="material-symbols-outlined">
+              send
+              </span>
+           </mat-icon>
+        </button>
+    </mat-dialog-actions>
+  </div>
+  </form>
+</div>

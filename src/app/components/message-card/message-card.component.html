@@ -1,0 +1,15 @@
+<div *ngIf="userF$ | async as userF" class="message-card" [ngClass]="{'new': !identification, 'old':identification}">
+  <div class="left-container">
+    <div class="author-container" routerLink="/user/{{userF.id}}">
+      <img [src]="userF.avatar" [alt]="userF.name">
+      <p>From: <span>{{userF.name}}</span></p>
+    </div>
+    <div *ngIf="userS$ | async as userS" class="recipient-container" routerLink="/user/{{userS.id}}">
+      <img [src]="userS.avatar" [alt]="userS.name">
+      <p>To: <span>{{userS.name}}</span></p>
+    </div>
+  </div>
+  <div class="right-container" routerLink="/message/{{message.id}}">
+    <p>Тема: {{message.theme}}</p>
+  </div>
+</div>

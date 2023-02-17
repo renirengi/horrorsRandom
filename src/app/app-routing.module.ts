@@ -5,6 +5,7 @@ import { BufferFilmPageComponent } from './components/buffer-film-page/buffer-fi
 import { CatalogPageComponent } from './components/catalog-page/catalog-page.component';
 import { FilmPageComponent } from './components/film-page/film-page.component';
 import { MainComponent } from './components/main/main.component';
+import { MessagePageComponent } from './components/message-page/message-page.component';
 import { OtherUserPageComponent } from './components/other-user-page/other-user-page.component';
 import { OwnMessagesComponent } from './components/own-messages/own-messages.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'user', component: UserPageComponent },
   { path: 'user/:id', component: OtherUserPageComponent },
   { path: 'message', component: OwnMessagesComponent },
+  { path: 'message/:id', component: MessagePageComponent },
   {
     path: 'catalog',
     component: CatalogPageComponent,

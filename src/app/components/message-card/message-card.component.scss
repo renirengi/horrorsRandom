@@ -1,0 +1,47 @@
+.message-card {
+  display: flex;
+  width: 50%;
+  margin: 1em auto;
+  background-color: black;
+  color: white;
+  font-size: 1.1em;
+
+  .left-container {
+    width: 40%;
+    .author-container,
+    .recipient-container {
+     display: flex;
+     margin: 1em 1em;
+     align-items: center;
+
+     p {
+      margin:1em;
+     }
+    }
+
+  }
+
+  .right-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 60%;
+
+    p {
+      width:100%;
+      text-align: center;
+    }
+  }
+
+img {
+    height: 70px;
+    width: 70px;
+    border-radius: 100px;
+    box-shadow: 0 0 0 3px white, 0 0 13px white;
+  }
+
+}
+
+.new {
+  background-color:var(--dark-red);
+}

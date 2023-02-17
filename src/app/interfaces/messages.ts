@@ -8,7 +8,7 @@ export interface IMessages {
 
 export interface IMessage {
   id:number;
-  timestamp: Date;
+  ///timestamp: Date;
   authorId: number;
   text: string;
   statement: boolean;
