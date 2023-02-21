@@ -1,7 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IMessage, IMessages } from 'src/app/interfaces/messages';
+import { IMessage, IDialog } from 'src/app/interfaces/messages';
 import { IUser } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MessageCardComponent implements OnInit {
   @Input() currentUser!:IUser;
-  @Input() message!:IMessages;
+  @Input() message!:IDialog;
 
   public userF$!: Observable<IUser>;
   public userS$!: Observable<IUser>;

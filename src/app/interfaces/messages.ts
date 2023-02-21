@@ -1,4 +1,4 @@
-export interface IMessages {
+export interface IDialog {
   firstUserId: number;
   secondUserId: number;
   id: number;
@@ -8,7 +8,7 @@ export interface IMessages {
 
 export interface IMessage {
   id:number;
-  ///timestamp: Date;
+  timestamp?: Date;
   authorId: number;
   text: string;
   statement: boolean;

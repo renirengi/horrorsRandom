@@ -1,69 +1,115 @@
-{ "messages": [
-  {
-    "id": 1,
-    "firstUserId": 3,
-    "secondUserId": 1,
-    "theme": "Поклонись Императору Котовечества!!!",
-    "messages": [
-      {
+{
+  "messages": [
+    {
       "id": 1,
-      "authorId": 3,
-      "text": "Привет, рабыня! Когда ты дашь мне пожрать?",
-      "statement": true
+      "firstUserId": 3,
+      "secondUserId": 1,
+      "theme": "Поклонись Императору Котовечества!!!",
+      "messages": [
+        {
+          "id": 1,
+          "authorId": 3,
+          "text": "Привет, рабыня! Когда ты дашь мне пожрать?",
+          "statement": true
+        },
+        {
+          "id": 2,
+          "authorId": 1,
+          "text": "Ближайшая кормёжка, Ваше Высочество, в 20.00. И она случится, если ты оставишь мою мышь в покое.",
+          "statement": true
+        },
+        {
+          "id": 3,
+          "authorId": 1,
+          "text": "Тебя покормили в 14 часов",
+          "timestamp": "2023-02-20T11:27:25.704Z",
+          "statement": true
+        },
+        {
+          "id": 4,
+          "authorId": 1,
+          "text": "так то",
+          "timestamp": "2023-02-20T12:47:03.799Z",
+          "statement": true
+        },
+        {
+          "id": 5,
+          "authorId": 3,
+          "text": "мауууууу. я голодный",
+          "timestamp": "2023-02-20T12:48:06.563Z",
+          "statement": false
+        },
+        {
+          "id": 6,
+          "authorId": 1,
+          "text": "Ты жирный, как поезд пассажирный!!!",
+          "timestamp": "2023-02-20T18:52:17.317Z",
+          "statement": true
+        },
+        {
+          "id": 7,
+          "authorId": 1,
+          "text": "Жирная пузенька",
+          "timestamp": "2023-02-20T18:56:24.315Z",
+          "statement": true
+        },
+        {
+          "id": 8,
+          "authorId": 1,
+          "text": "Ладно, иди уж дам пожрать.",
+          "timestamp": "2023-02-20T18:58:21.748Z",
+          "statement": true
+        },
+        {
+          "id": 9,
+          "authorId": 1,
+          "text": "",
+          "timestamp": "2023-02-20T19:36:33.386Z",
+          "statement": false
+        }
+      ]
     },
     {
       "id": 2,
-      "authorId": 1,
-      "text": "Ближайшая кормёжка, Ваше Высочество, в 20.00. И она случится, если ты оставишь мою мышь в покое.",
-      "statement": true
-    }
-
-  ]
-  },
-  {
-    "id": 2,
-    "firstUserId": 1,
-    "secondUserId": 3,
-    "theme": "Ужин отменяется!!!",
-    "messages": [
-      {
-      "id": 1,
-      "authorId": 1,
-      "text": "Император, кто сожрал колбасу?????!!!!",
-      "statement": true
+      "firstUserId": 1,
+      "secondUserId": 3,
+      "theme": "Ужин отменяется!!!",
+      "messages": [
+        {
+          "id": 1,
+          "authorId": 1,
+          "text": "Император, кто сожрал колбасу?????!!!!",
+          "statement": true
+        },
+        {
+          "id": 2,
+          "authorId": 3,
+          "text": "МЯУУУУУУУ!!! Это не я!!!!",
+          "statement": true
+        }
+      ]
     },
     {
-      "id": 2,
-      "authorId": 3,
-      "text": "МЯУУУУУУУ!!! Это не я!!!!",
-      "statement": true
+      "id": 3,
+      "firstUserId": 2,
+      "secondUserId": 3,
+      "theme": "Подстава",
+      "messages": [
+        {
+          "id": 1,
+          "authorId": 2,
+          "text": "Колбасу сьел я",
+          "statement": true
+        },
+        {
+          "id": 2,
+          "authorId": 3,
+          "text": "Скажи об этом маме, подлый раб",
+          "statement": false
+        }
+      ]
     }
-
-  ]
-  },
-  {
-    "id": 3,
-    "firstUserId": 2,
-    "secondUserId": 3,
-    "theme": "Подстава",
-    "messages": [
-      {
-      "id": 1,
-      "authorId": 2,
-      "text": "Колбасу сьел я",
-      "statement": true
-    },
-    {
-      "id": 2,
-      "authorId": 3,
-      "text": "Скажи об этом маме, подлый раб",
-      "statement": false
-    }
-
-  ]
-  }
-
-],
+  ],
   "buffer": [
     {
       "id": 1,
@@ -274,6 +320,13 @@
       "id": 22,
       "movieRating": 4,
       "dateRating": "Wed Feb 15 2023"
+    },
+    {
+      "movieRating": 8,
+      "dateRating": "Mon Feb 20 2023",
+      "filmId": 64,
+      "userId": 1,
+      "id": 23
     }
   ],
   "users": [
@@ -310,7 +363,8 @@
           55,
           59,
           60,
-          61
+          61,
+          64
         ]
       }
     },

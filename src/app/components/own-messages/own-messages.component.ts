@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { lastValueFrom, Observable } from 'rxjs';
-import { IMessages } from 'src/app/interfaces/messages';
+import { IDialog } from 'src/app/interfaces/messages';
 import { IUser } from 'src/app/interfaces/user';
 import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class OwnMessagesComponent implements OnInit {
 
   public user$: Observable<IUser | null>;
-  public messages$!: Observable<IMessages[]>
+  public messages$!: Observable<IDialog[]>
   constructor(
     private userService: UserService
   ) {

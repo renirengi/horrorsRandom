@@ -1,8 +1,12 @@
 .message-page {
   width: 40%;
   margin: 2em auto;
+  display: flex;
+  flex-direction: column-reverse;
+
 .item-container {
   display: flex;
+  width: 100%;
   margin: 1em auto;
   padding: 1em;
   background-color: black;
@@ -12,5 +16,6 @@
     font-size: 1.2em;
     text-align:justify;
   }
+
 }
 }

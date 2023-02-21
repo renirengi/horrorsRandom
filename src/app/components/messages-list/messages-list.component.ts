@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IMessage, IMessages } from 'src/app/interfaces/messages';
+import { IMessage, IDialog } from 'src/app/interfaces/messages';
 import { IUser } from 'src/app/interfaces/user';
 import { MessageService } from 'src/app/services/message.service';
 
@@ -12,7 +12,7 @@ import { MessageService } from 'src/app/services/message.service';
 export class MessagesListComponent implements OnInit {
   @Input() user!: IUser;
 
-  public messages$!: Observable<IMessages[]>;
+  public messages$!: Observable<IDialog[]>;
 
   constructor(
     private message:MessageService
