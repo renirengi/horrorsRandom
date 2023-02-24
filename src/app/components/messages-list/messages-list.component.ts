@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { IMessage, IDialog } from 'src/app/interfaces/messages';
 import { IUser } from 'src/app/interfaces/user';
 import { MessageService } from 'src/app/services/message.service';
@@ -20,6 +20,11 @@ export class MessagesListComponent implements OnInit {
 
   ngOnInit(){
     this.messages$ = this.message.getMessageByUserId(this.user.id);
+  }
+
+  async onMessagesUpdate (mes:IDialog) {
+   await firstValueFrom(this.message.addNewDialog(mes));
+   this.messages$ = this.message.getMessageByUserId(this.user.id);
   }
 
 }

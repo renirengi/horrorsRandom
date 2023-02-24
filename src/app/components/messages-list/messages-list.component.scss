@@ -1,4 +1,27 @@
-p{
-  color: red;
-  font-size: 2em;
+.messages-page {
+  display: flex;
+  width: 80%;
+  height: 80vh;
+  margin: 5vh auto;
+  background-color: white;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border: 2px solid black;
+
+  app-messages-buttons-box {
+    min-width: 250px;
+    max-width: 250px;
+    margin: 3em 0 3em 5%;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: black;
+  }
+
+  .message-card-container {
+    display:flex;
+    flex-direction: column;
+    margin: 2em auto;
+    justify-content: flex-start;
+
+  }
 }

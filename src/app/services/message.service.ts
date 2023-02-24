@@ -28,15 +28,14 @@ export class MessageService {
     return this.http.get<IDialog>(url);
   }
 
-  /*public findFeedbackItem(filmId: number, userId: number): Observable<IFeedback>  {
-    return this.http.get<IFeedback[]>(`${this.baseUrl}?filmId=${filmId}&userId=${userId}`)
-    .pipe(
-      map(result => result[0])
-    );
-  }*/
-
   public addMessageItem(dialogId: number, userId: number, message: Partial<IMessage>) {
     return this.http.post<IMessage>(`${this.baseUrl}/${dialogId}`, {...message, userId});
+  }
+
+  public addNewDialog(dialog: IDialog) {
+    const url = `${this.baseUrl}`;
+
+    return this.http.post<IDialog>(url, {...dialog});
   }
 
   public updateMessage(message: Partial<IMessage>) {

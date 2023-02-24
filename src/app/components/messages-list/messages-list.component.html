@@ -1,3 +1,6 @@
-<div *ngIf="messages$ | async as messages">
-  <app-message-card *ngFor="let message of messages" [currentUser]="user" [message]="message"></app-message-card>
+<div class="messages-page" *ngIf="messages$ | async as messages">
+  <app-messages-buttons-box [currentUser]="user" (update)="onMessagesUpdate($event)"></app-messages-buttons-box>
+  <div class="message-card-container">
+    <app-message-card *ngFor="let message of messages" [currentUser]="user" [message]="message"></app-message-card>
+  </div>
 </div>

@@ -1,0 +1,47 @@
+<form [formGroup]="addMessageForm">
+  <div class = "modal-title">
+  <img class = "icon-black" src="favicon.ico" alt="icon">
+  <h2 mat-dialog-title>Написать сообщение</h2>
+  </div>
+  <mat-dialog-content>
+   <mat-form-field>
+    <mat-label>Тема</mat-label>
+      <input type="text" placeholder="Тема" matInput formControlName="theme">
+  </mat-form-field>
+
+  <mat-form-field>
+   <mat-label>Адресат</mat-label>
+    <input type="text" placeholder="Адресат" matInput formControlName="secondUser"
+      [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor = "let name of names$ | async" [value]="name">
+     {{name}}
+    </mat-option>
+  </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Текст</mat-label>
+      <textarea type="text" matInput required formControlName="text"></textarea>
+  </mat-form-field>
+
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button
+      type="button"
+      mat-stroked-button
+      color="primary"
+      [disabled]="!addMessageForm.valid"
+      [mat-dialog-close]="addMessageForm.value"
+    >
+      Отправить сообщение
+    </button>
+    <button
+    mat-stroked-button
+    type="button"
+    color="primary"
+    (click)="onNoClick()">Отмена
+    </button>
+  </mat-dialog-actions>
+</form>

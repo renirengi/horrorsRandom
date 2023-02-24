@@ -107,4 +107,18 @@ export class UserService {
       return this.http.get<IUser>(this.baseUrl);
     }
 
+    public getAvailableUsersNames(id:number): Observable<string[]> {
+      return this.http.get<IUser[]>(this.baseUrl).pipe(
+        map((names) => {
+          const tags = new Set();
+            names.forEach((name) => {
+              if (name.id!==id) {
+              tags.add(name.name);
+            }
+            });
+
+          return Array.from(tags).sort() as string[];
+        }))
+      }
+
 }

@@ -17,7 +17,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -58,6 +58,8 @@ import { MessagesListComponent } from './components/messages-list/messages-list.
 import { MessageCardComponent } from './components/message-card/message-card.component';
 import { MessagePageComponent } from './components/message-page/message-page.component';
 import { UserMessageImageComponent } from './components/user-message-image/user-message-image.component';
+import { MessagesButtonsBoxComponent } from './components/messages-buttons-box/messages-buttons-box.component';
+import { NewMessageModalComponent } from './components/new-message-modal/new-message-modal.component';
 
 
 @NgModule({
@@ -100,6 +102,9 @@ import { UserMessageImageComponent } from './components/user-message-image/user-
     MessageCardComponent,
     MessagePageComponent,
     UserMessageImageComponent,
+    MessagesButtonsBoxComponent,
+    NewMessageModalComponent,
+
 
   ],
   imports: [
@@ -121,6 +126,7 @@ import { UserMessageImageComponent } from './components/user-message-image/user-
     MatNativeDateModule,
     MatRadioModule,
     MatSelectModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

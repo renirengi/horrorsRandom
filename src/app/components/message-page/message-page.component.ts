@@ -47,8 +47,4 @@ export class MessagePageComponent implements OnInit {
     await firstValueFrom(this.messageService.updateMessage({ ...dialog }));
   }
 
-  public async changeStatement (id:number) {
-
-  }
-
 }
