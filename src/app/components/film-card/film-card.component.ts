@@ -38,7 +38,7 @@ export class FilmCardComponent implements OnInit {
     this.message = "Зарегистрируйтесь или войдите в свой профиль";
   }
 
-  public deleteMessage() {
+  public onDeleteMessages() {
     this.message = "";
   }
 

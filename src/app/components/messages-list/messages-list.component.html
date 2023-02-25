@@ -1,6 +1,27 @@
 <div class="messages-page" *ngIf="messages$ | async as messages">
-  <app-messages-buttons-box [currentUser]="user" (update)="onMessagesUpdate($event)"></app-messages-buttons-box>
+  <app-messages-buttons-box [currentUser]="user"
+  (update)="onMessagesUpdate($event)"
+  ></app-messages-buttons-box>
   <div class="message-card-container">
-    <app-message-card *ngFor="let message of messages" [currentUser]="user" [message]="message"></app-message-card>
+    <div *ngIf="delVisibility">
+    <button
+    mat-stroked-button
+    color="primary"
+    (click)="onDeleteMessages()">
+    <mat-icon
+       aria-label="Example logout icon"
+       >
+       <span class="material-symbols-outlined">
+       delete
+       </span>
+    </mat-icon>
+ </button>
+ </div>
+    <app-message-card *ngFor="let message of messages"
+    [currentUser]="user"
+    [message]="message"
+    (change)="addMessageToDelete($event)"
+    (delete)="onChangeFlag($event)">
+  </app-message-card>
   </div>
 </div>

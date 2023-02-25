@@ -22,11 +22,12 @@ export class MessagesButtonsBoxComponent implements OnInit {
   @Input() currentUser!: IUser
   @Output() update = new EventEmitter<IDialog>();
 
+  public deleteMesVisibility: boolean = false;
+
   constructor(
     public dialog: MatDialog,
     public messageService:MessageService,
-    public userService: UserService
-
+    public userService: UserService,
   ) { }
 
   ngOnInit(): void {
@@ -38,14 +39,12 @@ export class MessagesButtonsBoxComponent implements OnInit {
     const result = await firstValueFrom(dialogRef.afterClosed()) as MessageFormData;
     const { theme, secondUser, text } = result;
     const secondUserId = await firstValueFrom(this.userService.findUsersByName(secondUser))
-
     let mes = [];
     mes.push({id:0, timestamp:new Date(), authorId:currentUser.id, text:text, statement:false});
 
     const newDialog= {id:0, firstUserId:currentUser.id, secondUserId:secondUserId[0].id, theme: theme, messages: mes} as IDialog;
 
     return this.update.emit(newDialog);
-    ///await firstValueFrom(this.messageService.addNewDialog(newDialog))
   }
 
 }

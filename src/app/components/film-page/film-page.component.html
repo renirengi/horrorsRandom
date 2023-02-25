@@ -19,7 +19,7 @@
            <app-movie-rating class = "star-rating"
            [rating]="film.rating"
            (update)="showMessage()"
-           (mouseleave)="deleteMessage()"
+           (mouseleave)="onDeleteMessages()"
            ></app-movie-rating>
            <p>{{ message }}</p>
         </ng-template>

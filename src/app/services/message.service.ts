@@ -38,6 +38,12 @@ export class MessageService {
     return this.http.post<IDialog>(url, {...dialog});
   }
 
+  public deleteDialog(id:number) {
+    const url = `${this.baseUrl}/${id}`;
+
+    return this.http.delete<IDialog>(url);
+  }
+
   public updateMessage(message: Partial<IMessage>) {
     return this.http.patch<IMessage>(`${this.baseUrl}/${message.id}`, message);
   }

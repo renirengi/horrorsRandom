@@ -13,6 +13,8 @@ export class MessagesListComponent implements OnInit {
   @Input() user!: IUser;
 
   public messages$!: Observable<IDialog[]>;
+  public delVisibility: boolean = false;
+  public messIds:number[]=[];
 
   constructor(
     private message:MessageService
@@ -25,6 +27,23 @@ export class MessagesListComponent implements OnInit {
   async onMessagesUpdate (mes:IDialog) {
    await firstValueFrom(this.message.addNewDialog(mes));
    this.messages$ = this.message.getMessageByUserId(this.user.id);
+  }
+
+  public addMessageToDelete(id:number) {
+    this.messIds.push(id);
+  }
+
+   public async onDeleteMessages() {
+   this.messIds.forEach(async (mes)=>
+   await firstValueFrom(this.message.deleteDialog(mes))
+  );
+  this.messages$ = this.message.getMessageByUserId(this.user.id);
+  }
+
+  public onChangeFlag(flag:boolean) {
+    console.log(this.delVisibility)
+   this.delVisibility = flag;
+
   }
 
 }

@@ -1,15 +1,22 @@
-<div *ngIf="userF$ | async as userF" class="message-card" [ngClass]="{'new': !identification, 'old':identification}">
+ <div *ngIf="delVisibility">
+    <mat-checkbox
+    color="accent"
+    (change)="onCheckBoxChange(message.id)"
+    >Удалить</mat-checkbox>
+  </div>
+  <div *ngIf="userF$ | async as userF" class="message-card" [ngClass]="{'new': !identification, 'old':identification}" (click)="changeBoolean()">
+
   <div class="left-container">
-    <div class="author-container" routerLink="/user/{{userF.id}}">
+    <div class="author-container">
       <img [src]="userF.avatar" [alt]="userF.name">
       <p>From: <span>{{userF.name}}</span></p>
     </div>
-    <div *ngIf="userS$ | async as userS" class="recipient-container" routerLink="/user/{{userS.id}}">
+    <div *ngIf="userS$ | async as userS" class="recipient-container">
       <img [src]="userS.avatar" [alt]="userS.name">
       <p>To: <span>{{userS.name}}</span></p>
     </div>
   </div>
-  <div class="right-container" routerLink="/message/{{message.id}}">
+  <div class="right-container" (dblclick)="goToMessage(message.id)">
     <p>Тема: {{message.theme}}</p>
   </div>
 </div>
