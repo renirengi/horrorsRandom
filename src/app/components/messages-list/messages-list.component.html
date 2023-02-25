@@ -3,10 +3,10 @@
   (update)="onMessagesUpdate($event)"
   ></app-messages-buttons-box>
   <div class="message-card-container">
-    <div *ngIf="delVisibility">
-    <button
-    mat-stroked-button
-    color="primary"
+    <div class="mat-fab-container" *ngIf="delVisibility">
+      <button
+     mat-fab
+     color="accent"
     (click)="onDeleteMessages()">
     <mat-icon
        aria-label="Example logout icon"
@@ -15,8 +15,8 @@
        delete
        </span>
     </mat-icon>
- </button>
- </div>
+    </button>
+    </div>
     <app-message-card *ngFor="let message of messages"
     [currentUser]="user"
     [message]="message"

@@ -1,11 +1,22 @@
- <div *ngIf="delVisibility">
+ <div class="check-box-container" *ngIf="delVisibility">
     <mat-checkbox
     color="accent"
     (change)="onCheckBoxChange(message.id)"
     >Удалить</mat-checkbox>
   </div>
-  <div *ngIf="userF$ | async as userF" class="message-card" [ngClass]="{'new': !identification, 'old':identification}" (click)="changeBoolean()">
-
+  <div *ngIf="userF$ | async as userF" class="message-card" [ngClass]="{'new': !identification, 'old':identification}">
+    <button
+     mat-icon-button
+     color="accent"
+    (click)="changeBoolean()">
+    <mat-icon
+       aria-label="Example logout icon"
+       >
+       <span class="material-symbols-outlined">
+       menu
+       </span>
+    </mat-icon>
+ </button>
   <div class="left-container">
     <div class="author-container">
       <img [src]="userF.avatar" [alt]="userF.name">
@@ -16,7 +27,7 @@
       <p>To: <span>{{userS.name}}</span></p>
     </div>
   </div>
-  <div class="right-container" (dblclick)="goToMessage(message.id)">
+  <div class="right-container" (click)="goToMessage(message.id)">
     <p>Тема: {{message.theme}}</p>
   </div>
 </div>

@@ -24,11 +24,11 @@
   .right-container {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     width: 60%;
 
     p {
-      width:100%;
+      width:80%;
       text-align: center;
     }
   }
@@ -44,4 +44,9 @@ img {
 
 .new {
   background-color:var(--dark-red);
+}
+
+mat-checkbox {
+  margin: 0 1.5em;
+
 }
