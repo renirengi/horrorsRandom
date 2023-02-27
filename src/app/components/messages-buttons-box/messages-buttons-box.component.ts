@@ -47,4 +47,8 @@ export class MessagesButtonsBoxComponent implements OnInit {
     return this.update.emit(newDialog);
   }
 
+  async showElected() {
+
+  }
+
 }

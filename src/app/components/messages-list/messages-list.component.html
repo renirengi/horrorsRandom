@@ -1,9 +1,36 @@
 <div class="messages-page" *ngIf="messages$ | async as messages">
-  <app-messages-buttons-box [currentUser]="user"
-  (update)="onMessagesUpdate($event)"
-  ></app-messages-buttons-box>
+  <div class="messages-buttons-box ">
+  <div class="button-box-container">
+    <button
+    mat-raised-button
+    color = "accent"
+    class = "random-button"
+    (click)="writeMessage(user)"
+    >
+    <mat-icon>
+    <span class="material-symbols-outlined">
+    add
+    </span>
+    </mat-icon>
+    Написать письмо
+    </button>
+
+    <button
+    mat-raised-button
+    color = "accent"
+    class = "random-button"
+    >
+    <mat-icon>
+    <span class="material-symbols-outlined">
+    star
+    </span>
+    </mat-icon>
+    Избранное
+    </button>
+  </div>
+</div>
   <div class="message-card-container">
-    <div class="mat-fab-container" *ngIf="delVisibility">
+    <div class="mat-fab-container">
       <button
      mat-fab
      color="accent"

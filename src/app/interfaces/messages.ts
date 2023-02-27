@@ -4,6 +4,7 @@ export interface IDialog {
   id: number;
   theme: string;
   messages: IMessage[];
+  elected: boolean
 }
 
 export interface IMessage {

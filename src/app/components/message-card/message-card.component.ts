@@ -45,7 +45,6 @@ export class MessageCardComponent implements OnInit {
   }
 
   public changeBoolean() {
-    console.log("Я меняю флаг");
     this.delVisibility=!this.delVisibility
     return this.delete.emit(this.delVisibility);
   }

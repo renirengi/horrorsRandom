@@ -23,12 +23,16 @@
 
   .right-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    padding: 1.5em 0;
     width: 60%;
+
 
     p {
       width:80%;
+      margin-top: 2em;
       text-align: center;
     }
   }

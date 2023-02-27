@@ -36,7 +36,7 @@ export class MessagePageComponent implements OnInit {
   }
 
   public async sendMessage(userId:number, dialog:IDialog) {
-    let newDialog:IDialog = { firstUserId: dialog.firstUserId, secondUserId: dialog.secondUserId, id: dialog.id, theme: dialog.theme, messages: dialog.messages}
+    let newDialog:IDialog = { firstUserId: dialog.firstUserId, secondUserId: dialog.secondUserId, id: dialog.id, theme: dialog.theme, elected:false, messages: dialog.messages}
     const now = new Date();
     const oldMes:IMessage = {id:dialog.messages.length, authorId:dialog.messages[dialog.messages.length-1].authorId, text: dialog.messages[dialog.messages.length-1].text, timestamp: dialog.messages[dialog.messages.length-1].timestamp, statement:true};
 
