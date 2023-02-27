@@ -15,7 +15,7 @@ export class MessageCardComponent implements OnInit {
   @Input() currentUser!:IUser;
   @Input() message!:IDialog;
   @Output() change = new EventEmitter<number>();
-  @Output() delete = new EventEmitter<boolean>();
+
 
   public userF$!: Observable<IUser>;
   public userS$!: Observable<IUser>;
@@ -42,11 +42,6 @@ export class MessageCardComponent implements OnInit {
 
   public onCheckBoxChange(id:number) {
    return this.change.emit(id);
-  }
-
-  public changeBoolean() {
-    this.delVisibility=!this.delVisibility
-    return this.delete.emit(this.delVisibility);
   }
 
   public goToMessage(id:number) {

@@ -21,7 +21,6 @@ export class MessagesListComponent implements OnInit {
   @Input() user!: IUser;
 
   public messages$!: Observable<IDialog[]>;
-  public delVisibility: boolean = false;
   public messIds:number[]=[];
 
   constructor(
@@ -52,11 +51,6 @@ export class MessagesListComponent implements OnInit {
    await firstValueFrom(this.messageService.deleteDialog(mes))
   );
   this.messages$ = this.messageService.getMessageByUserId(this.user.id);
-  }
-
-  public onChangeFlag(flag:boolean) {
-   this.delVisibility = flag;
-
   }
 
   async writeMessage (currentUser:IUser) {

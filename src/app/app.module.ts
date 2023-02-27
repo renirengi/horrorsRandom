@@ -58,7 +58,6 @@ import { MessagesListComponent } from './components/messages-list/messages-list.
 import { MessageCardComponent } from './components/message-card/message-card.component';
 import { MessagePageComponent } from './components/message-page/message-page.component';
 import { UserMessageImageComponent } from './components/user-message-image/user-message-image.component';
-import { MessagesButtonsBoxComponent } from './components/messages-buttons-box/messages-buttons-box.component';
 import { NewMessageModalComponent } from './components/new-message-modal/new-message-modal.component';
 
 
@@ -102,7 +101,6 @@ import { NewMessageModalComponent } from './components/new-message-modal/new-mes
     MessageCardComponent,
     MessagePageComponent,
     UserMessageImageComponent,
-    MessagesButtonsBoxComponent,
     NewMessageModalComponent,
 
 
