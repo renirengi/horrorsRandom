@@ -24,19 +24,13 @@ public addFilmForm = new FormGroup({
   title: new FormControl('', [
     Validators.required
   ]),
-  rusTitle: new FormControl('', [
-    Validators.required
-  ]),
+  rusTitle: new FormControl(''),
   director: new FormControl('', [
     Validators.required,
     Validators.minLength(1),
     Validators.maxLength(30)
   ]),
-  trailer: new FormControl('', [
-    Validators.required,
-    Validators.minLength(1),
-    Validators.maxLength(50)
-  ]),
+  trailer: new FormControl(''),
   year:  new FormControl('', []),
   urlPoster: new FormControl(''),
   countries: new FormControl([''], [

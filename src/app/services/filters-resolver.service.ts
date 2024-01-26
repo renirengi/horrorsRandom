@@ -14,7 +14,7 @@ export class FiltersResolverService implements Resolve<IFilterConfig[]> {
     { name: 'director', title: 'Сортировка по режиссёрам', type: 'list', options: []},
     { name: 'year', title: 'Сортировка по годам', type: 'list', options: []},
     { name: 'countries', title: 'Сортировка по странам', type: 'list', options: []},
-    { name: 'rating', title: 'Cортировка по годам', type: 'range', options: []},
+    { name: 'rating', title: 'Cортировка по рейтингу', type: 'range', options: []},
   ];
 
   constructor(private filmService: FilmService) { }

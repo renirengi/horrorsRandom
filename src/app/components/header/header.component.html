@@ -30,20 +30,24 @@
      </button>
 
   </div>
-  <!---<div class="input-container">
-    <div>
-      <input
-        matInput
-        class="input input-search"
-        placeholder="Найди мне..."
-        [value]="filmsSearchString$ | async"
-        (change)="onSearch($event)"
-      />
-    </div>
-    <button mat-icon-button matSuffix (click)="onClean()" [attr.aria-label]="'Clean search string'">
-      <mat-icon>close</mat-icon>
-    </button>
-  </div>--->
+  <div class="input-container">
+
+    <input
+      matInput
+      class="input input-search"
+      placeholder="Search"
+      [value]="filmsSearchString$ | async"
+      (change)="onChange($event)"
+    />
+
+  <button mat-icon-button matSuffix color="primary"
+  (click)="onClean()"
+  [attr.aria-label]="'Use search string'">
+    <mat-icon><span class="material-symbols-outlined">
+     close
+      </span></mat-icon>
+  </button>
+</div>
   <div class = "user-container">
      <ng-container *ngIf="currentUser$ | async as user; else loginOrRegister">
         <button
@@ -58,6 +62,20 @@
            </mat-icon>
            {{ user.name }}
         </button>
+
+        <!-- <button
+        mat-stroked-button
+        color="white"
+        (click)="goToMessagePage()">
+        <mat-icon
+           aria-label="Example catalog icon"
+           >
+           <span class="material-symbols-outlined">
+           mail
+           </span>
+        </mat-icon>
+     </button> -->
+
         <button
            mat-stroked-button
            color="white"
@@ -105,18 +123,6 @@
             </span>
           </mat-icon>
     </button>
-     <button
-        mat-stroked-button
-        color="white"
-        (click)="goToMessagePage()">
-        <mat-icon
-           aria-label="Example catalog icon"
-           >
-           <span class="material-symbols-outlined">
-           mail
-           </span>
-        </mat-icon>
-     </button>
     </ng-template>
   </div>
 </div>

@@ -47,6 +47,8 @@ export class MainComponent implements OnInit {
     param = result.tag.concat().toString().replace(/,/g, '?');
     this.films = await lastValueFrom(this.filmService.findFilmsByParams(param));
     this.checkFilters = true;
+    let rand = Math.floor(Math.random() * this.films.length);
+    this.randomFilm = this.films[rand];
   }
 
 
@@ -64,5 +66,7 @@ export class MainComponent implements OnInit {
     let rand = Math.floor(Math.random() * this.films.length);
     this.randomFilm = this.films[rand];
   }
+
+
 
 }

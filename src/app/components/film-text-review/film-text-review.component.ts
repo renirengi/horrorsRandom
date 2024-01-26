@@ -25,7 +25,7 @@ export class FilmTextReviewComponent implements OnInit {
   public feeds!:IFeedback[];
   public film$!: Observable<IFilm>;
   public comment:string = '';
-  public _textfeedbackList!: Promise<{rusTitle: string, title: string, year: string, review: string, id: number, urlPoster: string, dateReview?: string, typeReview?: string, reviewState?:boolean|string}[]>;
+  public _textfeedbackList!: Promise<{rusTitle?: string, title?: string, year: string, review: string, id: number, urlPoster?: string, dateReview?: string, typeReview?: string, reviewState?:boolean|string}[]>;
 
 
   constructor(

@@ -7,9 +7,15 @@
       [alt]="film.title"
       routerLink="/admin/{{ film.id }}"
     />
-    <p class="film-title">
+    <ng-container *ngIf="film.rusTitle; else title">
+      <p class="film-title">
       {{ film.rusTitle | uppercase }} <span>({{ film.year }})</span>
+    </p></ng-container>
+    <ng-template #title>
+      <p class="film-title">
+      {{ film.title | uppercase }} <span>({{ film.year }})</span>
     </p>
+  </ng-template>
     <ng-container *ngIf="user$ | async as user">
       <p class="buffer-user-name" routerLink="/user/{{ film.userId }}">Прислал: {{user.name}}</p>
 

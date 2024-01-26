@@ -2,7 +2,10 @@
   <div class = "film-buffer-page">
      <div class = "film-page-header">
         <div class = "film-page-name-container">
+          <ng-container *ngIf="film.rusTitle">
            <h2>{{film.rusTitle | uppercase}}</h2>
+          </ng-container>
+          <ng-container *ngIf="film.title"></ng-container>
            <p>{{film.title}} <span>({{film.year}})</span></p>
         </div>
            <app-movie-rating class = "star-rating"
@@ -62,7 +65,9 @@
         </div>
 
         <div class = "film-link-container">
-           <a class="youtube" mat-stroked-button [href]="film.trailer" target="_blank"></a>
+           <ng-container *ngIf="film.trailer">
+            <a class="youtube" mat-stroked-button [href]="film.trailer" target="_blank"></a>
+          </ng-container>
            <a class="kino" mat-stroked-button [href]="film.url" target="_blank"></a>
 
         </div>

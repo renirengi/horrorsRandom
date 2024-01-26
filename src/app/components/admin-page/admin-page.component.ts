@@ -19,7 +19,7 @@ export class AdminPageComponent implements OnInit {
   public user!: IUser;
   public newFilms$!: Observable<IFilm[]>
   public activePage: 'film' | 'review'='film';
-  public _textfeedbackList!: Promise<{userId: number, rusTitle: string, title: string, year: string, review: string, id: number, urlPoster: string, dateReview?: string, typeReview?: string, reviewState?:boolean|string}[]>;
+  public _textfeedbackList!: Promise<{userId: number, rusTitle?: string, title?: string, year: string, review: string, id: number, urlPoster?: string, dateReview?: string, typeReview?: string, reviewState?:boolean|string}[]>;
 
   constructor(
 

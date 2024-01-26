@@ -2,8 +2,12 @@
   <div class = "film-page">
      <div class = "film-page-header" *ngIf="user$ | async as user">
         <div class = "film-page-name-container">
-           <h2>{{film.rusTitle | uppercase}}</h2>
+          <ng-container *ngIf="film.rusTitle">
+          <h2>{{film.rusTitle | uppercase}}</h2>
+          </ng-container>
+          <ng-container *ngIf="film.title">
            <p>{{film.title}} <span>({{film.year}})</span></p>
+          </ng-container>
         </div>
         <ng-container *ngIf="user; else WithoutUser">
            <div class = "header-right">
@@ -25,7 +29,7 @@
         </ng-template>
      </div>
      <div class = "film-page-body">
-        <img
+      <img
         [src]="film.urlPoster"
         [alt]="film.title">
         <div class = "film-information-container">
@@ -47,7 +51,9 @@
            </div>
         </div>
         <div class = "film-link-container">
-           <a class="youtube" mat-stroked-button [href]="film.trailer" target="_blank"></a>
+           <ng-container *ngIf="film.trailer">
+            <a class="youtube" mat-stroked-button [href]="film.trailer" target="_blank"></a>
+          </ng-container>
            <a class="kino" mat-stroked-button [href]="film.url" target="_blank"></a>
            <div *ngIf="user$ | async as user">
             <app-veto-button [user]="user" [film]="film"></app-veto-button>

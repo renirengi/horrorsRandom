@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, filter, map, Observable, shareReplay, switchMap } from 'rxjs';
+import { BehaviorSubject, map, Observable, retry, shareReplay, switchMap, tap } from 'rxjs';
 import { Params } from '@angular/router';
 
 import { TFilterName } from  '../interfaces';
@@ -12,13 +12,15 @@ import { FeedbackService } from './feedback.service';
   providedIn: 'root'
 })
 export class FilmService {
-
-  private readonly baseUrl = 'http://localhost:3000/films';
   private userBaseUrl = 'http://localhost:3000/films';
-  public readonly filmsSearchString$ = new BehaviorSubject<string>('');
+  private readonly baseUrl = 'http://localhost:3000/films';
+  public readonly filmSearchString$ = new BehaviorSubject<string>('');
+  public films: IFilm[] = [];
+  public page: number = 1;
+  public url: any;
 
-  public set dollsSearchString(str: string) {
-    this.filmsSearchString$.next(str);
+  public set filmSearchString(str: string) {
+    this.filmSearchString$.next(str);
   }
 
   constructor(
@@ -26,8 +28,81 @@ export class FilmService {
     private feedback: FeedbackService
   ) { }
 
+  public getFilmsPage(page: number): Observable<IFilm[]> {
+    const url = `${this.baseUrl}?_page=${page}`;
+
+    return this.http.get<IFilm[]>(url).pipe(shareReplay());
+  }
+
+  public getAll(): Observable<IFilm[]> {
+    return this.http.get<IFilm[]>(this.baseUrl).pipe(
+      retry(2),
+      tap(films => this.films = films)
+    )
+  }
+
+  public getFilmsCount(params: { [key: string]: string }): Observable<number> {
+    return this.http.get<IFilm[]>(this.baseUrl, { params }).pipe(
+      map(items => items.length)
+    );
+  }
+
+  public getFilmsByParams(params: { [key: string]: string }, page: number = 1 ): Observable<IFilm[]> {
+    params = { ...params, page: page.toString() };
+
+    return this.http.get<IFilm[]>(this.baseUrl, { params });
+  }
+
+  public getAvailableFilterValues(keys: TFilterName[]): Observable<{[index: string]: any[]}> {
+      return this.getAllFilms().pipe(
+        map((films) => {
+          const valueSets = keys.reduce((acc: {[index: string]: Set<any>}, key) => {
+            acc[key] = new Set();
+
+            return acc;
+          }, {});
+
+          films.forEach(film => keys.forEach(key => {
+            if (Array.isArray(film[key])) {
+              (film[key] as Array<any>).forEach(item => valueSets[key].add(item));
+            } else {
+              valueSets[key].add(film[key]);
+            }
+          }));
+
+          console.log(valueSets)
+
+          const valueArrays = keys.reduce((acc: {[index: string]: any[]}, key) => {
+            acc[key] = Array.from(valueSets[key]).sort();
+
+            return acc;
+          }, {});
+
+          return valueArrays;
+        })
+      );
+    }
+
   public getAllFilms(): Observable<IFilm[]> {
     return this.http.get<IFilm[]>(this.baseUrl).pipe(shareReplay(1));
+  }
+
+  public getFilmByID(id: number) {
+    const url = `${this.baseUrl}/${String(id)}`;
+    return this.http.get<IFilm>(url);
+  }
+
+  public updateFilm(film: IFilm): Observable<IFilm> {
+    return this.http.patch<IFilm>(`${this.baseUrl}/${film.id}`, film);
+  }
+
+  public updateFilmFeedback(film: IFilm, userId: number, feedback: Partial<IFeedback>): Observable<IFilm> {
+    return this.feedback.updateFilmFeedback(film, userId, feedback).pipe(
+      switchMap(() => {
+        return this.feedback.getFilmFeedback(film.id);
+      }),
+      map((feedback) => ({...film, feedback}))
+    );
   }
 
   public getFilmWithoutRating(user:IUser): Observable<IFilm[]> {
@@ -61,28 +136,10 @@ export class FilmService {
     return this.http.get<IFilm[]>(newUrl);
   }
 
-  public getFilmByID(id: number) {
-    const url = `${this.baseUrl}/${String(id)}`;
-    return this.http.get<IFilm>(url);
-  }
-
   public addFilm(film: IFilm): any {
     const url = `${this.baseUrl}`;
 
     return this.http.post<IFilm>(url, {...film});
-  }
-
-  public updateFilm(film: IFilm): Observable<IFilm> {
-    return this.http.patch<IFilm>(`${this.baseUrl}/${film.id}`, film);
-  }
-
-  public updateFilmFeedback(film: IFilm, userId: number, feedback: Partial<IFeedback>): Observable<IFilm> {
-    return this.feedback.updateFilmFeedback(film, userId, feedback).pipe(
-      switchMap(() => {
-        return this.feedback.getFilmFeedback(film.id);
-      }),
-      map((feedback) => ({...film, feedback}))
-    );
   }
 
   public getAvailable(value: string): Observable<string[]> {
@@ -98,51 +155,19 @@ export class FilmService {
       }))
     }
 
-    public getFilmsByParams(params: { [key: string]: string }, page: number = 1 ): Observable<IFilm[]> {
-      params = { ...params, page: page.toString() };
 
-      return this.http.get<IFilm[]>(this.baseUrl, { params });
-    }
 
-    public getAvailableFilterValues(keys: TFilterName[]): Observable<{[index: string]: any[]}> {
-      return this.getAllFilms().pipe(
-        map((films) => {
-          const valueSets = keys.reduce((acc: {[index: string]: Set<any>}, key) => {
-            acc[key] = new Set();
-
-            return acc;
-          }, {});
-
-          films.forEach(film => keys.forEach(key => {
-            if (Array.isArray(film[key])) {
-              (film[key] as Array<any>).forEach(item => valueSets[key].add(item));
-            } else {
-              valueSets[key].add(film[key]);
-            }
-          }));
-
-          const valueArrays = keys.reduce((acc: {[index: string]: any[]}, key) => {
-            acc[key] = Array.from(valueSets[key]).sort();
-
-            return acc;
-          }, {});
-
-          return valueArrays;
-        })
-      );
-    }
 
     /** Loading films related to applied filters */
   public getFilteredFilms(queryParams: Params): Observable<IFilm[]> {
     const page = queryParams['page'] | 1;
-    console.log (1)
     return this.getFilmsByParams(this.getFilterParams(queryParams), page);
   }
 
   /** Transforms query params to films request params object */
   private getFilterParams(queryParams: Params): {[index: string]: string} {
     const listFilters = ['countries', 'genres', 'director','year', 'rating'];
-    ///const rangeFilters = ['rating'];
+    const rangeFilters = ['rating'];
     const stringFIlters = ['searchString'];
 
     const listConverter = (key: string, values: string|string[]) => {
@@ -161,7 +186,7 @@ export class FilmService {
 
     const paramsReducer = (params: {[index: string]: string}, [key, value]: any[]) => {
       let newParams: {[index: string]: string};
-      const filterKeys = [...listFilters, ...stringFIlters];
+      const filterKeys = [...listFilters, ...rangeFilters, ...stringFIlters];
 
       if (filterKeys.includes(key) && value !== undefined) {
         if (key === 'searchString') {

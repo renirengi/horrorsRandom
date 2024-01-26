@@ -31,12 +31,23 @@ export class HeaderComponent implements OnInit {
     public dialog: MatDialog
   ) {
     this.currentUser$ = this.userService.currentUser$;
-    this.filmsSearchString$ = this.filmService.filmsSearchString$;
+    this.filmsSearchString$ = this.filmService.filmSearchString$;
   }
 
   ngOnInit(): void {
   }
 
+  public onChange({ target }: Event){
+    const str = (target as HTMLInputElement).value;
+    const q = str !== '' ? str : undefined;
+    console.log(q)
+    this.router.navigate(['/catalog'], { queryParams: { q } });
+  }
+
+  public onClean() {
+    console.log('clean')
+    this.router.navigate(['/catalog']);
+  }
   public onLogout() {
     this.userService.logOutUser();
   }
@@ -53,20 +64,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  public onSearch({ target }: Event) {
-    const str = (target as HTMLInputElement).value;
-    const q = str !== '' ? str : undefined;
 
-    this.router.navigate(['/catalog'], { queryParams: { q } });
-
-  }
 
   public goToMessagePage() {
     this.router.navigate(['/message']);
-  }
-
-  public onClean() {
-    this.router.navigate(['/catalog']);
   }
 
   public showRegisterModal() {
